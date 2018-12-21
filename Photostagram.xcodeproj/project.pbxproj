@@ -1,0 +1,779 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		244A2056A5A135DD167B3B5C /* Pods_PhotostagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0EDED5930A7E85B9338444 /* Pods_PhotostagramTests.framework */; };
+		69659864FA82044990F8EA9B /* Pods_Photostagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F3616B3F6F5A13CC04BD1D /* Pods_Photostagram.framework */; };
+		CE70ECCB21CCAA7F00F3A5F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECCA21CCAA7F00F3A5F6 /* AppDelegate.m */; };
+		CE70ECCE21CCAA7F00F3A5F6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECCD21CCAA7F00F3A5F6 /* ViewController.m */; };
+		CE70ECD121CCAA7F00F3A5F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE70ECCF21CCAA7F00F3A5F6 /* Main.storyboard */; };
+		CE70ECD421CCAA7F00F3A5F6 /* Photostagram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECD221CCAA7F00F3A5F6 /* Photostagram.xcdatamodeld */; };
+		CE70ECD621CCAA8000F3A5F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE70ECD521CCAA8000F3A5F6 /* Assets.xcassets */; };
+		CE70ECD921CCAA8000F3A5F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE70ECD721CCAA8000F3A5F6 /* LaunchScreen.storyboard */; };
+		CE70ECDC21CCAA8000F3A5F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECDB21CCAA8000F3A5F6 /* main.m */; };
+		CE70ECE621CCAA8100F3A5F6 /* PhotostagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECE521CCAA8100F3A5F6 /* PhotostagramTests.m */; };
+		CE70ECF121CCAA8100F3A5F6 /* PhotostagramUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECF021CCAA8100F3A5F6 /* PhotostagramUITests.m */; };
+		CE70ECFF21CCAFE600F3A5F6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE70ECFE21CCAFE600F3A5F6 /* GoogleService-Info.plist */; };
+		EABADEBBD88DA404E92D6681 /* Pods_PhotostagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B901A2CCD8C9C71D7299B788 /* Pods_PhotostagramUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CE70ECE221CCAA8100F3A5F6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE70ECBE21CCAA7F00F3A5F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE70ECC521CCAA7F00F3A5F6;
+			remoteInfo = Photostagram;
+		};
+		CE70ECED21CCAA8100F3A5F6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE70ECBE21CCAA7F00F3A5F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE70ECC521CCAA7F00F3A5F6;
+			remoteInfo = Photostagram;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0D658ADF1FCF240FAD9964AF /* Pods-PhotostagramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotostagramTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotostagramTests/Pods-PhotostagramTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2ED7757CA448867F9E472D52 /* Pods-PhotostagramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotostagramUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotostagramUITests/Pods-PhotostagramUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3E0EDED5930A7E85B9338444 /* Pods_PhotostagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotostagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		69AC5DC3139A7F0A0571EB94 /* Pods-PhotostagramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotostagramTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotostagramTests/Pods-PhotostagramTests.release.xcconfig"; sourceTree = "<group>"; };
+		6C26266798776C16539A6600 /* Pods-Photostagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photostagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Photostagram/Pods-Photostagram.debug.xcconfig"; sourceTree = "<group>"; };
+		7116CE271C562FFA4CAAB40A /* Pods-PhotostagramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotostagramUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotostagramUITests/Pods-PhotostagramUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B901A2CCD8C9C71D7299B788 /* Pods_PhotostagramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotostagramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0F3616B3F6F5A13CC04BD1D /* Pods_Photostagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Photostagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE70ECC621CCAA7F00F3A5F6 /* Photostagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photostagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE70ECC921CCAA7F00F3A5F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CE70ECCA21CCAA7F00F3A5F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CE70ECCC21CCAA7F00F3A5F6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CE70ECCD21CCAA7F00F3A5F6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CE70ECD021CCAA7F00F3A5F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CE70ECD321CCAA7F00F3A5F6 /* Photostagram.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Photostagram.xcdatamodel; sourceTree = "<group>"; };
+		CE70ECD521CCAA8000F3A5F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE70ECD821CCAA8000F3A5F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CE70ECDA21CCAA8000F3A5F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE70ECDB21CCAA8000F3A5F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CE70ECE121CCAA8100F3A5F6 /* PhotostagramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotostagramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE70ECE521CCAA8100F3A5F6 /* PhotostagramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotostagramTests.m; sourceTree = "<group>"; };
+		CE70ECE721CCAA8100F3A5F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE70ECEC21CCAA8100F3A5F6 /* PhotostagramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotostagramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE70ECF021CCAA8100F3A5F6 /* PhotostagramUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotostagramUITests.m; sourceTree = "<group>"; };
+		CE70ECF221CCAA8100F3A5F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE70ECFE21CCAFE600F3A5F6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FF47876A985641C61B7745D3 /* Pods-Photostagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photostagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Photostagram/Pods-Photostagram.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CE70ECC321CCAA7F00F3A5F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69659864FA82044990F8EA9B /* Pods_Photostagram.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE70ECDE21CCAA8100F3A5F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				244A2056A5A135DD167B3B5C /* Pods_PhotostagramTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE70ECE921CCAA8100F3A5F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EABADEBBD88DA404E92D6681 /* Pods_PhotostagramUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		47F67A7883437DDE2DEFB784 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6C26266798776C16539A6600 /* Pods-Photostagram.debug.xcconfig */,
+				FF47876A985641C61B7745D3 /* Pods-Photostagram.release.xcconfig */,
+				0D658ADF1FCF240FAD9964AF /* Pods-PhotostagramTests.debug.xcconfig */,
+				69AC5DC3139A7F0A0571EB94 /* Pods-PhotostagramTests.release.xcconfig */,
+				2ED7757CA448867F9E472D52 /* Pods-PhotostagramUITests.debug.xcconfig */,
+				7116CE271C562FFA4CAAB40A /* Pods-PhotostagramUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		ABB461259E73217DFF5A5902 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0F3616B3F6F5A13CC04BD1D /* Pods_Photostagram.framework */,
+				3E0EDED5930A7E85B9338444 /* Pods_PhotostagramTests.framework */,
+				B901A2CCD8C9C71D7299B788 /* Pods_PhotostagramUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE70ECBD21CCAA7F00F3A5F6 = {
+			isa = PBXGroup;
+			children = (
+				CE70ECC821CCAA7F00F3A5F6 /* Photostagram */,
+				CE70ECE421CCAA8100F3A5F6 /* PhotostagramTests */,
+				CE70ECEF21CCAA8100F3A5F6 /* PhotostagramUITests */,
+				CE70ECC721CCAA7F00F3A5F6 /* Products */,
+				47F67A7883437DDE2DEFB784 /* Pods */,
+				ABB461259E73217DFF5A5902 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CE70ECC721CCAA7F00F3A5F6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CE70ECC621CCAA7F00F3A5F6 /* Photostagram.app */,
+				CE70ECE121CCAA8100F3A5F6 /* PhotostagramTests.xctest */,
+				CE70ECEC21CCAA8100F3A5F6 /* PhotostagramUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CE70ECC821CCAA7F00F3A5F6 /* Photostagram */ = {
+			isa = PBXGroup;
+			children = (
+				CE70ECC921CCAA7F00F3A5F6 /* AppDelegate.h */,
+				CE70ECCA21CCAA7F00F3A5F6 /* AppDelegate.m */,
+				CE70ECCC21CCAA7F00F3A5F6 /* ViewController.h */,
+				CE70ECCD21CCAA7F00F3A5F6 /* ViewController.m */,
+				CE70ECCF21CCAA7F00F3A5F6 /* Main.storyboard */,
+				CE70ECD521CCAA8000F3A5F6 /* Assets.xcassets */,
+				CE70ECD721CCAA8000F3A5F6 /* LaunchScreen.storyboard */,
+				CE70ECDA21CCAA8000F3A5F6 /* Info.plist */,
+				CE70ECDB21CCAA8000F3A5F6 /* main.m */,
+				CE70ECD221CCAA7F00F3A5F6 /* Photostagram.xcdatamodeld */,
+				CE70ECFE21CCAFE600F3A5F6 /* GoogleService-Info.plist */,
+			);
+			path = Photostagram;
+			sourceTree = "<group>";
+		};
+		CE70ECE421CCAA8100F3A5F6 /* PhotostagramTests */ = {
+			isa = PBXGroup;
+			children = (
+				CE70ECE521CCAA8100F3A5F6 /* PhotostagramTests.m */,
+				CE70ECE721CCAA8100F3A5F6 /* Info.plist */,
+			);
+			path = PhotostagramTests;
+			sourceTree = "<group>";
+		};
+		CE70ECEF21CCAA8100F3A5F6 /* PhotostagramUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CE70ECF021CCAA8100F3A5F6 /* PhotostagramUITests.m */,
+				CE70ECF221CCAA8100F3A5F6 /* Info.plist */,
+			);
+			path = PhotostagramUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CE70ECC521CCAA7F00F3A5F6 /* Photostagram */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE70ECF521CCAA8100F3A5F6 /* Build configuration list for PBXNativeTarget "Photostagram" */;
+			buildPhases = (
+				28A138F7821EFC4A34A319C9 /* [CP] Check Pods Manifest.lock */,
+				CE70ECC221CCAA7F00F3A5F6 /* Sources */,
+				CE70ECC321CCAA7F00F3A5F6 /* Frameworks */,
+				CE70ECC421CCAA7F00F3A5F6 /* Resources */,
+				7B23FFA74E0C91B452B94F29 /* [CP] Embed Pods Frameworks */,
+				A8EB3197D25A11B00B49B0B1 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Photostagram;
+			productName = Photostagram;
+			productReference = CE70ECC621CCAA7F00F3A5F6 /* Photostagram.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CE70ECE021CCAA8100F3A5F6 /* PhotostagramTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE70ECF821CCAA8100F3A5F6 /* Build configuration list for PBXNativeTarget "PhotostagramTests" */;
+			buildPhases = (
+				CE8D177040965614B09A0AB6 /* [CP] Check Pods Manifest.lock */,
+				CE70ECDD21CCAA8100F3A5F6 /* Sources */,
+				CE70ECDE21CCAA8100F3A5F6 /* Frameworks */,
+				CE70ECDF21CCAA8100F3A5F6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE70ECE321CCAA8100F3A5F6 /* PBXTargetDependency */,
+			);
+			name = PhotostagramTests;
+			productName = PhotostagramTests;
+			productReference = CE70ECE121CCAA8100F3A5F6 /* PhotostagramTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CE70ECEB21CCAA8100F3A5F6 /* PhotostagramUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE70ECFB21CCAA8100F3A5F6 /* Build configuration list for PBXNativeTarget "PhotostagramUITests" */;
+			buildPhases = (
+				8670047C0DFFC5B5BFDBEFAD /* [CP] Check Pods Manifest.lock */,
+				CE70ECE821CCAA8100F3A5F6 /* Sources */,
+				CE70ECE921CCAA8100F3A5F6 /* Frameworks */,
+				CE70ECEA21CCAA8100F3A5F6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE70ECEE21CCAA8100F3A5F6 /* PBXTargetDependency */,
+			);
+			name = PhotostagramUITests;
+			productName = PhotostagramUITests;
+			productReference = CE70ECEC21CCAA8100F3A5F6 /* PhotostagramUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CE70ECBE21CCAA7F00F3A5F6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Wang Tom";
+				TargetAttributes = {
+					CE70ECC521CCAA7F00F3A5F6 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					CE70ECE021CCAA8100F3A5F6 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = CE70ECC521CCAA7F00F3A5F6;
+					};
+					CE70ECEB21CCAA8100F3A5F6 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = CE70ECC521CCAA7F00F3A5F6;
+					};
+				};
+			};
+			buildConfigurationList = CE70ECC121CCAA7F00F3A5F6 /* Build configuration list for PBXProject "Photostagram" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CE70ECBD21CCAA7F00F3A5F6;
+			productRefGroup = CE70ECC721CCAA7F00F3A5F6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CE70ECC521CCAA7F00F3A5F6 /* Photostagram */,
+				CE70ECE021CCAA8100F3A5F6 /* PhotostagramTests */,
+				CE70ECEB21CCAA8100F3A5F6 /* PhotostagramUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CE70ECC421CCAA7F00F3A5F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE70ECD921CCAA8000F3A5F6 /* LaunchScreen.storyboard in Resources */,
+				CE70ECFF21CCAFE600F3A5F6 /* GoogleService-Info.plist in Resources */,
+				CE70ECD621CCAA8000F3A5F6 /* Assets.xcassets in Resources */,
+				CE70ECD121CCAA7F00F3A5F6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE70ECDF21CCAA8100F3A5F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE70ECEA21CCAA8100F3A5F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		28A138F7821EFC4A34A319C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Photostagram-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B23FFA74E0C91B452B94F29 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Photostagram/Pods-Photostagram-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Photostagram/Pods-Photostagram-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8670047C0DFFC5B5BFDBEFAD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PhotostagramUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A8EB3197D25A11B00B49B0B1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Photostagram/Pods-Photostagram-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Photostagram/Pods-Photostagram-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE8D177040965614B09A0AB6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PhotostagramTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CE70ECC221CCAA7F00F3A5F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE70ECCE21CCAA7F00F3A5F6 /* ViewController.m in Sources */,
+				CE70ECD421CCAA7F00F3A5F6 /* Photostagram.xcdatamodeld in Sources */,
+				CE70ECDC21CCAA8000F3A5F6 /* main.m in Sources */,
+				CE70ECCB21CCAA7F00F3A5F6 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE70ECDD21CCAA8100F3A5F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE70ECE621CCAA8100F3A5F6 /* PhotostagramTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE70ECE821CCAA8100F3A5F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE70ECF121CCAA8100F3A5F6 /* PhotostagramUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CE70ECE321CCAA8100F3A5F6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE70ECC521CCAA7F00F3A5F6 /* Photostagram */;
+			targetProxy = CE70ECE221CCAA8100F3A5F6 /* PBXContainerItemProxy */;
+		};
+		CE70ECEE21CCAA8100F3A5F6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE70ECC521CCAA7F00F3A5F6 /* Photostagram */;
+			targetProxy = CE70ECED21CCAA8100F3A5F6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CE70ECCF21CCAA7F00F3A5F6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE70ECD021CCAA7F00F3A5F6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CE70ECD721CCAA8000F3A5F6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE70ECD821CCAA8000F3A5F6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CE70ECF321CCAA8100F3A5F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CE70ECF421CCAA8100F3A5F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CE70ECF621CCAA8100F3A5F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C26266798776C16539A6600 /* Pods-Photostagram.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3KU6JNS9FU;
+				INFOPLIST_FILE = Photostagram/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "annanwang-hotmail.com.Photostagram";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CE70ECF721CCAA8100F3A5F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF47876A985641C61B7745D3 /* Pods-Photostagram.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3KU6JNS9FU;
+				INFOPLIST_FILE = Photostagram/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "annanwang-hotmail.com.Photostagram";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CE70ECF921CCAA8100F3A5F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D658ADF1FCF240FAD9964AF /* Pods-PhotostagramTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3KU6JNS9FU;
+				INFOPLIST_FILE = PhotostagramTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "annanwang-hotmail.com.PhotostagramTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Photostagram.app/Photostagram";
+			};
+			name = Debug;
+		};
+		CE70ECFA21CCAA8100F3A5F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69AC5DC3139A7F0A0571EB94 /* Pods-PhotostagramTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3KU6JNS9FU;
+				INFOPLIST_FILE = PhotostagramTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "annanwang-hotmail.com.PhotostagramTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Photostagram.app/Photostagram";
+			};
+			name = Release;
+		};
+		CE70ECFC21CCAA8100F3A5F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2ED7757CA448867F9E472D52 /* Pods-PhotostagramUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3KU6JNS9FU;
+				INFOPLIST_FILE = PhotostagramUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "annanwang-hotmail.com.PhotostagramUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Photostagram;
+			};
+			name = Debug;
+		};
+		CE70ECFD21CCAA8100F3A5F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7116CE271C562FFA4CAAB40A /* Pods-PhotostagramUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3KU6JNS9FU;
+				INFOPLIST_FILE = PhotostagramUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "annanwang-hotmail.com.PhotostagramUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Photostagram;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CE70ECC121CCAA7F00F3A5F6 /* Build configuration list for PBXProject "Photostagram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE70ECF321CCAA8100F3A5F6 /* Debug */,
+				CE70ECF421CCAA8100F3A5F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE70ECF521CCAA8100F3A5F6 /* Build configuration list for PBXNativeTarget "Photostagram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE70ECF621CCAA8100F3A5F6 /* Debug */,
+				CE70ECF721CCAA8100F3A5F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE70ECF821CCAA8100F3A5F6 /* Build configuration list for PBXNativeTarget "PhotostagramTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE70ECF921CCAA8100F3A5F6 /* Debug */,
+				CE70ECFA21CCAA8100F3A5F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE70ECFB21CCAA8100F3A5F6 /* Build configuration list for PBXNativeTarget "PhotostagramUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE70ECFC21CCAA8100F3A5F6 /* Debug */,
+				CE70ECFD21CCAA8100F3A5F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CE70ECD221CCAA7F00F3A5F6 /* Photostagram.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CE70ECD321CCAA7F00F3A5F6 /* Photostagram.xcdatamodel */,
+			);
+			currentVersion = CE70ECD321CCAA7F00F3A5F6 /* Photostagram.xcdatamodel */;
+			path = Photostagram.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = CE70ECBE21CCAA7F00F3A5F6 /* Project object */;
+}
