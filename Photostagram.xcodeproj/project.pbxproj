@@ -19,6 +19,7 @@
 		CE70ECE621CCAA8100F3A5F6 /* PhotostagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECE521CCAA8100F3A5F6 /* PhotostagramTests.m */; };
 		CE70ECF121CCAA8100F3A5F6 /* PhotostagramUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECF021CCAA8100F3A5F6 /* PhotostagramUITests.m */; };
 		CE70ECFF21CCAFE600F3A5F6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE70ECFE21CCAFE600F3A5F6 /* GoogleService-Info.plist */; };
+		CE70ED0A21CCB51100F3A5F6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE70ED0921CCB51100F3A5F6 /* Default-568h@2x.png */; };
 		EABADEBBD88DA404E92D6681 /* Pods_PhotostagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B901A2CCD8C9C71D7299B788 /* Pods_PhotostagramUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		CE70ECF021CCAA8100F3A5F6 /* PhotostagramUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotostagramUITests.m; sourceTree = "<group>"; };
 		CE70ECF221CCAA8100F3A5F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE70ECFE21CCAFE600F3A5F6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CE70ED0921CCB51100F3A5F6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FF47876A985641C61B7745D3 /* Pods-Photostagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photostagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Photostagram/Pods-Photostagram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +125,7 @@
 		CE70ECBD21CCAA7F00F3A5F6 = {
 			isa = PBXGroup;
 			children = (
+				CE70ED0921CCB51100F3A5F6 /* Default-568h@2x.png */,
 				CE70ECC821CCAA7F00F3A5F6 /* Photostagram */,
 				CE70ECE421CCAA8100F3A5F6 /* PhotostagramTests */,
 				CE70ECEF21CCAA8100F3A5F6 /* PhotostagramUITests */,
@@ -145,17 +148,19 @@
 		CE70ECC821CCAA7F00F3A5F6 /* Photostagram */ = {
 			isa = PBXGroup;
 			children = (
+				CE70ED0421CCB3CA00F3A5F6 /* Models */,
+				CE70ED0821CCB41E00F3A5F6 /* Views */,
+				CE70ED0021CCB36400F3A5F6 /* Controllers */,
+				CE70ED0621CCB40B00F3A5F6 /* Storyboards */,
+				CE70ED0221CCB3B400F3A5F6 /* Extensions */,
+				CE70ED0321CCB3C400F3A5F6 /* Helpers */,
+				CE70ED0521CCB3D000F3A5F6 /* Services */,
+				CE70ED0721CCB41600F3A5F6 /* Supporting */,
 				CE70ECC921CCAA7F00F3A5F6 /* AppDelegate.h */,
 				CE70ECCA21CCAA7F00F3A5F6 /* AppDelegate.m */,
-				CE70ECCC21CCAA7F00F3A5F6 /* ViewController.h */,
-				CE70ECCD21CCAA7F00F3A5F6 /* ViewController.m */,
-				CE70ECCF21CCAA7F00F3A5F6 /* Main.storyboard */,
-				CE70ECD521CCAA8000F3A5F6 /* Assets.xcassets */,
-				CE70ECD721CCAA8000F3A5F6 /* LaunchScreen.storyboard */,
-				CE70ECDA21CCAA8000F3A5F6 /* Info.plist */,
 				CE70ECDB21CCAA8000F3A5F6 /* main.m */,
 				CE70ECD221CCAA7F00F3A5F6 /* Photostagram.xcdatamodeld */,
-				CE70ECFE21CCAFE600F3A5F6 /* GoogleService-Info.plist */,
+				CE70ECD521CCAA8000F3A5F6 /* Assets.xcassets */,
 			);
 			path = Photostagram;
 			sourceTree = "<group>";
@@ -176,6 +181,68 @@
 				CE70ECF221CCAA8100F3A5F6 /* Info.plist */,
 			);
 			path = PhotostagramUITests;
+			sourceTree = "<group>";
+		};
+		CE70ED0021CCB36400F3A5F6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE70ECCD21CCAA7F00F3A5F6 /* ViewController.m */,
+				CE70ECCC21CCAA7F00F3A5F6 /* ViewController.h */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CE70ED0221CCB3B400F3A5F6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CE70ED0321CCB3C400F3A5F6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		CE70ED0421CCB3CA00F3A5F6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CE70ED0521CCB3D000F3A5F6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CE70ED0621CCB40B00F3A5F6 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				CE70ECD721CCAA8000F3A5F6 /* LaunchScreen.storyboard */,
+				CE70ECCF21CCAA7F00F3A5F6 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		CE70ED0721CCB41600F3A5F6 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				CE70ECFE21CCAFE600F3A5F6 /* GoogleService-Info.plist */,
+				CE70ECDA21CCAA8000F3A5F6 /* Info.plist */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		CE70ED0821CCB41E00F3A5F6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,6 +356,7 @@
 				CE70ECD921CCAA8000F3A5F6 /* LaunchScreen.storyboard in Resources */,
 				CE70ECFF21CCAFE600F3A5F6 /* GoogleService-Info.plist in Resources */,
 				CE70ECD621CCAA8000F3A5F6 /* Assets.xcassets in Resources */,
+				CE70ED0A21CCB51100F3A5F6 /* Default-568h@2x.png in Resources */,
 				CE70ECD121CCAA7F00F3A5F6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -611,7 +679,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3KU6JNS9FU;
-				INFOPLIST_FILE = Photostagram/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Photostagram/Supporting/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -631,7 +699,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3KU6JNS9FU;
-				INFOPLIST_FILE = Photostagram/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Photostagram/Supporting/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
