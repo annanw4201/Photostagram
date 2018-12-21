@@ -19,6 +19,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [FIRApp configure];
+    
+    UIStoryboard *loginStoryBoard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+    UIViewController *initialVC = [loginStoryBoard instantiateInitialViewController];
+    if (initialVC) {
+        [self.window setRootViewController:initialVC];
+        [self.window makeKeyAndVisible];
+    }
     return YES;
 }
 

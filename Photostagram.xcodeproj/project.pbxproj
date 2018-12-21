@@ -20,6 +20,9 @@
 		CE70ECF121CCAA8100F3A5F6 /* PhotostagramUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECF021CCAA8100F3A5F6 /* PhotostagramUITests.m */; };
 		CE70ECFF21CCAFE600F3A5F6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE70ECFE21CCAFE600F3A5F6 /* GoogleService-Info.plist */; };
 		CE70ED0A21CCB51100F3A5F6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE70ED0921CCB51100F3A5F6 /* Default-568h@2x.png */; };
+		CE70ED0D21CCBA3B00F3A5F6 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE70ED0B21CCBA3B00F3A5F6 /* Login.storyboard */; };
+		CE70ED1021CCBB4300F3A5F6 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED0F21CCBB4300F3A5F6 /* LoginViewController.m */; };
+		CE70ED1321CCD6BF00F3A5F6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED1221CCD6BF00F3A5F6 /* User.m */; };
 		EABADEBBD88DA404E92D6681 /* Pods_PhotostagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B901A2CCD8C9C71D7299B788 /* Pods_PhotostagramUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +71,11 @@
 		CE70ECF221CCAA8100F3A5F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE70ECFE21CCAFE600F3A5F6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE70ED0921CCB51100F3A5F6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		CE70ED0C21CCBA3B00F3A5F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
+		CE70ED0E21CCBB4300F3A5F6 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		CE70ED0F21CCBB4300F3A5F6 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		CE70ED1121CCD6BF00F3A5F6 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		CE70ED1221CCD6BF00F3A5F6 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		FF47876A985641C61B7745D3 /* Pods-Photostagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photostagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Photostagram/Pods-Photostagram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,6 +196,8 @@
 			children = (
 				CE70ECCD21CCAA7F00F3A5F6 /* ViewController.m */,
 				CE70ECCC21CCAA7F00F3A5F6 /* ViewController.h */,
+				CE70ED0E21CCBB4300F3A5F6 /* LoginViewController.h */,
+				CE70ED0F21CCBB4300F3A5F6 /* LoginViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -209,6 +219,8 @@
 		CE70ED0421CCB3CA00F3A5F6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CE70ED1121CCD6BF00F3A5F6 /* User.h */,
+				CE70ED1221CCD6BF00F3A5F6 /* User.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -225,6 +237,7 @@
 			children = (
 				CE70ECD721CCAA8000F3A5F6 /* LaunchScreen.storyboard */,
 				CE70ECCF21CCAA7F00F3A5F6 /* Main.storyboard */,
+				CE70ED0B21CCBA3B00F3A5F6 /* Login.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -355,6 +368,7 @@
 			files = (
 				CE70ECD921CCAA8000F3A5F6 /* LaunchScreen.storyboard in Resources */,
 				CE70ECFF21CCAFE600F3A5F6 /* GoogleService-Info.plist in Resources */,
+				CE70ED0D21CCBA3B00F3A5F6 /* Login.storyboard in Resources */,
 				CE70ECD621CCAA8000F3A5F6 /* Assets.xcassets in Resources */,
 				CE70ED0A21CCB51100F3A5F6 /* Default-568h@2x.png in Resources */,
 				CE70ECD121CCAA7F00F3A5F6 /* Main.storyboard in Resources */,
@@ -503,8 +517,10 @@
 			files = (
 				CE70ECCE21CCAA7F00F3A5F6 /* ViewController.m in Sources */,
 				CE70ECD421CCAA7F00F3A5F6 /* Photostagram.xcdatamodeld in Sources */,
+				CE70ED1321CCD6BF00F3A5F6 /* User.m in Sources */,
 				CE70ECDC21CCAA8000F3A5F6 /* main.m in Sources */,
 				CE70ECCB21CCAA7F00F3A5F6 /* AppDelegate.m in Sources */,
+				CE70ED1021CCBB4300F3A5F6 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +570,14 @@
 				CE70ECD821CCAA8000F3A5F6 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		CE70ED0B21CCBA3B00F3A5F6 /* Login.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE70ED0C21CCBA3B00F3A5F6 /* Base */,
+			);
+			name = Login.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
