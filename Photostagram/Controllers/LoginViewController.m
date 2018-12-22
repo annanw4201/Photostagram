@@ -9,8 +9,8 @@
 #import "LoginViewController.h"
 #import "FirebaseAuth.h"
 #import "FirebaseUI-umbrella.h"
-#import "FirebaseDatabase.h"
 #import "../Models/User.h"
+#import "../Services/UserService.h"
 
 @interface LoginViewController ()<FUIAuthDelegate>
 
@@ -34,12 +34,10 @@
         NSLog(@"Error when signing in: %@", [error localizedDescription]);
         return;
     }
-    FIRUser *firUser = authDataResult.user;
-    FIRDatabaseReference *ref = [[FIRDatabase.database.reference child:@"users"] child:firUser.uid];
-    [ref observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-        User *usermodel = [[User alloc] initWithSnapshot:snapshot];
-        if (usermodel) {
-            NSLog(@"Welcome back: %@", usermodel.username);
+    
+    [UserService retrieveExistingUserDataWithUid:authDataResult.user.uid andCallBack:^(User *user) {
+        if (user) {
+            NSLog(@"Welcome back: %@, direct to MainVC", user.username);
             UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             [self.view.window setRootViewController:[mainStoryboard instantiateInitialViewController]];
             [self.view.window makeKeyAndVisible];
@@ -49,18 +47,17 @@
             [self performSegueWithIdentifier:@"createUsernameSegue" sender:self];
         }
     }];
-    
 }
-    
-    
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

@@ -7,9 +7,8 @@
 //
 
 #import "CreateUsernameViewController.h"
-#import "FIRUser.h"
-#import "FIRDatabase.h"
 #import "../Models/User.h"
+#import "../Services/UserService.h"
 
 @interface CreateUsernameViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
@@ -23,24 +22,16 @@
 }
 
 - (IBAction)nextButtonPressed:(UIButton *)sender {
-    // verify current logged in user and get username
-    FIRUser *firUser = [FIRAuth.auth currentUser];
-    NSString *username = self.usernameTextField.text;
-    if (!username && [username isEqualToString:@""]) return;
+    // get username from textfield
+    NSString *textFieldUsername = self.usernameTextField.text;
+    if (!textFieldUsername && [textFieldUsername isEqualToString:@""]) return;
     
-    // specify where to store the data and to write the data
-    FIRDatabaseReference *ref = [[FIRDatabase.database.reference child:@"users"] child:firUser.uid];
-    
-    __block User *usermodel = nil;
-    NSDictionary *userAttrs = [NSDictionary dictionaryWithObject:username forKey:@"username"];
-    [ref setValue:userAttrs];
-    [ref observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-        usermodel = [[User alloc] initWithSnapshot:snapshot];
-        NSLog(@"%@", usermodel);
-        if (usermodel) {
+    [UserService createUserWithName:textFieldUsername andCallBack:^(User * _Nonnull user) {
+        if (user) {
             UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             [self.view.window setRootViewController:[mainStoryboard instantiateInitialViewController]];
             [self.view.window makeKeyAndVisible];
+            NSLog(@"username created and direct to MainVC");
         }
     }];
 }

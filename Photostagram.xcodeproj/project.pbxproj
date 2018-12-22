@@ -24,6 +24,7 @@
 		CE70ED1021CCBB4300F3A5F6 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED0F21CCBB4300F3A5F6 /* LoginViewController.m */; };
 		CE70ED1321CCD6BF00F3A5F6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED1221CCD6BF00F3A5F6 /* User.m */; };
 		CE70ED1621CCE11A00F3A5F6 /* CreateUsernameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED1521CCE11A00F3A5F6 /* CreateUsernameViewController.m */; };
+		CE70ED1C21CEA79500F3A5F6 /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED1B21CEA79500F3A5F6 /* UserService.m */; };
 		EABADEBBD88DA404E92D6681 /* Pods_PhotostagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B901A2CCD8C9C71D7299B788 /* Pods_PhotostagramUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,8 @@
 		CE70ED1221CCD6BF00F3A5F6 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		CE70ED1421CCE11A00F3A5F6 /* CreateUsernameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateUsernameViewController.h; sourceTree = "<group>"; };
 		CE70ED1521CCE11A00F3A5F6 /* CreateUsernameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateUsernameViewController.m; sourceTree = "<group>"; };
+		CE70ED1A21CEA79500F3A5F6 /* UserService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserService.h; sourceTree = "<group>"; };
+		CE70ED1B21CEA79500F3A5F6 /* UserService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserService.m; sourceTree = "<group>"; };
 		FF47876A985641C61B7745D3 /* Pods-Photostagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photostagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Photostagram/Pods-Photostagram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -233,6 +236,8 @@
 		CE70ED0521CCB3D000F3A5F6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CE70ED1A21CEA79500F3A5F6 /* UserService.h */,
+				CE70ED1B21CEA79500F3A5F6 /* UserService.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -520,6 +525,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE70ED1C21CEA79500F3A5F6 /* UserService.m in Sources */,
 				CE70ECCE21CCAA7F00F3A5F6 /* ViewController.m in Sources */,
 				CE70ED1621CCE11A00F3A5F6 /* CreateUsernameViewController.m in Sources */,
 				CE70ECD421CCAA7F00F3A5F6 /* Photostagram.xcdatamodeld in Sources */,
