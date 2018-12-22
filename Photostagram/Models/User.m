@@ -21,8 +21,8 @@
     // data will be of type NSDictionary, NSArray, NSNumber, NSString
     id data = snapshot.value;
     NSString *username = nil;
-    NSDictionary *dataDict = (NSDictionary *)data;
-    if (dataDict) {
+    if ([data isKindOfClass:[NSDictionary class]]) {
+        NSDictionary *dataDict = (NSDictionary *)data;
         username = [dataDict objectForKey:@"username"];
         if (!username) return nil;
     }

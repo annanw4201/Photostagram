@@ -1,58 +1,50 @@
 //
-//  LoginViewController.m
+//  CreateUsernameViewController.m
 //  Photostagram
 //
 //  Created by Wong Tom on 2018-12-21.
 //  Copyright © 2018 Wang Tom. All rights reserved.
 //
 
-#import "LoginViewController.h"
-#import "FirebaseAuth.h"
-#import "FirebaseUI-umbrella.h"
-#import "FirebaseDatabase.h"
+#import "CreateUsernameViewController.h"
+#import "FIRUser.h"
+#import "FIRDatabase.h"
 #import "../Models/User.h"
 
-@interface LoginViewController ()<FUIAuthDelegate>
-
+@interface CreateUsernameViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @end
 
-@implementation LoginViewController
+@implementation CreateUsernameViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 
-- (IBAction)signUpOrSignIn:(UIButton *)sender {
-    FUIAuth *authUI = [FUIAuth defaultAuthUI];
-    authUI.delegate = self;
-    [self presentViewController:authUI.authViewController animated:YES completion:nil];
-}
-
-- (void)authUI:(FUIAuth *)authUI didSignInWithAuthDataResult:(FIRAuthDataResult *)authDataResult error:(NSError *)error {
-    if (error) {
-        NSLog(@"Error when signing in: %@", [error localizedDescription]);
-        return;
-    }
-    FIRUser *firUser = authDataResult.user;
+- (IBAction)nextButtonPressed:(UIButton *)sender {
+    // verify current logged in user and get username
+    FIRUser *firUser = [FIRAuth.auth currentUser];
+    NSString *username = self.usernameTextField.text;
+    if (!username && [username isEqualToString:@""]) return;
+    
+    // specify where to store the data and to write the data
     FIRDatabaseReference *ref = [[FIRDatabase.database.reference child:@"users"] child:firUser.uid];
+    
+    __block User *usermodel = nil;
+    NSDictionary *userAttrs = [NSDictionary dictionaryWithObject:username forKey:@"username"];
+    [ref setValue:userAttrs];
     [ref observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-        User *usermodel = [[User alloc] initWithSnapshot:snapshot];
+        usermodel = [[User alloc] initWithSnapshot:snapshot];
+        NSLog(@"%@", usermodel);
         if (usermodel) {
-            NSLog(@"Welcome back: %@", usermodel.username);
             UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             [self.view.window setRootViewController:[mainStoryboard instantiateInitialViewController]];
             [self.view.window makeKeyAndVisible];
         }
-        else {
-            NSLog(@"New User and direct to create username");
-            [self performSegueWithIdentifier:@"createUsernameSegue" sender:self];
-        }
     }];
-    
 }
-    
-    
+
 /*
 #pragma mark - Navigation
 
