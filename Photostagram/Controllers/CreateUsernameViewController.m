@@ -9,6 +9,7 @@
 #import "CreateUsernameViewController.h"
 #import "../Models/User.h"
 #import "../Services/UserService.h"
+#import "../Extensions/Storyboard+Utility.h"
 
 @interface CreateUsernameViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
@@ -28,8 +29,8 @@
     
     [UserService createUserWithName:textFieldUsername andCallBack:^(User * _Nonnull user) {
         if (user) {
-            UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            [self.view.window setRootViewController:[mainStoryboard instantiateInitialViewController]];
+            UIViewController *initialVC = [Storyboard_Utility initialViewControllerOfType:storyboardMain];
+            [self.view.window setRootViewController:initialVC];
             [self.view.window makeKeyAndVisible];
             NSLog(@"username created and direct to MainVC");
         }

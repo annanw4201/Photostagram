@@ -11,6 +11,8 @@
 #import "FirebaseUI-umbrella.h"
 #import "../Models/User.h"
 #import "../Services/UserService.h"
+#import "../Supporting/Constants.h"
+#import "../Extensions/Storyboard+Utility.h"
 
 @interface LoginViewController ()<FUIAuthDelegate>
 
@@ -38,13 +40,13 @@
     [UserService retrieveExistingUserDataWithUid:authDataResult.user.uid andCallBack:^(User *user) {
         if (user) {
             NSLog(@"Welcome back: %@, direct to MainVC", user.username);
-            UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            [self.view.window setRootViewController:[mainStoryboard instantiateInitialViewController]];
+            UIViewController *initialVC = [Storyboard_Utility initialViewControllerOfType:storyboardMain];
+            [self.view.window setRootViewController:initialVC];
             [self.view.window makeKeyAndVisible];
         }
         else {
             NSLog(@"New User and direct to create username");
-            [self performSegueWithIdentifier:@"createUsernameSegue" sender:self];
+            [self performSegueWithIdentifier:createUsernameSegue sender:self];
         }
     }];
 }

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "FIRApp.h"
+#import "Extensions/Storyboard+Utility.h"
 
 @interface AppDelegate ()
 
@@ -20,12 +21,9 @@
     // Override point for customization after application launch.
     [FIRApp configure];
     
-    UIStoryboard *loginStoryBoard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
-    UIViewController *initialVC = [loginStoryBoard instantiateInitialViewController];
-    if (initialVC) {
-        [self.window setRootViewController:initialVC];
-        [self.window makeKeyAndVisible];
-    }
+    UIViewController *initialVC = [Storyboard_Utility initialViewControllerOfType:storyboardLogin];
+    [self.window setRootViewController:initialVC];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
