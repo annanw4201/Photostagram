@@ -29,6 +29,7 @@
     
     [UserService createUserWithName:textFieldUsername andCallBack:^(User * _Nonnull user) {
         if (user) {
+            [user writeUser:user toUserDefaults:YES];
             UIViewController *initialVC = [Storyboard_Utility initialViewControllerOfType:storyboardMain];
             [self.view.window setRootViewController:initialVC];
             [self.view.window makeKeyAndVisible];

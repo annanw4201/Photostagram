@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import "FIRApp.h"
 #import "Extensions/Storyboard+Utility.h"
+#import "FIRUser.h"
+#import "Models/User.h"
+#import "Supporting/Constants.h"
 
 @interface AppDelegate ()
 
@@ -21,10 +24,27 @@
     // Override point for customization after application launch.
     [FIRApp configure];
     
-    UIViewController *initialVC = [Storyboard_Utility initialViewControllerOfType:storyboardLogin];
+    [self configureInitialViewController];
+    return YES;
+}
+
+
+- (void)configureInitialViewController {
+    NSError *error = nil;
+    NSData *userData = [[NSUserDefaults standardUserDefaults] valueForKey:currentLoggedInUser];
+    User *user = [NSKeyedUnarchiver unarchivedObjectOfClass:[User class] fromData:userData error:&error];
+    if (error) NSLog(@"Error decoding: %@", error.localizedDescription);
+    UIViewController *initialVC = nil;
+    if (user) {
+        NSLog(@"User logged in, welcome %@", user.username);
+        initialVC = [Storyboard_Utility initialViewControllerOfType:storyboardMain];
+    }
+    else {
+        NSLog(@"User need to log in");
+        initialVC = [Storyboard_Utility initialViewControllerOfType:storyboardLogin];
+    }
     [self.window setRootViewController:initialVC];
     [self.window makeKeyAndVisible];
-    return YES;
 }
 
 

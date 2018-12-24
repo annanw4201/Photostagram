@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UserService : NSObject
 + (void)createUserWithName:(NSString *)Username andCallBack:(void(^)(User *user))callBack;
-+ (void)retrieveExistingUserDataWithUid:(NSString *)uid andCallBack:(void(^)(User *user))callBack;
++ (void)retrieveExistingUserModelWithUid:(NSString *)uid andCallBack:(void(^)(User *user))callBack;
 @end
 
 NS_ASSUME_NONNULL_END

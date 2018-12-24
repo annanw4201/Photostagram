@@ -10,7 +10,6 @@
 		244A2056A5A135DD167B3B5C /* Pods_PhotostagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0EDED5930A7E85B9338444 /* Pods_PhotostagramTests.framework */; };
 		69659864FA82044990F8EA9B /* Pods_Photostagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F3616B3F6F5A13CC04BD1D /* Pods_Photostagram.framework */; };
 		CE70ECCB21CCAA7F00F3A5F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECCA21CCAA7F00F3A5F6 /* AppDelegate.m */; };
-		CE70ECCE21CCAA7F00F3A5F6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECCD21CCAA7F00F3A5F6 /* ViewController.m */; };
 		CE70ECD121CCAA7F00F3A5F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE70ECCF21CCAA7F00F3A5F6 /* Main.storyboard */; };
 		CE70ECD421CCAA7F00F3A5F6 /* Photostagram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECD221CCAA7F00F3A5F6 /* Photostagram.xcdatamodeld */; };
 		CE70ECD621CCAA8000F3A5F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE70ECD521CCAA8000F3A5F6 /* Assets.xcassets */; };
@@ -26,6 +25,8 @@
 		CE70ED1621CCE11A00F3A5F6 /* CreateUsernameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED1521CCE11A00F3A5F6 /* CreateUsernameViewController.m */; };
 		CE70ED1C21CEA79500F3A5F6 /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED1B21CEA79500F3A5F6 /* UserService.m */; };
 		CE70ED2821CF6CB000F3A5F6 /* Storyboard+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED2721CF6CB000F3A5F6 /* Storyboard+Utility.m */; };
+		CE70ED2B21CF7D7700F3A5F6 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED2A21CF7D7700F3A5F6 /* HomeViewController.m */; };
+		CE70ED2E21CF7D8400F3A5F6 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED2D21CF7D8400F3A5F6 /* FriendsViewController.m */; };
 		EABADEBBD88DA404E92D6681 /* Pods_PhotostagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B901A2CCD8C9C71D7299B788 /* Pods_PhotostagramUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,8 +59,6 @@
 		CE70ECC621CCAA7F00F3A5F6 /* Photostagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photostagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE70ECC921CCAA7F00F3A5F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CE70ECCA21CCAA7F00F3A5F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CE70ECCC21CCAA7F00F3A5F6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		CE70ECCD21CCAA7F00F3A5F6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CE70ECD021CCAA7F00F3A5F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE70ECD321CCAA7F00F3A5F6 /* Photostagram.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Photostagram.xcdatamodel; sourceTree = "<group>"; };
 		CE70ECD521CCAA8000F3A5F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,6 +85,10 @@
 		CE70ED2221CF668A00F3A5F6 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		CE70ED2621CF6CB000F3A5F6 /* Storyboard+Utility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Storyboard+Utility.h"; sourceTree = "<group>"; };
 		CE70ED2721CF6CB000F3A5F6 /* Storyboard+Utility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Storyboard+Utility.m"; sourceTree = "<group>"; };
+		CE70ED2921CF7D7700F3A5F6 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		CE70ED2A21CF7D7700F3A5F6 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		CE70ED2C21CF7D8400F3A5F6 /* FriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
+		CE70ED2D21CF7D8400F3A5F6 /* FriendsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
 		FF47876A985641C61B7745D3 /* Pods-Photostagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photostagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Photostagram/Pods-Photostagram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -204,12 +207,14 @@
 		CE70ED0021CCB36400F3A5F6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CE70ECCD21CCAA7F00F3A5F6 /* ViewController.m */,
-				CE70ECCC21CCAA7F00F3A5F6 /* ViewController.h */,
 				CE70ED0E21CCBB4300F3A5F6 /* LoginViewController.h */,
 				CE70ED0F21CCBB4300F3A5F6 /* LoginViewController.m */,
 				CE70ED1421CCE11A00F3A5F6 /* CreateUsernameViewController.h */,
 				CE70ED1521CCE11A00F3A5F6 /* CreateUsernameViewController.m */,
+				CE70ED2921CF7D7700F3A5F6 /* HomeViewController.h */,
+				CE70ED2A21CF7D7700F3A5F6 /* HomeViewController.m */,
+				CE70ED2C21CF7D8400F3A5F6 /* FriendsViewController.h */,
+				CE70ED2D21CF7D8400F3A5F6 /* FriendsViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -532,12 +537,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE70ED2E21CF7D8400F3A5F6 /* FriendsViewController.m in Sources */,
 				CE70ED2821CF6CB000F3A5F6 /* Storyboard+Utility.m in Sources */,
 				CE70ED1C21CEA79500F3A5F6 /* UserService.m in Sources */,
-				CE70ECCE21CCAA7F00F3A5F6 /* ViewController.m in Sources */,
 				CE70ED1621CCE11A00F3A5F6 /* CreateUsernameViewController.m in Sources */,
 				CE70ECD421CCAA7F00F3A5F6 /* Photostagram.xcdatamodeld in Sources */,
 				CE70ED1321CCD6BF00F3A5F6 /* User.m in Sources */,
+				CE70ED2B21CF7D7700F3A5F6 /* HomeViewController.m in Sources */,
 				CE70ECDC21CCAA8000F3A5F6 /* main.m in Sources */,
 				CE70ECCB21CCAA7F00F3A5F6 /* AppDelegate.m in Sources */,
 				CE70ED1021CCBB4300F3A5F6 /* LoginViewController.m in Sources */,

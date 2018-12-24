@@ -16,8 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, weak) NSString *uid;
 @property(nonatomic, weak) NSString *username;
 
--(id)initWithSnapshot:(FIRDataSnapshot *)snapshot;
--(instancetype)initWithUid:(NSString *)uid username:(NSString *)username;
+- (instancetype)initWithSnapshot:(FIRDataSnapshot *)snapshot;
+- (instancetype)initWithUid:(NSString *)uid username:(NSString *)username;
+- (void)writeUser:(User *)user toUserDefaults:(BOOL)write;
 @end
 
 NS_ASSUME_NONNULL_END

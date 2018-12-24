@@ -1,8 +1,8 @@
 //
-//  LoginViewController.h
+//  FriendsViewController.h
 //  Photostagram
 //
-//  Created by Wong Tom on 2018-12-21.
+//  Created by Wong Tom on 2018-12-23.
 //  Copyright © 2018 Wang Tom. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LoginViewController : UIViewController
+@interface FriendsViewController : UIViewController
 
 @end
 

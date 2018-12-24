@@ -10,5 +10,6 @@
 #define Constants_h
 
 #define createUsernameSegue @"createUsernameSegue"
+#define currentLoggedInUser @"currentLoggedInUser"
 
 #endif /* Constants_h */

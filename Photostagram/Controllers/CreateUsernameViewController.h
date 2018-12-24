@@ -6,11 +6,11 @@
 //  Copyright © 2018 Wang Tom. All rights reserved.
 //
 
-#import "ViewController.h"
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CreateUsernameViewController : ViewController
+@interface CreateUsernameViewController : UIViewController
 
 @end
 

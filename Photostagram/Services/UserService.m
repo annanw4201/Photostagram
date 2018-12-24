@@ -23,7 +23,7 @@
     }];
 }
 
-+ (void)retrieveExistingUserDataWithUid:(NSString *)uid andCallBack:(void (^)(User *))callBack {
++ (void)retrieveExistingUserModelWithUid:(NSString *)uid andCallBack:(void (^)(User *))callBack {
     FIRDatabaseReference *ref = [[FIRDatabase.database.reference child:@"users"] child:uid];
     [ref observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         User *user = [[User alloc] initWithSnapshot:snapshot];

@@ -37,9 +37,10 @@
         return;
     }
     
-    [UserService retrieveExistingUserDataWithUid:authDataResult.user.uid andCallBack:^(User *user) {
+    [UserService retrieveExistingUserModelWithUid:authDataResult.user.uid andCallBack:^(User *user) {
         if (user) {
             NSLog(@"Welcome back: %@, direct to MainVC", user.username);
+            [user writeUser:user toUserDefaults:YES];
             UIViewController *initialVC = [Storyboard_Utility initialViewControllerOfType:storyboardMain];
             [self.view.window setRootViewController:initialVC];
             [self.view.window makeKeyAndVisible];

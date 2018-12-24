@@ -8,16 +8,22 @@
 
 #import "User.h"
 #import "FIRDataSnapshot.h"
+#import "../Supporting/Constants.h"
+
+// This User class supports NSSecureCoding
+@interface User() <NSCoding, NSSecureCoding>
+@end
+
 
 @implementation User
 
--(instancetype)initWithUid:(NSString *)uid username:(NSString *)username {
+- (instancetype)initWithUid:(NSString *)uid username:(NSString *)username {
     self.uid = uid;
     self.username = username;
     return self;
 }
 
--(id)initWithSnapshot:(FIRDataSnapshot *)snapshot {
+- (instancetype)initWithSnapshot:(FIRDataSnapshot *)snapshot {
     // data will be of type NSDictionary, NSArray, NSNumber, NSString
     id data = snapshot.value;
     NSString *username = nil;
@@ -30,6 +36,33 @@
     self.uid = snapshot.key;
     self.username = username;
     return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self) {
+        self.uid = [aDecoder decodeObjectOfClass:[User class] forKey:@"uid"];
+        self.username = [aDecoder decodeObjectOfClass:[User class] forKey:@"username"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.uid forKey:@"uid"];
+    [aCoder encodeObject:self.username forKey:@"username"];
+}
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+- (void)writeUser:(User *)user toUserDefaults:(BOOL)write {
+    if (write) {
+        NSError *error = nil;
+        NSData *objectData = [NSKeyedArchiver archivedDataWithRootObject:user requiringSecureCoding:YES error:&error];
+        if (error) NSLog(@"Error encoding: %@", error.localizedDescription);
+        [[NSUserDefaults standardUserDefaults] setValue:objectData forKey:currentLoggedInUser];
+    }
 }
 
 @end
