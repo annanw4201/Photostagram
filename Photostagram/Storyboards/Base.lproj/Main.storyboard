@@ -10,42 +10,42 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Friends View Controller-->
+        <!--FriendsVC-->
         <scene sceneID="OUl-MJ-WGe">
             <objects>
-                <viewController id="vZJ-14-C23" customClass="FriendsViewController" sceneMemberID="viewController">
+                <viewController id="vZJ-14-C23" userLabel="FriendsVC" customClass="FriendsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Kx-xY-flk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="R8m-i8-wzk"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="tab_find_friends_black" id="fdq-NA-AOs"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="" image="tab_find_friends_black" id="fdq-NA-AOs"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C9E-Ep-RRe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1428" y="346"/>
         </scene>
-        <!--View Controller-->
+        <!--PhotoPickerVC-->
         <scene sceneID="bFe-mT-izf">
             <objects>
-                <viewController id="oJ2-Fw-DJy" sceneMemberID="viewController">
+                <viewController id="oJ2-Fw-DJy" userLabel="PhotoPickerVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XuL-vp-ecx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="fa1-GC-wAT"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="tab_plus_black" id="PXK-gW-Hgd"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="" image="tab_plus_black" id="PXK-gW-Hgd"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ib-sY-j8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-474" y="-59"/>
         </scene>
-        <!--Home View Controller-->
+        <!--HomeVC-->
         <scene sceneID="ZMl-R6-RWr">
             <objects>
-                <viewController id="RMu-wg-BwB" customClass="HomeViewController" sceneMemberID="viewController">
+                <viewController id="RMu-wg-BwB" userLabel="HomeVC" customClass="HomeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="piv-Un-D6g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,10 +58,10 @@
             </objects>
             <point key="canvasLocation" x="-474" y="-723"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar View Controller-->
         <scene sceneID="u2l-ym-Hbu">
             <objects>
-                <tabBarController id="GJt-fY-GWi" sceneMemberID="viewController">
+                <tabBarController id="GJt-fY-GWi" customClass="MainTabBarViewController" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Z6A-n5-Q31">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -11,5 +11,9 @@
 
 #define createUsernameSegue @"createUsernameSegue"
 #define currentLoggedInUser @"currentLoggedInUser"
+#define homeTabBarItemTag 0
+#define photoPickerTabBarItemTag 1
+#define friendsTabBarItemTag 2
+
 
 #endif /* Constants_h */
