@@ -8,18 +8,18 @@
 
 #import "Storyboard+Utility.h"
 
-@implementation Storyboard_Utility
+@implementation UIStoryboard (initialViewControllerOfType)
 
 - (instancetype)initWithType: (storyboardType)type {
     switch (type) {
         case storyboardMain:
-            return (Storyboard_Utility *)[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            return [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             break;
         case storyboardLogin:
-            return (Storyboard_Utility *)[UIStoryboard storyboardWithName:@"Login" bundle:nil];
+            return [UIStoryboard storyboardWithName:@"Login" bundle:nil];
             break;
         default:
-            return (Storyboard_Utility *)[UIStoryboard storyboardWithName:@"Login" bundle:nil];
+            return [UIStoryboard storyboardWithName:@"Login" bundle:nil];
             break;
     }
 }

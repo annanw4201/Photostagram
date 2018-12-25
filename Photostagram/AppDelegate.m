@@ -38,11 +38,11 @@
     if (user) {
         NSLog(@"User logged in, welcome %@", user.username);
         [User setCurrentUser:user];
-        initialVC = [Storyboard_Utility initialViewControllerOfType:storyboardMain];
+        initialVC = [UIStoryboard initialViewControllerOfType:storyboardMain];
     }
     else {
         NSLog(@"User need to log in");
-        initialVC = [Storyboard_Utility initialViewControllerOfType:storyboardLogin];
+        initialVC = [UIStoryboard initialViewControllerOfType:storyboardLogin];
     }
     [self.window setRootViewController:initialVC];
     [self.window makeKeyAndVisible];

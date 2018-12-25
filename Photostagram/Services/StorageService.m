@@ -11,6 +11,8 @@
 
 @implementation StorageService
 
+// upload image data at the reference location and callback return
+//  this image url if it is successfully uplodaed
 + (void)uploadImage:(UIImage *)image atReference:(FIRStorageReference *)ref withCallBack:(void (^)(NSURL *url))callBack {
     NSData *imageData = UIImageJPEGRepresentation(image, 0.1);
     if (!imageData) {

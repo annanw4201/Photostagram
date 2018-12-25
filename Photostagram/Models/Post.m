@@ -26,7 +26,7 @@
 
 - (NSDictionary *)dictionary {
     NSTimeInterval createdDate = [self.creationDate timeIntervalSince1970];
-    return [NSDictionary dictionaryWithObjectsAndKeys:self.imageUrl, @"image_url", self.imageHeight, @"image_height", createdDate, @"creation_date", nil];
+    return [NSDictionary dictionaryWithObjectsAndKeys:self.imageUrl, @"image_url", [NSString stringWithFormat:@"%f", self.imageHeight], @"image_height", [NSString stringWithFormat:@"%f", createdDate], @"creation_date", nil];
 }
 
 @end

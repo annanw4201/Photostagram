@@ -17,21 +17,24 @@
 
 @implementation PostService
 
+// upload image to Firestorage and retrieve url for the uploaded image and
+//  then create post model for this image
 + (void)createPostForImage:(UIImage *)image {
     FIRStorageReference *imageRef = [FIRStorageReference newPostImageReference];
     [StorageService uploadImage:image atReference:imageRef withCallBack:^(NSURL * _Nonnull url) {
         if (!url) return;
         NSString *urlString = url.absoluteString;
         [self createPostForUrlString:urlString withAspectHeight:image.aspectHeight];
-        NSLog(@"urlString: %@", urlString);
     }];
 }
 
+// create post model and convert it into dictionary and push this dictionary into Firedatabase
 + (void)createPostForUrlString:(NSString *)urlString withAspectHeight:(CGFloat)aspectHeight {
     User *currentUser = [User getCurrentUser];
+    NSString *currentUserUid = currentUser.uid;
     Post *post = [[Post alloc] initWithImageUrl:urlString andImageHeight:aspectHeight];
     NSDictionary *postDictionary = [post dictionary];
-    FIRDatabaseReference *postRef = [[[FIRDatabase.database.reference child:@"posts"] child:currentUser.uid] childByAutoId];
+    FIRDatabaseReference *postRef = [[[FIRDatabase.database.reference child:@"posts"] child:currentUserUid] childByAutoId];
     [postRef updateChildValues:postDictionary];
 }
 

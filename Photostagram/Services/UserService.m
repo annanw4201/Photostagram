@@ -12,6 +12,9 @@
 #import "../Models/User.h"
 
 @implementation UserService
+
+// create a user model after authentication if this is a new user
+//  and push this model into Firedatabase
 + (void)createUserWithName:(NSString *)username andCallBack:(void (^)(User *user))callBack {
     FIRUser *firUser = [FIRAuth.auth currentUser];
     FIRDatabaseReference *ref = [[FIRDatabase.database.reference child:@"users"] child:firUser.uid];
@@ -24,6 +27,7 @@
     }];
 }
 
+// retrieve existing user data from Firedatabase and create a user model
 + (void)retrieveExistingUserModelWithUid:(NSString *)uid andCallBack:(void (^)(User *))callBack {
     FIRDatabaseReference *ref = [[FIRDatabase.database.reference child:@"users"] child:uid];
     [ref observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
@@ -32,4 +36,5 @@
         else callBack(user);
     }];
 }
+
 @end

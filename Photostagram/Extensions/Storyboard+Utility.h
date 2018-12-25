@@ -15,7 +15,7 @@ typedef NS_ENUM(NSInteger, storyboardType) {
     storyboardLogin
 };
 
-@interface Storyboard_Utility : UIStoryboard
+@interface UIStoryboard (initialViewControllerOfType)
 + (UIViewController *)initialViewControllerOfType:(storyboardType)type;
 @end
 

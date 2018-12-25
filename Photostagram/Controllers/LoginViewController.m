@@ -42,7 +42,7 @@
             NSLog(@"Welcome back: %@, direct to MainVC", user.username);
             [User setCurrentUser:user];
             [user writeUser:user toUserDefaults:YES];
-            UIViewController *initialVC = [Storyboard_Utility initialViewControllerOfType:storyboardMain];
+            UIViewController *initialVC = [UIStoryboard initialViewControllerOfType:storyboardMain];
             [self.view.window setRootViewController:initialVC];
             [self.view.window makeKeyAndVisible];
         }

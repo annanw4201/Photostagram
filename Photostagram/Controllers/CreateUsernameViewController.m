@@ -31,7 +31,7 @@
         if (user) {
             [User setCurrentUser:user];
             [user writeUser:user toUserDefaults:YES];
-            UIViewController *initialVC = [Storyboard_Utility initialViewControllerOfType:storyboardMain];
+            UIViewController *initialVC = [UIStoryboard initialViewControllerOfType:storyboardMain];
             [self.view.window setRootViewController:initialVC];
             [self.view.window makeKeyAndVisible];
             NSLog(@"username created and direct to MainVC");
