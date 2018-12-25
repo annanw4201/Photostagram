@@ -27,7 +27,6 @@
 		CE70ECE621CCAA8100F3A5F6 /* PhotostagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECE521CCAA8100F3A5F6 /* PhotostagramTests.m */; };
 		CE70ECF121CCAA8100F3A5F6 /* PhotostagramUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECF021CCAA8100F3A5F6 /* PhotostagramUITests.m */; };
 		CE70ECFF21CCAFE600F3A5F6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE70ECFE21CCAFE600F3A5F6 /* GoogleService-Info.plist */; };
-		CE70ED0A21CCB51100F3A5F6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE70ED0921CCB51100F3A5F6 /* Default-568h@2x.png */; };
 		CE70ED1021CCBB4300F3A5F6 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED0F21CCBB4300F3A5F6 /* LoginViewController.m */; };
 		CE70ED1321CCD6BF00F3A5F6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED1221CCD6BF00F3A5F6 /* User.m */; };
 		CE70ED1621CCE11A00F3A5F6 /* CreateUsernameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED1521CCE11A00F3A5F6 /* CreateUsernameViewController.m */; };
@@ -96,7 +95,6 @@
 		CE70ECF021CCAA8100F3A5F6 /* PhotostagramUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotostagramUITests.m; sourceTree = "<group>"; };
 		CE70ECF221CCAA8100F3A5F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE70ECFE21CCAFE600F3A5F6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		CE70ED0921CCB51100F3A5F6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		CE70ED0E21CCBB4300F3A5F6 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		CE70ED0F21CCBB4300F3A5F6 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		CE70ED1121CCD6BF00F3A5F6 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -169,7 +167,6 @@
 		CE70ECBD21CCAA7F00F3A5F6 = {
 			isa = PBXGroup;
 			children = (
-				CE70ED0921CCB51100F3A5F6 /* Default-568h@2x.png */,
 				CE70ECC821CCAA7F00F3A5F6 /* Photostagram */,
 				CE70ECE421CCAA8100F3A5F6 /* PhotostagramTests */,
 				CE70ECEF21CCAA8100F3A5F6 /* PhotostagramUITests */,
@@ -432,7 +429,6 @@
 				CE70ECD621CCAA8000F3A5F6 /* Assets.xcassets in Resources */,
 				CE15C93621D2F011002DBE72 /* LaunchScreen.storyboard in Resources */,
 				CE15C93821D2F011002DBE72 /* Main.storyboard in Resources */,
-				CE70ED0A21CCB51100F3A5F6 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
