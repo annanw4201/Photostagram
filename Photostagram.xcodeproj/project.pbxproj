@@ -12,6 +12,10 @@
 		CE15C91B21D0CC95002DBE72 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C91A21D0CC95002DBE72 /* MainTabBarViewController.m */; };
 		CE15C91E21D0D112002DBE72 /* PhotoPickerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C91D21D0D112002DBE72 /* PhotoPickerHelper.m */; };
 		CE15C92121D1F031002DBE72 /* StorageService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C92021D1F031002DBE72 /* StorageService.m */; };
+		CE15C92421D299C6002DBE72 /* PostService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C92321D299C6002DBE72 /* PostService.m */; };
+		CE15C92721D29DB3002DBE72 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C92621D29DB3002DBE72 /* Post.m */; };
+		CE15C92B21D2AE17002DBE72 /* UIImage+size.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C92A21D2AE17002DBE72 /* UIImage+size.m */; };
+		CE15C92E21D2B627002DBE72 /* FIRStorageReference+Post.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C92D21D2B627002DBE72 /* FIRStorageReference+Post.m */; };
 		CE70ECCB21CCAA7F00F3A5F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECCA21CCAA7F00F3A5F6 /* AppDelegate.m */; };
 		CE70ECD121CCAA7F00F3A5F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE70ECCF21CCAA7F00F3A5F6 /* Main.storyboard */; };
 		CE70ECD421CCAA7F00F3A5F6 /* Photostagram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECD221CCAA7F00F3A5F6 /* Photostagram.xcdatamodeld */; };
@@ -65,6 +69,14 @@
 		CE15C91D21D0D112002DBE72 /* PhotoPickerHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoPickerHelper.m; sourceTree = "<group>"; };
 		CE15C91F21D1F031002DBE72 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		CE15C92021D1F031002DBE72 /* StorageService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StorageService.m; sourceTree = "<group>"; };
+		CE15C92221D299C6002DBE72 /* PostService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostService.h; sourceTree = "<group>"; };
+		CE15C92321D299C6002DBE72 /* PostService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostService.m; sourceTree = "<group>"; };
+		CE15C92521D29DB3002DBE72 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		CE15C92621D29DB3002DBE72 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		CE15C92921D2A9C8002DBE72 /* UIImage+size.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+size.h"; sourceTree = "<group>"; };
+		CE15C92A21D2AE17002DBE72 /* UIImage+size.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+size.m"; sourceTree = "<group>"; };
+		CE15C92C21D2B0B4002DBE72 /* FIRStorageReference+Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FIRStorageReference+Post.h"; sourceTree = "<group>"; };
+		CE15C92D21D2B627002DBE72 /* FIRStorageReference+Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FIRStorageReference+Post.m"; sourceTree = "<group>"; };
 		CE70ECC621CCAA7F00F3A5F6 /* Photostagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photostagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE70ECC921CCAA7F00F3A5F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CE70ECCA21CCAA7F00F3A5F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -235,6 +247,10 @@
 			children = (
 				CE70ED2621CF6CB000F3A5F6 /* Storyboard+Utility.h */,
 				CE70ED2721CF6CB000F3A5F6 /* Storyboard+Utility.m */,
+				CE15C92921D2A9C8002DBE72 /* UIImage+size.h */,
+				CE15C92A21D2AE17002DBE72 /* UIImage+size.m */,
+				CE15C92C21D2B0B4002DBE72 /* FIRStorageReference+Post.h */,
+				CE15C92D21D2B627002DBE72 /* FIRStorageReference+Post.m */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -253,6 +269,8 @@
 			children = (
 				CE70ED1121CCD6BF00F3A5F6 /* User.h */,
 				CE70ED1221CCD6BF00F3A5F6 /* User.m */,
+				CE15C92521D29DB3002DBE72 /* Post.h */,
+				CE15C92621D29DB3002DBE72 /* Post.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -264,6 +282,8 @@
 				CE70ED1B21CEA79500F3A5F6 /* UserService.m */,
 				CE15C91F21D1F031002DBE72 /* StorageService.h */,
 				CE15C92021D1F031002DBE72 /* StorageService.m */,
+				CE15C92221D299C6002DBE72 /* PostService.h */,
+				CE15C92321D299C6002DBE72 /* PostService.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -552,8 +572,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE15C92B21D2AE17002DBE72 /* UIImage+size.m in Sources */,
 				CE70ED2E21CF7D8400F3A5F6 /* FriendsViewController.m in Sources */,
 				CE15C91B21D0CC95002DBE72 /* MainTabBarViewController.m in Sources */,
+				CE15C92E21D2B627002DBE72 /* FIRStorageReference+Post.m in Sources */,
 				CE70ED2821CF6CB000F3A5F6 /* Storyboard+Utility.m in Sources */,
 				CE70ED1C21CEA79500F3A5F6 /* UserService.m in Sources */,
 				CE70ED1621CCE11A00F3A5F6 /* CreateUsernameViewController.m in Sources */,
@@ -562,7 +584,9 @@
 				CE70ED1321CCD6BF00F3A5F6 /* User.m in Sources */,
 				CE70ED2B21CF7D7700F3A5F6 /* HomeViewController.m in Sources */,
 				CE70ECDC21CCAA8000F3A5F6 /* main.m in Sources */,
+				CE15C92721D29DB3002DBE72 /* Post.m in Sources */,
 				CE70ECCB21CCAA7F00F3A5F6 /* AppDelegate.m in Sources */,
+				CE15C92421D299C6002DBE72 /* PostService.m in Sources */,
 				CE15C91E21D0D112002DBE72 /* PhotoPickerHelper.m in Sources */,
 				CE70ED1021CCBB4300F3A5F6 /* LoginViewController.m in Sources */,
 			);

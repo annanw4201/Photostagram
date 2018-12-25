@@ -9,6 +9,7 @@
 #import "MainTabBarViewController.h"
 #import "../Supporting/Constants.h"
 #import "../Helpers/PhotoPickerHelper.h"
+#import "../Services/PostService.h"
 
 @interface MainTabBarViewController ()<UITabBarControllerDelegate>
 @property (nonatomic)PhotoPickerHelper *photoPickerHelper;
@@ -22,10 +23,9 @@
     // Do any additional setup after loading the view.
     self.delegate = self;
     self.photoPickerHelper = [[PhotoPickerHelper alloc] init];
-    __block UIImage *selectedImage = nil;
     [self.photoPickerHelper setPickedImageHandler:^(UIImage *image) {
-        NSLog(@"handle image");
-        selectedImage = image;
+        NSLog(@"Create post for the selected image");
+        [PostService createPostForImage:image];
     }];
 }
 

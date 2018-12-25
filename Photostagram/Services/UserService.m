@@ -12,13 +12,14 @@
 #import "../Models/User.h"
 
 @implementation UserService
-+ (void)createUserWithName:(NSString *)username andCallBack:(void (^)(User * _Nonnull user))callBack {
++ (void)createUserWithName:(NSString *)username andCallBack:(void (^)(User *user))callBack {
     FIRUser *firUser = [FIRAuth.auth currentUser];
     FIRDatabaseReference *ref = [[FIRDatabase.database.reference child:@"users"] child:firUser.uid];
     NSDictionary *usernameAttrs = [NSDictionary dictionaryWithObject:username forKey:@"username"];
     [ref setValue:usernameAttrs];
     [ref observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         User *user = [[User alloc] initWithSnapshot:snapshot];
+        if (!user) return callBack(nil);
         callBack(user);
     }];
 }

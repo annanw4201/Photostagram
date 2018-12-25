@@ -31,12 +31,13 @@
 
 - (void)configureInitialViewController {
     NSError *error = nil;
-    NSData *userData = [[NSUserDefaults standardUserDefaults] valueForKey:currentLoggedInUser];
+    NSData *userData = [[NSUserDefaults standardUserDefaults] objectForKey:currentLoggedInUser];
     User *user = [NSKeyedUnarchiver unarchivedObjectOfClass:[User class] fromData:userData error:&error];
     if (error) NSLog(@"Error decoding: %@", error.localizedDescription);
     UIViewController *initialVC = nil;
     if (user) {
         NSLog(@"User logged in, welcome %@", user.username);
+        [User setCurrentUser:user];
         initialVC = [Storyboard_Utility initialViewControllerOfType:storyboardMain];
     }
     else {

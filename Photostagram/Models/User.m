@@ -16,6 +16,7 @@
 
 
 @implementation User
+static User *currentUser = nil;
 
 - (instancetype)initWithUid:(NSString *)uid username:(NSString *)username {
     self.uid = uid;
@@ -61,8 +62,16 @@
         NSError *error = nil;
         NSData *objectData = [NSKeyedArchiver archivedDataWithRootObject:user requiringSecureCoding:YES error:&error];
         if (error) NSLog(@"Error encoding: %@", error.localizedDescription);
-        [[NSUserDefaults standardUserDefaults] setValue:objectData forKey:currentLoggedInUser];
+        [[NSUserDefaults standardUserDefaults] setObject:objectData forKey:currentLoggedInUser];
     }
+}
+
++ (User *)getCurrentUser {
+    return currentUser;
+}
+
++ (void)setCurrentUser:(User *)user {
+    currentUser = user;
 }
 
 @end
