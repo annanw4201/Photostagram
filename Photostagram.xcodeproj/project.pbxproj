@@ -16,17 +16,18 @@
 		CE15C92721D29DB3002DBE72 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C92621D29DB3002DBE72 /* Post.m */; };
 		CE15C92B21D2AE17002DBE72 /* UIImage+size.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C92A21D2AE17002DBE72 /* UIImage+size.m */; };
 		CE15C92E21D2B627002DBE72 /* FIRStorageReference+Post.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C92D21D2B627002DBE72 /* FIRStorageReference+Post.m */; };
+		CE15C93621D2F011002DBE72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE15C93321D2F010002DBE72 /* LaunchScreen.storyboard */; };
+		CE15C93721D2F011002DBE72 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE15C93421D2F011002DBE72 /* Login.storyboard */; };
+		CE15C93821D2F011002DBE72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE15C93521D2F011002DBE72 /* Main.storyboard */; };
+		CE15C93A21D2F0E1002DBE72 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE15C93921D2F0E1002DBE72 /* Home.storyboard */; };
 		CE70ECCB21CCAA7F00F3A5F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECCA21CCAA7F00F3A5F6 /* AppDelegate.m */; };
-		CE70ECD121CCAA7F00F3A5F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE70ECCF21CCAA7F00F3A5F6 /* Main.storyboard */; };
 		CE70ECD421CCAA7F00F3A5F6 /* Photostagram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECD221CCAA7F00F3A5F6 /* Photostagram.xcdatamodeld */; };
 		CE70ECD621CCAA8000F3A5F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE70ECD521CCAA8000F3A5F6 /* Assets.xcassets */; };
-		CE70ECD921CCAA8000F3A5F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE70ECD721CCAA8000F3A5F6 /* LaunchScreen.storyboard */; };
 		CE70ECDC21CCAA8000F3A5F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECDB21CCAA8000F3A5F6 /* main.m */; };
 		CE70ECE621CCAA8100F3A5F6 /* PhotostagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECE521CCAA8100F3A5F6 /* PhotostagramTests.m */; };
 		CE70ECF121CCAA8100F3A5F6 /* PhotostagramUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECF021CCAA8100F3A5F6 /* PhotostagramUITests.m */; };
 		CE70ECFF21CCAFE600F3A5F6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE70ECFE21CCAFE600F3A5F6 /* GoogleService-Info.plist */; };
 		CE70ED0A21CCB51100F3A5F6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE70ED0921CCB51100F3A5F6 /* Default-568h@2x.png */; };
-		CE70ED0D21CCBA3B00F3A5F6 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE70ED0B21CCBA3B00F3A5F6 /* Login.storyboard */; };
 		CE70ED1021CCBB4300F3A5F6 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED0F21CCBB4300F3A5F6 /* LoginViewController.m */; };
 		CE70ED1321CCD6BF00F3A5F6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED1221CCD6BF00F3A5F6 /* User.m */; };
 		CE70ED1621CCE11A00F3A5F6 /* CreateUsernameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED1521CCE11A00F3A5F6 /* CreateUsernameViewController.m */; };
@@ -77,13 +78,15 @@
 		CE15C92A21D2AE17002DBE72 /* UIImage+size.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+size.m"; sourceTree = "<group>"; };
 		CE15C92C21D2B0B4002DBE72 /* FIRStorageReference+Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FIRStorageReference+Post.h"; sourceTree = "<group>"; };
 		CE15C92D21D2B627002DBE72 /* FIRStorageReference+Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FIRStorageReference+Post.m"; sourceTree = "<group>"; };
+		CE15C93321D2F010002DBE72 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CE15C93421D2F011002DBE72 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		CE15C93521D2F011002DBE72 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		CE15C93921D2F0E1002DBE72 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		CE70ECC621CCAA7F00F3A5F6 /* Photostagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photostagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE70ECC921CCAA7F00F3A5F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CE70ECCA21CCAA7F00F3A5F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CE70ECD021CCAA7F00F3A5F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE70ECD321CCAA7F00F3A5F6 /* Photostagram.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Photostagram.xcdatamodel; sourceTree = "<group>"; };
 		CE70ECD521CCAA8000F3A5F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CE70ECD821CCAA8000F3A5F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE70ECDA21CCAA8000F3A5F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE70ECDB21CCAA8000F3A5F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE70ECE121CCAA8100F3A5F6 /* PhotostagramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotostagramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,7 +97,6 @@
 		CE70ECF221CCAA8100F3A5F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE70ECFE21CCAFE600F3A5F6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE70ED0921CCB51100F3A5F6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		CE70ED0C21CCBA3B00F3A5F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		CE70ED0E21CCBB4300F3A5F6 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		CE70ED0F21CCBB4300F3A5F6 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		CE70ED1121CCD6BF00F3A5F6 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -291,9 +293,10 @@
 		CE70ED0621CCB40B00F3A5F6 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				CE70ECD721CCAA8000F3A5F6 /* LaunchScreen.storyboard */,
-				CE70ECCF21CCAA7F00F3A5F6 /* Main.storyboard */,
-				CE70ED0B21CCBA3B00F3A5F6 /* Login.storyboard */,
+				CE15C93321D2F010002DBE72 /* LaunchScreen.storyboard */,
+				CE15C93421D2F011002DBE72 /* Login.storyboard */,
+				CE15C93521D2F011002DBE72 /* Main.storyboard */,
+				CE15C93921D2F0E1002DBE72 /* Home.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -423,12 +426,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE70ECD921CCAA8000F3A5F6 /* LaunchScreen.storyboard in Resources */,
+				CE15C93A21D2F0E1002DBE72 /* Home.storyboard in Resources */,
+				CE15C93721D2F011002DBE72 /* Login.storyboard in Resources */,
 				CE70ECFF21CCAFE600F3A5F6 /* GoogleService-Info.plist in Resources */,
-				CE70ED0D21CCBA3B00F3A5F6 /* Login.storyboard in Resources */,
 				CE70ECD621CCAA8000F3A5F6 /* Assets.xcassets in Resources */,
+				CE15C93621D2F011002DBE72 /* LaunchScreen.storyboard in Resources */,
+				CE15C93821D2F011002DBE72 /* Main.storyboard in Resources */,
 				CE70ED0A21CCB51100F3A5F6 /* Default-568h@2x.png in Resources */,
-				CE70ECD121CCAA7F00F3A5F6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,33 +626,6 @@
 			targetProxy = CE70ECED21CCAA8100F3A5F6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		CE70ECCF21CCAA7F00F3A5F6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE70ECD021CCAA7F00F3A5F6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		CE70ECD721CCAA8000F3A5F6 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE70ECD821CCAA8000F3A5F6 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		CE70ED0B21CCBA3B00F3A5F6 /* Login.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE70ED0C21CCBA3B00F3A5F6 /* Base */,
-			);
-			name = Login.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		CE70ECF321CCAA8100F3A5F6 /* Debug */ = {
