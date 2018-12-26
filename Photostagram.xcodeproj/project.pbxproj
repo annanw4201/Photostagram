@@ -20,6 +20,7 @@
 		CE15C93721D2F011002DBE72 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE15C93421D2F011002DBE72 /* Login.storyboard */; };
 		CE15C93821D2F011002DBE72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE15C93521D2F011002DBE72 /* Main.storyboard */; };
 		CE15C93A21D2F0E1002DBE72 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE15C93921D2F0E1002DBE72 /* Home.storyboard */; };
+		CE15C93E21D34DF3002DBE72 /* postImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C93D21D34DF3002DBE72 /* postImageTableViewCell.m */; };
 		CE70ECCB21CCAA7F00F3A5F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECCA21CCAA7F00F3A5F6 /* AppDelegate.m */; };
 		CE70ECD421CCAA7F00F3A5F6 /* Photostagram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECD221CCAA7F00F3A5F6 /* Photostagram.xcdatamodeld */; };
 		CE70ECD621CCAA8000F3A5F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE70ECD521CCAA8000F3A5F6 /* Assets.xcassets */; };
@@ -81,6 +82,8 @@
 		CE15C93421D2F011002DBE72 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		CE15C93521D2F011002DBE72 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CE15C93921D2F0E1002DBE72 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		CE15C93C21D34DF3002DBE72 /* postImageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = postImageTableViewCell.h; sourceTree = "<group>"; };
+		CE15C93D21D34DF3002DBE72 /* postImageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = postImageTableViewCell.m; sourceTree = "<group>"; };
 		CE70ECC621CCAA7F00F3A5F6 /* Photostagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photostagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE70ECC921CCAA7F00F3A5F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CE70ECCA21CCAA7F00F3A5F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -311,6 +314,8 @@
 		CE70ED0821CCB41E00F3A5F6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE15C93C21D34DF3002DBE72 /* postImageTableViewCell.h */,
+				CE15C93D21D34DF3002DBE72 /* postImageTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -575,6 +580,7 @@
 				CE15C92B21D2AE17002DBE72 /* UIImage+size.m in Sources */,
 				CE70ED2E21CF7D8400F3A5F6 /* FriendsViewController.m in Sources */,
 				CE15C91B21D0CC95002DBE72 /* MainTabBarViewController.m in Sources */,
+				CE15C93E21D34DF3002DBE72 /* postImageTableViewCell.m in Sources */,
 				CE15C92E21D2B627002DBE72 /* FIRStorageReference+Post.m in Sources */,
 				CE70ED2821CF6CB000F3A5F6 /* Storyboard+Utility.m in Sources */,
 				CE70ED1C21CEA79500F3A5F6 /* UserService.m in Sources */,

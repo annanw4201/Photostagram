@@ -14,6 +14,7 @@
 #import "../Models/Post.h"
 #import "../Extensions/UIImage+size.h"
 #import "../Extensions/FIRStorageReference+Post.h"
+#import "../Supporting/Constants.h"
 
 @implementation PostService
 
@@ -34,7 +35,7 @@
     NSString *currentUserUid = currentUser.uid;
     Post *post = [[Post alloc] initWithImageUrl:urlString andImageHeight:aspectHeight];
     NSDictionary *postDictionary = [post dictionary];
-    FIRDatabaseReference *postRef = [[[FIRDatabase.database.reference child:@"posts"] child:currentUserUid] childByAutoId];
+    FIRDatabaseReference *postRef = [[[FIRDatabase.database.reference child:databasePosts] child:currentUserUid] childByAutoId];
     [postRef updateChildValues:postDictionary];
 }
 

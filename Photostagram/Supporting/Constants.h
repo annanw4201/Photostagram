@@ -14,6 +14,8 @@
 #define homeTabBarItemTag 0
 #define photoPickerTabBarItemTag 1
 #define friendsTabBarItemTag 2
+#define databasePosts @"posts"
+#define databaseUsers @"users"
 
 
 #endif /* Constants_h */
