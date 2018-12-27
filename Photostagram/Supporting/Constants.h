@@ -16,6 +16,10 @@
 #define friendsTabBarItemTag 2
 #define databasePosts @"posts"
 #define databaseUsers @"users"
-
+#define postHeaderTableViewCellHeight 56.0
+#define postActionTableViewCellHeight 46.0
+#define postHeaderTableViewCellRow 0
+#define postImageTableViewCellRow 1
+#define postActionTableViewCellRow 2
 
 #endif /* Constants_h */

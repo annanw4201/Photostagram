@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)writeUser:(User *)user toUserDefaults:(BOOL)write;
 + (User *)getCurrentUser;
 + (void)setCurrentUser:(User *)user;
++ (NSString *)getUsername;
 @end
 
 NS_ASSUME_NONNULL_END

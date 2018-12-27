@@ -74,4 +74,8 @@ static User *currentUser = nil;
     currentUser = user;
 }
 
++ (NSString *)getUsername {
+    return currentUser.username;
+}
+
 @end

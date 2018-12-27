@@ -21,6 +21,8 @@
 		CE15C93821D2F011002DBE72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE15C93521D2F011002DBE72 /* Main.storyboard */; };
 		CE15C93A21D2F0E1002DBE72 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE15C93921D2F0E1002DBE72 /* Home.storyboard */; };
 		CE15C93E21D34DF3002DBE72 /* postImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C93D21D34DF3002DBE72 /* postImageTableViewCell.m */; };
+		CE15C94121D453FE002DBE72 /* postHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C94021D453FE002DBE72 /* postHeaderTableViewCell.m */; };
+		CE15C94421D45950002DBE72 /* postActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C94321D45950002DBE72 /* postActionTableViewCell.m */; };
 		CE70ECCB21CCAA7F00F3A5F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECCA21CCAA7F00F3A5F6 /* AppDelegate.m */; };
 		CE70ECD421CCAA7F00F3A5F6 /* Photostagram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECD221CCAA7F00F3A5F6 /* Photostagram.xcdatamodeld */; };
 		CE70ECD621CCAA8000F3A5F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE70ECD521CCAA8000F3A5F6 /* Assets.xcassets */; };
@@ -84,6 +86,10 @@
 		CE15C93921D2F0E1002DBE72 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		CE15C93C21D34DF3002DBE72 /* postImageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = postImageTableViewCell.h; sourceTree = "<group>"; };
 		CE15C93D21D34DF3002DBE72 /* postImageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = postImageTableViewCell.m; sourceTree = "<group>"; };
+		CE15C93F21D453FE002DBE72 /* postHeaderTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = postHeaderTableViewCell.h; sourceTree = "<group>"; };
+		CE15C94021D453FE002DBE72 /* postHeaderTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = postHeaderTableViewCell.m; sourceTree = "<group>"; };
+		CE15C94221D45950002DBE72 /* postActionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = postActionTableViewCell.h; sourceTree = "<group>"; };
+		CE15C94321D45950002DBE72 /* postActionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = postActionTableViewCell.m; sourceTree = "<group>"; };
 		CE70ECC621CCAA7F00F3A5F6 /* Photostagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photostagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE70ECC921CCAA7F00F3A5F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CE70ECCA21CCAA7F00F3A5F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -234,12 +240,12 @@
 				CE70ED0F21CCBB4300F3A5F6 /* LoginViewController.m */,
 				CE70ED1421CCE11A00F3A5F6 /* CreateUsernameViewController.h */,
 				CE70ED1521CCE11A00F3A5F6 /* CreateUsernameViewController.m */,
+				CE15C91921D0CC95002DBE72 /* MainTabBarViewController.h */,
+				CE15C91A21D0CC95002DBE72 /* MainTabBarViewController.m */,
 				CE70ED2921CF7D7700F3A5F6 /* HomeViewController.h */,
 				CE70ED2A21CF7D7700F3A5F6 /* HomeViewController.m */,
 				CE70ED2C21CF7D8400F3A5F6 /* FriendsViewController.h */,
 				CE70ED2D21CF7D8400F3A5F6 /* FriendsViewController.m */,
-				CE15C91921D0CC95002DBE72 /* MainTabBarViewController.h */,
-				CE15C91A21D0CC95002DBE72 /* MainTabBarViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -314,8 +320,12 @@
 		CE70ED0821CCB41E00F3A5F6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE15C93F21D453FE002DBE72 /* postHeaderTableViewCell.h */,
+				CE15C94021D453FE002DBE72 /* postHeaderTableViewCell.m */,
 				CE15C93C21D34DF3002DBE72 /* postImageTableViewCell.h */,
 				CE15C93D21D34DF3002DBE72 /* postImageTableViewCell.m */,
+				CE15C94221D45950002DBE72 /* postActionTableViewCell.h */,
+				CE15C94321D45950002DBE72 /* postActionTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -585,6 +595,7 @@
 				CE70ED2821CF6CB000F3A5F6 /* Storyboard+Utility.m in Sources */,
 				CE70ED1C21CEA79500F3A5F6 /* UserService.m in Sources */,
 				CE70ED1621CCE11A00F3A5F6 /* CreateUsernameViewController.m in Sources */,
+				CE15C94121D453FE002DBE72 /* postHeaderTableViewCell.m in Sources */,
 				CE70ECD421CCAA7F00F3A5F6 /* Photostagram.xcdatamodeld in Sources */,
 				CE15C92121D1F031002DBE72 /* StorageService.m in Sources */,
 				CE70ED1321CCD6BF00F3A5F6 /* User.m in Sources */,
@@ -595,6 +606,7 @@
 				CE15C92421D299C6002DBE72 /* PostService.m in Sources */,
 				CE15C91E21D0D112002DBE72 /* PhotoPickerHelper.m in Sources */,
 				CE70ED1021CCBB4300F3A5F6 /* LoginViewController.m in Sources */,
+				CE15C94421D45950002DBE72 /* postActionTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
