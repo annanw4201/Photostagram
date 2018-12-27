@@ -20,12 +20,14 @@
 
 - (instancetype)initWithSnapshot:(FIRDataSnapshot *)snapshot {
     NSDictionary *snapshotDict = [snapshot value];
+    NSString *key = [snapshot key];
     NSString *imageUrl = [snapshotDict valueForKey:@"image_url"];
     NSString *imageHeight = [snapshotDict valueForKey:@"image_height"];
     NSString *creationDate = [snapshotDict valueForKey:@"creation_date"];
-    if (!imageUrl || !imageHeight || !creationDate) {
+    if (!key || !imageUrl || !imageHeight || !creationDate) {
         return nil;
     }
+    self.key = key;
     self.imageUrl = imageUrl;
     self.imageHeight = [imageHeight floatValue];
     self.creationDate = [NSDate dateWithTimeIntervalSince1970:[creationDate doubleValue]];
@@ -54,6 +56,10 @@
 
 - (NSDate *)getCreationDate {
     return self.creationDate;
+}
+
+- (NSString *)getKey {
+    return self.key;
 }
 
 @end

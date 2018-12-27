@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (User *)getCurrentUser;
 + (void)setCurrentUser:(User *)user;
 + (NSString *)getUsername;
++ (NSString *)getUserUid;
 @end
 
 NS_ASSUME_NONNULL_END

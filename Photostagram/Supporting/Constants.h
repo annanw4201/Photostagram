@@ -21,5 +21,6 @@
 #define postHeaderTableViewCellRow 0
 #define postImageTableViewCellRow 1
 #define postActionTableViewCellRow 2
+#define databasePostLikes @"postLikes"
 
 #endif /* Constants_h */

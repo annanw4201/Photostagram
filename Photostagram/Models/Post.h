@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (CGFloat)getImageHeight;
 - (NSString *)getImageUrl;
 - (NSDate *)getCreationDate;
+- (NSString *)getKey;
 @end
 
 NS_ASSUME_NONNULL_END
