@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface postImageTableViewCell : UITableViewCell
 - (void)setImageForPostImageCellImageView: (UIImage  * _Nullable)image;
+- (void)setImageForPostImageCellImageViewWithUrl: (NSURL *)imageUrl;
 @end
 
 NS_ASSUME_NONNULL_END

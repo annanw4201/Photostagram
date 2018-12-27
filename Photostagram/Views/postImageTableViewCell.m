@@ -7,6 +7,7 @@
 //
 
 #import "postImageTableViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface postImageTableViewCell()
 @property (weak, nonatomic) IBOutlet UIImageView *postImageCellImageView;
@@ -27,6 +28,10 @@
 
 - (void)setImageForPostImageCellImageView: (UIImage * _Nullable)image {
     [self.postImageCellImageView setImage:image];
+}
+
+- (void)setImageForPostImageCellImageViewWithUrl:(NSURL *)imageUrl {
+    [self.postImageCellImageView sd_setImageWithURL:imageUrl placeholderImage:nil];
 }
 
 @end

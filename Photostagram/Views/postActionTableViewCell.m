@@ -28,7 +28,7 @@
 }
 
 - (IBAction)favoriteButtonPressed:(UIButton *)sender {
-    
+    NSLog(@"favorite button pressed");
 }
 
 - (void)setPostTimeLabelText:(NSString *)timeStamp {

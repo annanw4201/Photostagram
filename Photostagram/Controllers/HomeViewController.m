@@ -92,17 +92,21 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"homePostImageCell"];
             [(postImageTableViewCell *)cell setImageForPostImageCellImageView:nil]; // initial image for the post should be blank
         {
-            // use GCD to download images asychronously
-            dispatch_queue_t downloadQueue = dispatch_queue_create("download", nil);
-            dispatch_async(downloadQueue, ^{
-                NSString *urlStringForCurrentRowImage = [postAtCurrentSection getImageUrl];
-                UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:urlStringForCurrentRowImage]]];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    if (currentSection == indexPath.section) {
-                        [(postImageTableViewCell *)cell setImageForPostImageCellImageView:image];
-                    }
-                });
-            });
+//            // use GCD to download images asychronously
+//            dispatch_queue_t downloadQueue = dispatch_queue_create("download", nil);
+//            dispatch_async(downloadQueue, ^{
+//                NSString *urlStringForCurrentSectionImage = [postAtCurrentSection getImageUrl];
+//                NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlStringForCurrentSectionImage]];
+//                UIImage *image = [UIImage imageWithData: imageData];
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    if (currentSection == indexPath.section) {
+//                        [(postImageTableViewCell *)cell setImageForPostImageCellImageView:image];
+//                    }
+//                });
+//            });
+            NSString *urlStringForCurrentSectionImage = [postAtCurrentSection getImageUrl];
+            NSURL *imageUrl = [NSURL URLWithString:urlStringForCurrentSectionImage];
+            [(postImageTableViewCell *)cell setImageForPostImageCellImageViewWithUrl:imageUrl];
         }
             break;
         case postActionTableViewCellRow:

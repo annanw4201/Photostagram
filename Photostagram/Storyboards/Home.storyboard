@@ -35,13 +35,16 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oua-gC-plE">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oua-gC-plE" userLabel="optionButton">
                                                     <rect key="frame" x="329" y="5" width="46" height="46"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="46" id="4ra-2e-CxV"/>
                                                         <constraint firstAttribute="width" constant="46" id="8fS-N5-gQ6"/>
                                                     </constraints>
                                                     <state key="normal" image="btn_options_black"/>
+                                                    <connections>
+                                                        <action selector="optionButtonPressed:" destination="yp0-V3-rpa" eventType="touchUpInside" id="Bb2-XB-mqN"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -86,7 +89,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="45.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kck-og-cDf">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kck-og-cDf" userLabel="favoriteButton">
                                                     <rect key="frame" x="2" y="10" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="kck-og-cDf" secondAttribute="height" multiplier="1:1" id="VSa-xa-dNL"/>
