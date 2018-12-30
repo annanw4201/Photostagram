@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Post : NSObject
 - (instancetype)initWithImageUrl:(NSString *)imageUrl andImageHeight:(CGFloat)imageHeight;
-- (NSDictionary *)dictionary;
+- (NSDictionary *)getPostDictionary;
 - (instancetype)initWithSnapshot:(FIRDataSnapshot *)snapshot;
 - (CGFloat)getImageHeight;
 - (NSString *)getImageUrl;

@@ -34,7 +34,7 @@
     User *currentUser = [User getCurrentUser];
     NSString *currentUserUid = currentUser.uid;
     Post *post = [[Post alloc] initWithImageUrl:urlString andImageHeight:aspectHeight];
-    NSDictionary *postDictionary = [post dictionary];
+    NSDictionary *postDictionary = [post getPostDictionary];
     FIRDatabaseReference *postRef = [[[FIRDatabase.database.reference child:databasePosts] child:currentUserUid] childByAutoId];
     [postRef updateChildValues:postDictionary];
 }

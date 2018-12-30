@@ -24,7 +24,7 @@
     self.delegate = self;
     self.photoPickerHelper = [[PhotoPickerHelper alloc] init];
     [self.photoPickerHelper setPickedImageHandler:^(UIImage *image) {
-        NSLog(@"Create post for the selected image");
+        NSLog(@"Create post for the selected image:%@", image);
         [PostService createPostForImage:image];
     }];
 }

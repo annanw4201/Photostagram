@@ -135,8 +135,9 @@
             break;
         case postImageTableViewCellRow:
         {
-            Post *postAtCurrentRow = [self.postArray objectAtIndex:indexPath.row];
-            height = [postAtCurrentRow getImageHeight];
+            NSInteger currentSection = [indexPath section];
+            Post *postAtCurrentSection = [self.postArray objectAtIndex:currentSection];
+            height = [postAtCurrentSection getImageHeight];
         }
             break;
         case postActionTableViewCellRow:
