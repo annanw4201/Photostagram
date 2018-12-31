@@ -12,6 +12,7 @@
 @interface postActionTableViewCell()
 @property (weak, nonatomic) IBOutlet UILabel *likesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *postTimeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *likeButton;
 @end
 
 @implementation postActionTableViewCell
@@ -27,8 +28,9 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)favoriteButtonPressed:(UIButton *)sender {
-    NSLog(@"favorite button pressed");
+- (IBAction)likeButtonPressed:(UIButton *)sender {
+    NSLog(@"like button pressed");
+    [self.delegate likeButtonPressed:sender onActionCell:self];
 }
 
 - (void)setPostTimeLabelText:(NSString *)timeStamp {
@@ -37,6 +39,10 @@
 
 - (void)setLikesLabelText:(NSString *)likeCounts {
     [self.likesLabel setText:likeCounts];
+}
+
+- (void)setLikeButtonSelected:(BOOL)selected {
+    [self.likeButton setSelected:selected];
 }
 
 + (CGFloat)getHeight {

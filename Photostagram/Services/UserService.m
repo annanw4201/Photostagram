@@ -12,6 +12,7 @@
 #import "../Models/User.h"
 #import "../Models/Post.h"
 #import "../Supporting/Constants.h"
+#import "LikeService.h"
 
 @implementation UserService
 
@@ -49,12 +50,21 @@
             callBack(nil);
         }
         else {
+            dispatch_group_t dispatchGroup = dispatch_group_create();
+            
             NSMutableArray *postArray = [NSMutableArray arrayWithCapacity:[snapshotArray count]];
             for (FIRDataSnapshot *s in [snapshotArray reverseObjectEnumerator]) {
                 Post *post = [[Post alloc] initWithSnapshot:s];
-                [postArray addObject:post];
+                dispatch_group_enter(dispatchGroup);
+                [LikeService isPostLikedForPost:post andCallBack:^(BOOL liked) {
+                    [post setCurrentUserLikedThisPost:liked];
+                    [postArray addObject:post];
+                    dispatch_group_leave(dispatchGroup);
+                }];
             }
-            callBack(postArray);
+            dispatch_group_notify(dispatchGroup, dispatch_get_main_queue(), ^{
+                callBack(postArray);
+            });
         }
     }];
 }

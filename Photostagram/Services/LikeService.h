@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LikeService : NSObject
 + (void)createLikeForPost:(Post *)post andCallBack:(void(^)(BOOL success))callBack;
 + (void)unLikePost:(Post *)post andCallBack:(void(^)(BOOL success))callBack;
++ (void)isPostLikedForPost:(Post *)post andCallBack:(void(^)(BOOL liked))callBack;
 @end
 
 NS_ASSUME_NONNULL_END

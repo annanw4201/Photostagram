@@ -14,8 +14,9 @@
 #import "../Views/postHeaderTableViewCell.h"
 #import "../Views/postActionTableViewCell.h"
 #import "../Supporting/Constants.h"
+#import "../Services/LikeService.h"
 
-@interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource, postActionTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *homeTableView;
 @property (strong, nonatomic) NSArray *postArray;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
@@ -111,13 +112,20 @@
             break;
         case postActionTableViewCellRow:
             cell = [tableView dequeueReusableCellWithIdentifier:@"homePostActionCell"];
-            [(postActionTableViewCell *)cell setPostTimeLabelText:[self timeStampOfPost:postAtCurrentSection]];
-            [(postActionTableViewCell *)cell setLikesLabelText:[postAtCurrentSection getLikeCounts]];
+            [(postActionTableViewCell *)cell setDelegate:self];
+            [self configureActionCell:cell withPost:postAtCurrentSection];
             break;
         default:
             break;
     }
     return cell;
+}
+
+- (void)configureActionCell:(UITableViewCell *)cell withPost:(Post *)post {
+    postActionTableViewCell *actionCell = (postActionTableViewCell *)cell;
+    [actionCell setPostTimeLabelText:[self timeStampOfPost:post]];
+    [actionCell setLikesLabelText:[post getLikeCounts]];
+    [actionCell setLikeButtonSelected:[post getCurrentUserLikedThisPost]];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -160,5 +168,33 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma postActionTableViewCellDelegate
+- (void)likeButtonPressed:(nonnull UIButton *)likeButton onActionCell:(nonnull postActionTableViewCell *)postActionTableViewCell {
+    NSInteger section = [self.homeTableView indexPathForCell:postActionTableViewCell].section;
+    Post *currentPostAtSection = [self.postArray objectAtIndex:section];
+    if ([currentPostAtSection getCurrentUserLikedThisPost]) {
+        [LikeService unLikePost:currentPostAtSection andCallBack:^(BOOL success) {
+            if (success) {
+                NSInteger oldLikeCounts = [[currentPostAtSection getLikeCounts] integerValue];
+                NSInteger newLikeCounts = oldLikeCounts - 1;
+                [currentPostAtSection setLikeCounts:[NSString stringWithFormat:@"%ld", (long)newLikeCounts]];
+                [currentPostAtSection setCurrentUserLikedThisPost:NO];
+                [self configureActionCell:postActionTableViewCell withPost:currentPostAtSection];
+            }
+        }];
+    }
+    else {
+        [LikeService createLikeForPost:currentPostAtSection andCallBack:^(BOOL success) {
+            if (success) {
+                NSInteger oldLikeCounts = [[currentPostAtSection getLikeCounts] integerValue];
+                NSInteger newLikeCounts = oldLikeCounts + 1;
+                [currentPostAtSection setLikeCounts:[NSString stringWithFormat:@"%ld", (long)newLikeCounts]];
+                [currentPostAtSection setCurrentUserLikedThisPost:YES];
+                [self configureActionCell:postActionTableViewCell withPost:currentPostAtSection];
+            }
+        }];
+    }
+}
 
 @end

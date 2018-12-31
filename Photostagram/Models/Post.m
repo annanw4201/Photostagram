@@ -18,6 +18,7 @@
 @property(nonatomic)NSString *uid;
 @property(nonatomic)NSString *username;
 @property(nonatomic)NSString *likeCounts;
+@property(nonatomic)BOOL currentUserLikedThisPost;
 @end
 
 @implementation Post
@@ -52,6 +53,7 @@
     _likeCounts = @"0";
     _uid = [User getUserUid];
     _username = [User getUsername];
+    _currentUserLikedThisPost = NO;
     return self;
 }
 
@@ -60,7 +62,8 @@
     return [NSDictionary dictionaryWithObjectsAndKeys:self.imageUrl, @"image_url",
             [NSString stringWithFormat:@"%f", self.imageHeight], @"image_height",
             [NSString stringWithFormat:@"%f", createdDate], @"creation_date",
-            self.uid, @"uid", self.username, @"username", self.likeCounts, @"like_counts", nil];
+            self.uid, @"uid", self.username, @"username", self.likeCounts, @"like_counts",
+            [NSString stringWithFormat:@"%d", self.currentUserLikedThisPost], @"current_user_like_this_post", nil];
 }
 
 - (CGFloat)getImageHeight {
@@ -89,6 +92,18 @@
 
 - (NSString *)getLikeCounts {
     return self.likeCounts;
+}
+
+- (void)setLikeCounts:(NSString *)likeCounts {
+    _likeCounts = likeCounts;
+}
+
+- (BOOL)getCurrentUserLikedThisPost {
+    return self.currentUserLikedThisPost;
+}
+
+- (void)setCurrentUserLikedThisPost:(BOOL)currentUserLikedThisPost {
+    _currentUserLikedThisPost = currentUserLikedThisPost;
 }
 
 @end

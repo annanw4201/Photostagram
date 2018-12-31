@@ -30,8 +30,8 @@
             else {
                 // get post's like counts and increment by 1
                 FIRDatabaseReference *likeCountsRef = [[[[FIRDatabase.database.reference child:databasePosts] child:[post getPosterUid]] child:postKey] child:@"like_counts"];
-                [likeCountsRef runTransactionBlock:^FIRTransactionResult * _Nonnull(FIRMutableData * _Nonnull currentData) {
-                    NSInteger likeCounts = [[currentData value] integerValue];
+                [likeCountsRef runTransactionBlock:^FIRTransactionResult * _Nonnull(FIRMutableData * currentData) {
+                    NSInteger likeCounts = currentData.value == [NSNull null] ? 0 : [[currentData value] integerValue];
                     likeCounts++;
                     currentData.value = [NSString stringWithFormat:@"%ld", (long)likeCounts];
                     return [FIRTransactionResult successWithValue:currentData];
@@ -67,8 +67,9 @@
             else {
                 FIRDatabaseReference *postRef = [[[[FIRDatabase.database.reference child:databasePosts] child:currentUserUid] child:postKey] child:@"like_counts"];
                 [postRef runTransactionBlock:^FIRTransactionResult * _Nonnull(FIRMutableData * _Nonnull currentData) {
-                    NSInteger likeCounts = [currentData.value integerValue];
+                    NSInteger likeCounts = currentData.value == [NSNull null] ? 0 : [[currentData value] integerValue];
                     likeCounts--;
+                    likeCounts = likeCounts <= 0 ? 0 : likeCounts;
                     currentData.value = [NSString stringWithFormat:@"%ld", (long)likeCounts];
                     return [FIRTransactionResult successWithValue:currentData];
                 } andCompletionBlock:^(NSError * _Nullable error, BOOL committed, FIRDataSnapshot * _Nullable snapshot) {
@@ -80,6 +81,27 @@
                         callBack(YES);
                     }
                 }];
+            }
+        }];
+    }
+    else {
+        callBack(NO);
+    }
+}
+
++ (void)isPostLikedForPost:(Post *)post andCallBack:(void (^)(BOOL liked))callBack {
+    NSString *postKey = [post getKey];
+    NSString *currentUserUid = [User getUserUid];
+    if (postKey) {
+        FIRDatabaseReference *postLikeRef = [[[FIRDatabase.database.reference child:databasePostLikes] child:postKey] child:currentUserUid];
+        [postLikeRef observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+            NSString *currentUserLikedPost = snapshot.value;
+            NSLog(@"%@: currentUserLikedPost:%@", NSStringFromClass([self class]), currentUserLikedPost);
+            if (![currentUserLikedPost isEqual:[NSNull null]]) {
+                callBack(YES);
+            }
+            else {
+                callBack(NO);
             }
         }];
     }

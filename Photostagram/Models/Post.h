@@ -24,6 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)getPosterUid;
 - (NSString *)getPosterUsername;
 - (NSString *)getLikeCounts;
+- (BOOL)getCurrentUserLikedThisPost;
+- (void)setCurrentUserLikedThisPost:(BOOL)currentUserLikedThisPost;
+- (void)setLikeCounts:(NSString *)likeCounts;
 @end
 
 NS_ASSUME_NONNULL_END

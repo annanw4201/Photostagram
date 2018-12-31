@@ -89,14 +89,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="45.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kck-og-cDf" userLabel="favoriteButton">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kck-og-cDf" userLabel="likeButton">
                                                     <rect key="frame" x="20" y="10" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="kck-og-cDf" secondAttribute="height" multiplier="1:1" id="VSa-xa-dNL"/>
                                                     </constraints>
                                                     <state key="normal" image="btn_heart_black_outline"/>
+                                                    <state key="selected" image="btn_heart_red_solid"/>
                                                     <connections>
-                                                        <action selector="favoriteButtonPressed:" destination="dbT-uh-IQZ" eventType="touchUpInside" id="Q0O-4m-ELG"/>
+                                                        <action selector="likeButtonPressed:" destination="dbT-uh-IQZ" eventType="touchUpInside" id="w5i-pB-nen"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="36 minutes ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFw-zR-18c">
@@ -133,6 +134,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="likeButton" destination="kck-og-cDf" id="d4E-Mp-z49"/>
                                             <outlet property="likesLabel" destination="KmU-Su-aZL" id="11v-5V-E48"/>
                                             <outlet property="postTimeLabel" destination="CFw-zR-18c" id="cYC-YV-MSl"/>
                                         </connections>
@@ -184,6 +186,7 @@
     </scenes>
     <resources>
         <image name="btn_heart_black_outline" width="24" height="24"/>
+        <image name="btn_heart_red_solid" width="24" height="24"/>
         <image name="btn_options_black" width="24" height="24"/>
         <image name="tab_home_black" width="25" height="25"/>
     </resources>
