@@ -24,6 +24,7 @@
 		CE15C94121D453FE002DBE72 /* postHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C94021D453FE002DBE72 /* postHeaderTableViewCell.m */; };
 		CE15C94421D45950002DBE72 /* postActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C94321D45950002DBE72 /* postActionTableViewCell.m */; };
 		CE15C94721D49CB2002DBE72 /* LikeService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C94621D49CB2002DBE72 /* LikeService.m */; };
+		CE15C94A21DA8C11002DBE72 /* FollowService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C94921DA8C11002DBE72 /* FollowService.m */; };
 		CE70ECCB21CCAA7F00F3A5F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECCA21CCAA7F00F3A5F6 /* AppDelegate.m */; };
 		CE70ECD421CCAA7F00F3A5F6 /* Photostagram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECD221CCAA7F00F3A5F6 /* Photostagram.xcdatamodeld */; };
 		CE70ECD621CCAA8000F3A5F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE70ECD521CCAA8000F3A5F6 /* Assets.xcassets */; };
@@ -93,6 +94,8 @@
 		CE15C94321D45950002DBE72 /* postActionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = postActionTableViewCell.m; sourceTree = "<group>"; };
 		CE15C94521D49CB2002DBE72 /* LikeService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LikeService.h; sourceTree = "<group>"; };
 		CE15C94621D49CB2002DBE72 /* LikeService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LikeService.m; sourceTree = "<group>"; };
+		CE15C94821DA8C11002DBE72 /* FollowService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FollowService.h; sourceTree = "<group>"; };
+		CE15C94921DA8C11002DBE72 /* FollowService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FollowService.m; sourceTree = "<group>"; };
 		CE70ECC621CCAA7F00F3A5F6 /* Photostagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photostagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE70ECC921CCAA7F00F3A5F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CE70ECCA21CCAA7F00F3A5F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -297,6 +300,8 @@
 				CE15C92321D299C6002DBE72 /* PostService.m */,
 				CE15C94521D49CB2002DBE72 /* LikeService.h */,
 				CE15C94621D49CB2002DBE72 /* LikeService.m */,
+				CE15C94821DA8C11002DBE72 /* FollowService.h */,
+				CE15C94921DA8C11002DBE72 /* FollowService.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -608,6 +613,7 @@
 				CE15C92121D1F031002DBE72 /* StorageService.m in Sources */,
 				CE70ED1321CCD6BF00F3A5F6 /* User.m in Sources */,
 				CE70ED2B21CF7D7700F3A5F6 /* HomeViewController.m in Sources */,
+				CE15C94A21DA8C11002DBE72 /* FollowService.m in Sources */,
 				CE70ECDC21CCAA8000F3A5F6 /* main.m in Sources */,
 				CE15C92721D29DB3002DBE72 /* Post.m in Sources */,
 				CE70ECCB21CCAA7F00F3A5F6 /* AppDelegate.m in Sources */,

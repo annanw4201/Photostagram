@@ -66,6 +66,14 @@ static User *currentUser = nil;
     }
 }
 
+- (NSString *)getUserUid {
+    return self.uid;
+}
+
+- (NSString *)getUsername {
+    return self.username;
+}
+
 + (User *)getCurrentUser {
     return currentUser;
 }

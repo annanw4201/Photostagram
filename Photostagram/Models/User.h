@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithSnapshot:(FIRDataSnapshot *)snapshot;
 - (instancetype)initWithUid:(NSString *)uid username:(NSString *)username;
 - (void)writeUser:(User *)user toUserDefaults:(BOOL)write;
+- (NSString *)getUserUid;
+- (NSString *)getUsername;
 + (User *)getCurrentUser;
 + (void)setCurrentUser:(User *)user;
 + (NSString *)getUsername;
