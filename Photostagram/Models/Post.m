@@ -79,4 +79,16 @@
     return self.key;
 }
 
+- (NSString *)getPosterUid {
+    return self.uid;
+}
+
+- (NSString *)getPosterUsername {
+    return self.username;
+}
+
+- (NSString *)getLikeCounts {
+    return self.likeCounts;
+}
+
 @end

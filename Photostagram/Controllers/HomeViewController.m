@@ -112,6 +112,7 @@
         case postActionTableViewCellRow:
             cell = [tableView dequeueReusableCellWithIdentifier:@"homePostActionCell"];
             [(postActionTableViewCell *)cell setPostTimeLabelText:[self timeStampOfPost:postAtCurrentSection]];
+            [(postActionTableViewCell *)cell setLikesLabelText:[postAtCurrentSection getLikeCounts]];
             break;
         default:
             break;

@@ -35,6 +35,10 @@
     [self.postTimeLabel setText:timeStamp];
 }
 
+- (void)setLikesLabelText:(NSString *)likeCounts {
+    [self.likesLabel setText:likeCounts];
+}
+
 + (CGFloat)getHeight {
     return postActionTableViewCellHeight;
 }

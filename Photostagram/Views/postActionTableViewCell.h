@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface postActionTableViewCell : UITableViewCell
 - (void)setPostTimeLabelText: (NSString *)timeStamp;
+- (void)setLikesLabelText: (NSString *)likeCounts;
 + (CGFloat)getHeight;
 @end
 

@@ -15,19 +15,35 @@
 @implementation LikeService
 
 // push currentUserUid into path: root/databasePostLikes/postKey/, and
-//  set value of currentUserUid to be TRUE
+//  set value of currentUserUid to be TRUE. Then increment poster's like counts by 1
 + (void)createLikeForPost:(Post *)post andCallBack:(void (^)(BOOL))callBack {
     NSString *postKey = [post getKey];
     NSString *currentUserUid = [User getUserUid];
     if (postKey) {
-        FIRDatabaseReference *likesRef = [[[FIRDatabase.database.reference child:databasePostLikes] child:postKey] child:currentUserUid];
-        [likesRef setValue:@"TRUE" withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+        // create post like
+        FIRDatabaseReference *postLikesRef = [[[FIRDatabase.database.reference child:databasePostLikes] child:postKey] child:currentUserUid];
+        [postLikesRef setValue:@"TRUE" withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
             if (error) {
                 NSLog(@"Error setValue for likeRef: %@", error.localizedDescription);
                 callBack(NO);
             }
             else {
-                callBack(YES);
+                // get post's like counts and increment by 1
+                FIRDatabaseReference *likeCountsRef = [[[[FIRDatabase.database.reference child:databasePosts] child:[post getPosterUid]] child:postKey] child:@"like_counts"];
+                [likeCountsRef runTransactionBlock:^FIRTransactionResult * _Nonnull(FIRMutableData * _Nonnull currentData) {
+                    NSInteger likeCounts = [[currentData value] integerValue];
+                    likeCounts++;
+                    currentData.value = [NSString stringWithFormat:@"%ld", (long)likeCounts];
+                    return [FIRTransactionResult successWithValue:currentData];
+                } andCompletionBlock:^(NSError * _Nullable error, BOOL committed, FIRDataSnapshot * _Nullable snapshot) {
+                    if (error) {
+                        NSLog(@"%@: Error increment the like counts in transaction: %@", [self class], error.localizedDescription);
+                        callBack(NO);
+                    }
+                    else {
+                        callBack(YES);
+                    }
+                }];
             }
         }];
     }
@@ -36,19 +52,34 @@
     }
 }
 
-// remove currentUserUid at path: root/databasePostLikes/postKey/
+// remove currentUserUid at path: root/databasePostLikes/postKey/ and then
+//  decrement poster's like counts by 1
 + (void)unLikePost:(Post *)post andCallBack :(void (^)(BOOL))callBack {
     NSString *postKey = [post getKey];
     NSString *currentUserUid = [User getUserUid];
     if (postKey) {
-        FIRDatabaseReference *likeRef = [[[FIRDatabase.database.reference child:databasePostLikes] child:postKey] child:currentUserUid];
-        [likeRef removeValueWithCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+        FIRDatabaseReference *postLikeRef = [[[FIRDatabase.database.reference child:databasePostLikes] child:postKey] child:currentUserUid];
+        [postLikeRef removeValueWithCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
             if (error) {
                 NSLog(@"Error unlike post: %@", error.localizedDescription);
                 callBack(NO);
             }
             else {
-                callBack(YES);
+                FIRDatabaseReference *postRef = [[[[FIRDatabase.database.reference child:databasePosts] child:currentUserUid] child:postKey] child:@"like_counts"];
+                [postRef runTransactionBlock:^FIRTransactionResult * _Nonnull(FIRMutableData * _Nonnull currentData) {
+                    NSInteger likeCounts = [currentData.value integerValue];
+                    likeCounts--;
+                    currentData.value = [NSString stringWithFormat:@"%ld", (long)likeCounts];
+                    return [FIRTransactionResult successWithValue:currentData];
+                } andCompletionBlock:^(NSError * _Nullable error, BOOL committed, FIRDataSnapshot * _Nullable snapshot) {
+                    if (error) {
+                        NSLog(@"%@: Error decrement the like counts in transaction: %@", [self class], error.localizedDescription);
+                        callBack(NO);
+                    }
+                    else {
+                        callBack(YES);
+                    }
+                }];
             }
         }];
     }

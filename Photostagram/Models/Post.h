@@ -21,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)getImageUrl;
 - (NSDate *)getCreationDate;
 - (NSString *)getKey;
+- (NSString *)getPosterUid;
+- (NSString *)getPosterUsername;
+- (NSString *)getLikeCounts;
 @end
 
 NS_ASSUME_NONNULL_END
