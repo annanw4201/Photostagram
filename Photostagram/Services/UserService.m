@@ -31,7 +31,7 @@
 }
 
 // retrieve existing user data from Firedatabase and create a user model
-+ (void)retrieveExistingUserModelWithUid:(NSString *)uid andCallBack:(void (^)(User *))callBack {
++ (void)retrieveExistingUserWithUid:(NSString *)uid andCallBack:(void (^)(User *))callBack {
     FIRDatabaseReference *ref = [[FIRDatabase.database.reference child:databaseUsers] child:uid];
     [ref observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         User *user = [[User alloc] initWithSnapshot:snapshot];

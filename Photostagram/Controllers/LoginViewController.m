@@ -37,7 +37,7 @@
         return;
     }
     
-    [UserService retrieveExistingUserModelWithUid:authDataResult.user.uid andCallBack:^(User *user) {
+    [UserService retrieveExistingUserWithUid:authDataResult.user.uid andCallBack:^(User *user) {
         if (user) {
             NSLog(@"Welcome back: %@, direct to MainVC", user.username);
             [User setCurrentUser:user];
