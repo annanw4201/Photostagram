@@ -1,8 +1,8 @@
 //
-//  FriendsViewController.h
+//  FriendsTableViewController.h
 //  Photostagram
 //
-//  Created by Wong Tom on 2018-12-23.
+//  Created by Wong Tom on 2018-12-31.
 //  Copyright © 2018 Wang Tom. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FriendsViewController : UIViewController
+@interface FriendsTableViewController : UITableViewController
 
 @end
 

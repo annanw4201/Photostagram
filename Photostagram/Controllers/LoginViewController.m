@@ -39,7 +39,7 @@
     
     [UserService retrieveExistingUserWithUid:authDataResult.user.uid andCallBack:^(User *user) {
         if (user) {
-            NSLog(@"Welcome back: %@, direct to MainVC", user.username);
+            NSLog(@"Welcome back: %@, direct to MainVC", [user getUsername]);
             [User setCurrentUser:user];
             [user writeUser:user toUserDefaults:YES];
             UIViewController *initialVC = [UIStoryboard initialViewControllerOfType:storyboardMain];

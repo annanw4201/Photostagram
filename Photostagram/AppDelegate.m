@@ -36,7 +36,7 @@
     if (error) NSLog(@"Error decoding: %@", error.localizedDescription);
     UIViewController *initialVC = nil;
     if (user) {
-        NSLog(@"User logged in, welcome %@", user.username);
+        NSLog(@"User logged in, welcome %@", [user getUsername]);
         [User setCurrentUser:user];
         initialVC = [UIStoryboard initialViewControllerOfType:storyboardMain];
     }

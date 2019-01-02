@@ -13,6 +13,7 @@
 #import "../Models/Post.h"
 #import "../Supporting/Constants.h"
 #import "LikeService.h"
+#import "../Services/FollowService.h"
 
 @implementation UserService
 
@@ -42,7 +43,7 @@
 
 // retrieve the posts of the specified user and callBack return an array of the posts
 + (void)retrievePostsForUser:(User *)user withCallBack:(void (^)(NSArray *posts))callBack {
-    NSString *userUid = user.uid;
+    NSString *userUid = [user getUserUid];
     FIRDatabaseReference *ref = [[FIRDatabase.database.reference child:databasePosts] child:userUid];
     [ref observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         NSArray *snapshotArray = [snapshot.children allObjects];
@@ -66,6 +67,36 @@
                 callBack(postArray);
             });
         }
+    }];
+}
+
+// fetch all users on current device except the current logged in user
++ (void)fetchUsersExceptCurrentUser:(void (^)(NSArray * _Nonnull))callBack {
+    User *currentUser = [User getCurrentUser];
+    FIRDatabaseReference *ref = [FIRDatabase.database.reference child:databaseUsers];
+    
+    [ref observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSArray *snapShotArray = snapshot.children.allObjects;
+        if (!snapShotArray) {
+            callBack([NSArray array]);
+        }
+        
+        dispatch_group_t dispatchGroup = dispatch_group_create();
+        NSMutableArray *userArray = [NSMutableArray arrayWithCapacity:snapShotArray.count];
+        for (FIRDataSnapshot *s in snapShotArray) {
+            User *user = [[User alloc] initWithSnapshot:s];
+            if (![[user getUserUid] isEqualToString:[currentUser getUserUid]]) {
+                dispatch_group_enter(dispatchGroup);
+                [FollowService checkIsUserFollowed:user forCurrentUserAndCallBack:^(BOOL isFollowed) {
+                    [user setIsFollowed:isFollowed];
+                    [userArray addObject:user];
+                    dispatch_group_leave(dispatchGroup);
+                }];
+            }
+        }
+        dispatch_group_notify(dispatchGroup, dispatch_get_main_queue(), ^{
+            callBack(userArray);
+        });
     }];
 }
 

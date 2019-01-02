@@ -13,14 +13,14 @@ NS_ASSUME_NONNULL_BEGIN
 @class FIRDataSnapshot;
 
 @interface User : NSObject
-@property(nonatomic, strong) NSString *uid;
-@property(nonatomic, strong) NSString *username;
-
 - (instancetype)initWithSnapshot:(FIRDataSnapshot *)snapshot;
 - (instancetype)initWithUid:(NSString *)uid username:(NSString *)username;
 - (void)writeUser:(User *)user toUserDefaults:(BOOL)write;
 - (NSString *)getUserUid;
 - (NSString *)getUsername;
+- (BOOL)getIsFollowed;
+- (void)setIsFollowed:(BOOL)isFollowed;
+
 + (User *)getCurrentUser;
 + (void)setCurrentUser:(User *)user;
 + (NSString *)getUsername;

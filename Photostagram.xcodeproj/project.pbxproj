@@ -25,6 +25,9 @@
 		CE15C94421D45950002DBE72 /* postActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C94321D45950002DBE72 /* postActionTableViewCell.m */; };
 		CE15C94721D49CB2002DBE72 /* LikeService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C94621D49CB2002DBE72 /* LikeService.m */; };
 		CE15C94A21DA8C11002DBE72 /* FollowService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C94921DA8C11002DBE72 /* FollowService.m */; };
+		CE15C94C21DAA793002DBE72 /* Friends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE15C94B21DAA793002DBE72 /* Friends.storyboard */; };
+		CE15C94F21DAA866002DBE72 /* FriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C94E21DAA866002DBE72 /* FriendsTableViewController.m */; };
+		CE15C95221DAA903002DBE72 /* friendsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C95121DAA903002DBE72 /* friendsTableViewCell.m */; };
 		CE70ECCB21CCAA7F00F3A5F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECCA21CCAA7F00F3A5F6 /* AppDelegate.m */; };
 		CE70ECD421CCAA7F00F3A5F6 /* Photostagram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE70ECD221CCAA7F00F3A5F6 /* Photostagram.xcdatamodeld */; };
 		CE70ECD621CCAA8000F3A5F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE70ECD521CCAA8000F3A5F6 /* Assets.xcassets */; };
@@ -38,7 +41,6 @@
 		CE70ED1C21CEA79500F3A5F6 /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED1B21CEA79500F3A5F6 /* UserService.m */; };
 		CE70ED2821CF6CB000F3A5F6 /* Storyboard+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED2721CF6CB000F3A5F6 /* Storyboard+Utility.m */; };
 		CE70ED2B21CF7D7700F3A5F6 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED2A21CF7D7700F3A5F6 /* HomeViewController.m */; };
-		CE70ED2E21CF7D8400F3A5F6 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED2D21CF7D8400F3A5F6 /* FriendsViewController.m */; };
 		EABADEBBD88DA404E92D6681 /* Pods_PhotostagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B901A2CCD8C9C71D7299B788 /* Pods_PhotostagramUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +98,11 @@
 		CE15C94621D49CB2002DBE72 /* LikeService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LikeService.m; sourceTree = "<group>"; };
 		CE15C94821DA8C11002DBE72 /* FollowService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FollowService.h; sourceTree = "<group>"; };
 		CE15C94921DA8C11002DBE72 /* FollowService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FollowService.m; sourceTree = "<group>"; };
+		CE15C94B21DAA793002DBE72 /* Friends.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Friends.storyboard; sourceTree = "<group>"; };
+		CE15C94D21DAA866002DBE72 /* FriendsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsTableViewController.h; sourceTree = "<group>"; };
+		CE15C94E21DAA866002DBE72 /* FriendsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsTableViewController.m; sourceTree = "<group>"; };
+		CE15C95021DAA903002DBE72 /* friendsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = friendsTableViewCell.h; sourceTree = "<group>"; };
+		CE15C95121DAA903002DBE72 /* friendsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = friendsTableViewCell.m; sourceTree = "<group>"; };
 		CE70ECC621CCAA7F00F3A5F6 /* Photostagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photostagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE70ECC921CCAA7F00F3A5F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CE70ECCA21CCAA7F00F3A5F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -123,8 +130,6 @@
 		CE70ED2721CF6CB000F3A5F6 /* Storyboard+Utility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Storyboard+Utility.m"; sourceTree = "<group>"; };
 		CE70ED2921CF7D7700F3A5F6 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		CE70ED2A21CF7D7700F3A5F6 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		CE70ED2C21CF7D8400F3A5F6 /* FriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
-		CE70ED2D21CF7D8400F3A5F6 /* FriendsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
 		FF47876A985641C61B7745D3 /* Pods-Photostagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photostagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Photostagram/Pods-Photostagram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -250,8 +255,8 @@
 				CE15C91A21D0CC95002DBE72 /* MainTabBarViewController.m */,
 				CE70ED2921CF7D7700F3A5F6 /* HomeViewController.h */,
 				CE70ED2A21CF7D7700F3A5F6 /* HomeViewController.m */,
-				CE70ED2C21CF7D8400F3A5F6 /* FriendsViewController.h */,
-				CE70ED2D21CF7D8400F3A5F6 /* FriendsViewController.m */,
+				CE15C94D21DAA866002DBE72 /* FriendsTableViewController.h */,
+				CE15C94E21DAA866002DBE72 /* FriendsTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -312,6 +317,7 @@
 				CE15C93321D2F010002DBE72 /* LaunchScreen.storyboard */,
 				CE15C93421D2F011002DBE72 /* Login.storyboard */,
 				CE15C93521D2F011002DBE72 /* Main.storyboard */,
+				CE15C94B21DAA793002DBE72 /* Friends.storyboard */,
 				CE15C93921D2F0E1002DBE72 /* Home.storyboard */,
 			);
 			path = Storyboards;
@@ -336,6 +342,8 @@
 				CE15C93D21D34DF3002DBE72 /* postImageTableViewCell.m */,
 				CE15C94221D45950002DBE72 /* postActionTableViewCell.h */,
 				CE15C94321D45950002DBE72 /* postActionTableViewCell.m */,
+				CE15C95021DAA903002DBE72 /* friendsTableViewCell.h */,
+				CE15C95121DAA903002DBE72 /* friendsTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -449,6 +457,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE15C93A21D2F0E1002DBE72 /* Home.storyboard in Resources */,
+				CE15C94C21DAA793002DBE72 /* Friends.storyboard in Resources */,
 				CE15C93721D2F011002DBE72 /* Login.storyboard in Resources */,
 				CE70ECFF21CCAFE600F3A5F6 /* GoogleService-Info.plist in Resources */,
 				CE70ECD621CCAA8000F3A5F6 /* Assets.xcassets in Resources */,
@@ -600,11 +609,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE15C92B21D2AE17002DBE72 /* UIImage+size.m in Sources */,
-				CE70ED2E21CF7D8400F3A5F6 /* FriendsViewController.m in Sources */,
 				CE15C91B21D0CC95002DBE72 /* MainTabBarViewController.m in Sources */,
 				CE15C93E21D34DF3002DBE72 /* postImageTableViewCell.m in Sources */,
 				CE15C94721D49CB2002DBE72 /* LikeService.m in Sources */,
 				CE15C92E21D2B627002DBE72 /* FIRStorageReference+Post.m in Sources */,
+				CE15C94F21DAA866002DBE72 /* FriendsTableViewController.m in Sources */,
 				CE70ED2821CF6CB000F3A5F6 /* Storyboard+Utility.m in Sources */,
 				CE70ED1C21CEA79500F3A5F6 /* UserService.m in Sources */,
 				CE70ED1621CCE11A00F3A5F6 /* CreateUsernameViewController.m in Sources */,
@@ -620,6 +629,7 @@
 				CE15C92421D299C6002DBE72 /* PostService.m in Sources */,
 				CE15C91E21D0D112002DBE72 /* PhotoPickerHelper.m in Sources */,
 				CE70ED1021CCBB4300F3A5F6 /* LoginViewController.m in Sources */,
+				CE15C95221DAA903002DBE72 /* friendsTableViewCell.m in Sources */,
 				CE15C94421D45950002DBE72 /* postActionTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)followUser:(User *)user forCurrentUserAndCallBack:(void(^)(BOOL success))callBack;
 + (void)unfollowUser:(User *)user forCurrentUserAndCallBack:(void(^)(BOOL success))callBack;
 + (void)setIsFollowing:(BOOL)isFollowing fromCurrentUserToFollowee:(User *)followee andCallBack:(void(^)(BOOL success))callBack;
-+ (void)checkIsUserFollowed:(User *)user forCurrentUserAndCallBack:(void(^)(BOOL success))callBack;
++ (void)checkIsUserFollowed:(User *)user forCurrentUserAndCallBack:(void(^)(BOOL isFollowed))callBack;
 @end
 
 NS_ASSUME_NONNULL_END

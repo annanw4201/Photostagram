@@ -12,6 +12,9 @@
 
 // This User class supports NSSecureCoding
 @interface User() <NSCoding, NSSecureCoding>
+@property(nonatomic, strong) NSString *uid;
+@property(nonatomic, strong) NSString *username;
+@property(nonatomic, assign) BOOL isFollowed;
 @end
 
 
@@ -21,6 +24,7 @@ static User *currentUser = nil;
 - (instancetype)initWithUid:(NSString *)uid username:(NSString *)username {
     self.uid = uid;
     self.username = username;
+    self.isFollowed = NO;
     return self;
 }
 
@@ -36,6 +40,7 @@ static User *currentUser = nil;
     else return nil;
     self.uid = snapshot.key;
     self.username = username;
+    self.isFollowed = NO;
     return self;
 }
 
@@ -72,6 +77,14 @@ static User *currentUser = nil;
 
 - (NSString *)getUsername {
     return self.username;
+}
+
+- (void)setIsFollowed:(BOOL)isFollowed {
+    _isFollowed = isFollowed;
+}
+
+- (BOOL)getIsFollowed {
+    return self.isFollowed;
 }
 
 + (User *)getCurrentUser {

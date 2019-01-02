@@ -60,7 +60,8 @@
     FIRDatabaseReference *followingRef = [[FIRDatabase.database.reference child:@"following"] child:currentUserUid];
     [[followingRef queryEqualToValue:nil childKey:[user getUserUid]] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         NSDictionary *snapShotDictionary = snapshot.value;
-        if (snapShotDictionary) {
+        NSLog(@"snapshotDict: %@", snapShotDictionary);
+        if (![snapShotDictionary isEqual:[NSNull null]]) {
             callBack(YES);
         }
         else {

@@ -32,7 +32,7 @@
 // create post model and convert it into dictionary and push this dictionary into Firedatabase
 + (void)createPostForUrlString:(NSString *)urlString withAspectHeight:(CGFloat)aspectHeight {
     User *currentUser = [User getCurrentUser];
-    NSString *currentUserUid = currentUser.uid;
+    NSString *currentUserUid = [currentUser getUserUid];
     Post *post = [[Post alloc] initWithImageUrl:urlString andImageHeight:aspectHeight];
     NSDictionary *postDictionary = [post getPostDictionary];
     FIRDatabaseReference *postRef = [[[FIRDatabase.database.reference child:databasePosts] child:currentUserUid] childByAutoId];

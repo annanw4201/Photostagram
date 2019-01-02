@@ -14,7 +14,7 @@
 + (FIRStorageReference *)newPostImageReference {
     NSString *timestamp = [NSISO8601DateFormatter stringFromDate:[NSDate date] timeZone:[NSTimeZone systemTimeZone] formatOptions:NSISO8601DateFormatWithFullTime];
     User *currentUser = [User getCurrentUser];
-    NSString *uid = currentUser.uid;
+    NSString *uid = [currentUser getUserUid];
     return [FIRStorage.storage.reference child:[NSString stringWithFormat:@"images/posts/%@/%@.jpg", uid, timestamp]];
 }
 
