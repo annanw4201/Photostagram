@@ -11,16 +11,24 @@
 
 #define createUsernameSegue @"createUsernameSegue"
 #define currentLoggedInUser @"currentLoggedInUser"
+
+// main tab bar view controller
 #define homeTabBarItemTag 0
 #define photoPickerTabBarItemTag 1
 #define friendsTabBarItemTag 2
-#define databasePosts @"posts"
-#define databaseUsers @"users"
+
+// cell views
 #define postHeaderTableViewCellHeight 56.0
 #define postActionTableViewCellHeight 46.0
 #define postHeaderTableViewCellRow 0
 #define postImageTableViewCellRow 1
 #define postActionTableViewCellRow 2
+
+// data base
+#define databasePosts @"posts"
+#define databaseUsers @"users"
 #define databasePostLikes @"postLikes"
+#define databaseFollowers @"followers"
+#define databaseFollowing @"following"
 
 #endif /* Constants_h */

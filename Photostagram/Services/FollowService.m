@@ -9,6 +9,8 @@
 #import "FollowService.h"
 #import <FirebaseDatabase/FirebaseDatabase.h>
 #import "../Models/User.h"
+#import "UserService.h"
+#import "../Models/Post.h"
 
 @implementation FollowService
 
@@ -18,13 +20,33 @@
                                       @"true", [NSString stringWithFormat:@"followers/%@/%@", [user getUserUid], currentUserUid],
                                       @"true", [NSString stringWithFormat:@"following/%@/%@", currentUserUid, [user getUserUid]], nil];
     FIRDatabaseReference *ref = FIRDatabase.database.reference;
+    
+    // update followee and follower
     [ref updateChildValues:followDictionary withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
         if (error) {
             NSLog(@"%@: Error update follower or following data: %@", NSStringFromClass([self class]), error.localizedDescription);
             callBack(NO);
         }
         else {
-            callBack(YES);
+            // fetch all post for the followee
+            [UserService retrievePostsForUser:user withCallBack:^(NSArray * _Nonnull posts) {
+                NSMutableDictionary *followData = [NSMutableDictionary dictionaryWithCapacity:posts.count];
+                NSDictionary *timelinePostDictionary = [NSDictionary dictionaryWithObject:[user getUserUid] forKey:@"poster_uid"];
+                for (Post *post in posts) {
+                    NSString *postKey = [post getKey];
+                    [followData setObject:timelinePostDictionary forKey:[NSString stringWithFormat:@"timeline/%@/%@", currentUserUid, postKey]];
+                }
+                // update posts of followee to current user's timeline
+                [ref updateChildValues:followData withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+                    if (error) {
+                        NSLog(@"%@: Error update follow timeline data: %@", NSStringFromClass([self class]), error.localizedDescription);
+                        callBack(NO);
+                    }
+                    else {
+                        callBack(YES);
+                    }
+                }];
+            }];
         }
     }];
 }
@@ -35,13 +57,31 @@
                                       [NSNull null], [NSString stringWithFormat:@"followers/%@/%@", [user getUserUid], currentUserUid],
                                       [NSNull null], [NSString stringWithFormat:@"following/%@/%@", currentUserUid, [user getUserUid]], nil];
     FIRDatabaseReference *ref = FIRDatabase.database.reference;
+    // update followee and follower
     [ref updateChildValues:followDictionary withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
         if (error) {
             NSLog(@"%@: Error removing follower or following data: %@", NSStringFromClass([self class]), error.localizedDescription);
             callBack(NO);
         }
         else {
-            callBack(YES);
+            // fetch all post for the followee
+            [UserService retrievePostsForUser:user withCallBack:^(NSArray * _Nonnull posts) {
+                NSMutableDictionary *unfollowData = [NSMutableDictionary dictionaryWithCapacity:posts.count];
+                for (Post *post in posts) {
+                    NSString *postKey = [post getKey];
+                    [unfollowData setObject:[NSNull null] forKey:[NSString stringWithFormat:@"timeline/%@/%@", currentUserUid, postKey]];
+                }
+                // update posts of followee to current user's timeline
+                [ref updateChildValues:unfollowData withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+                    if (error) {
+                        NSLog(@"%@: Error update unfollow timeline data: %@", NSStringFromClass([self class]), error.localizedDescription);
+                        callBack(NO);
+                    }
+                    else {
+                        callBack(YES);
+                    }
+                }];
+            }];
         }
     }];
 }

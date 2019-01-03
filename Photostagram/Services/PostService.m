@@ -15,6 +15,7 @@
 #import "../Extensions/UIImage+size.h"
 #import "../Extensions/FIRStorageReference+Post.h"
 #import "../Supporting/Constants.h"
+#import "UserService.h"
 
 @implementation PostService
 
@@ -34,9 +35,41 @@
     User *currentUser = [User getCurrentUser];
     NSString *currentUserUid = [currentUser getUserUid];
     Post *post = [[Post alloc] initWithImageUrl:urlString andImageHeight:aspectHeight];
-    NSDictionary *postDictionary = [post getPostDictionary];
-    FIRDatabaseReference *postRef = [[[FIRDatabase.database.reference child:databasePosts] child:currentUserUid] childByAutoId];
-    [postRef updateChildValues:postDictionary];
+    
+    FIRDatabaseReference *rootRef = FIRDatabase.database.reference;
+    FIRDatabaseReference *newPostRef = [[[rootRef child:databasePosts] child:currentUserUid] childByAutoId];
+    NSString *newPostKey = newPostRef.key;
+    
+    [UserService fetchFollowersForUser:currentUser andCallBack:^(NSArray * _Nonnull followersUid) {
+        // update new post to current user timeline
+        NSDictionary *timelinePostDictionary = [NSDictionary dictionaryWithObjectsAndKeys:currentUserUid, @"poster_uid", nil];
+        NSMutableDictionary *updateData = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                                   timelinePostDictionary, [NSString stringWithFormat:@"timeline/%@/%@", currentUserUid, newPostKey], nil];
+        
+        // update new post to followers timeline
+        for (NSString *uid in followersUid) {
+            [updateData setObject:timelinePostDictionary forKey:[NSString stringWithFormat:@"timeline/%@/%@", uid, newPostKey]];
+        }
+        
+        // update new post to posts database
+        NSDictionary *postDictionary = [post getPostDictionary];
+        [updateData setObject:postDictionary forKey:[NSString stringWithFormat:@"%@/%@/%@", databasePosts, currentUserUid, newPostKey]];
+        [rootRef updateChildValues:updateData];
+    }];
+}
+
++ (void)createPostForPostKey:(NSString *)postKey withPosterUid:(NSString *)posterUid andCallBack:(void (^)(Post *))callBack {
+    FIRDatabaseReference *postRef = [[[FIRDatabase.database.reference child:databasePosts] child:posterUid] child:postKey];
+    [postRef observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        Post *post = [[Post alloc] initWithSnapshot:snapshot];
+        if (!post) {
+            NSLog(@"%@: Cannot create post:%@", NSStringFromClass([self class]), post);
+            callBack(nil);
+        }
+        else {
+            callBack(post);
+        }
+    }];
 }
 
 @end

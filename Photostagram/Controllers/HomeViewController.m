@@ -43,7 +43,7 @@
 
 - (void)refreshPosts:(id)sender {
     NSLog(@"refresh posts");
-    [UserService retrievePostsForUser:[User getCurrentUser] withCallBack:^(NSArray * _Nonnull posts) {
+    [UserService fetchTimelineForCurrentUserAndCallBack:^(NSArray * _Nonnull posts) {
         self.postArray = posts;
     }];
     [self.refreshControl endRefreshing];
@@ -87,7 +87,7 @@
     switch (indexPath.row) {
         case postHeaderTableViewCellRow:
             cell = [tableView dequeueReusableCellWithIdentifier:@"homePostHeaderCell"];
-            [(postHeaderTableViewCell *)cell setUsernameLabelText:[User getUsername]];
+            [(postHeaderTableViewCell *)cell setUsernameLabelText:[postAtCurrentSection getPosterUsername]];
             break;
         case postImageTableViewCellRow:
             cell = [tableView dequeueReusableCellWithIdentifier:@"homePostImageCell"];

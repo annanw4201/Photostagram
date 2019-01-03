@@ -14,6 +14,7 @@
 #import "../Supporting/Constants.h"
 #import "LikeService.h"
 #import "../Services/FollowService.h"
+#import "../Services/PostService.h"
 
 @implementation UserService
 
@@ -96,6 +97,49 @@
         }
         dispatch_group_notify(dispatchGroup, dispatch_get_main_queue(), ^{
             callBack(userArray);
+        });
+    }];
+}
+
+// fetch all the followers for the specified user
++ (void)fetchFollowersForUser:(User *)user andCallBack:(void (^)(NSArray * _Nonnull))callBack {
+    NSString *useruid = [user getUserUid];
+    FIRDatabaseReference *followersRef = [[FIRDatabase.database.reference child:databaseFollowers] child:useruid];
+    [followersRef observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSDictionary *snapshotDictionary = snapshot.value;
+        if ([snapshotDictionary isEqual:[NSNull null]]) {
+            callBack([NSArray array]);
+        }
+        else {
+            NSArray *followerUids = [snapshotDictionary allKeys];
+            callBack(followerUids);
+        }
+    }];
+}
+
++ (void)fetchTimelineForCurrentUserAndCallBack:(void (^)(NSArray * _Nonnull))callBack {
+    User *currentUser = [User getCurrentUser];
+    FIRDatabaseReference *timelineRef = [[FIRDatabase.database.reference child:@"timeline"] child:[currentUser getUserUid]];
+    
+    [timelineRef observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSArray *snapshotArray = [snapshot.children allObjects];
+        NSMutableArray *posts = [[NSMutableArray alloc] initWithCapacity:snapshotArray.count];
+        
+        dispatch_group_t dispatchGroup = dispatch_group_create();
+        for (FIRDataSnapshot *s in snapshotArray.reverseObjectEnumerator) {
+            NSDictionary *timelinePostDictionary = s.value;
+            if (!timelinePostDictionary) continue;
+            NSString *posterUid = [timelinePostDictionary objectForKey:@"poster_uid"];
+            if (!posterUid) continue;
+            dispatch_group_enter(dispatchGroup);
+            NSString *postKey = s.key;
+            [PostService createPostForPostKey:postKey withPosterUid:posterUid andCallBack:^(Post * post) {
+                if (post) [posts addObject:post];
+                dispatch_group_leave(dispatchGroup);
+            }];
+        }
+        dispatch_group_notify(dispatchGroup, dispatch_get_main_queue(), ^{
+            callBack(posts);
         });
     }];
 }
