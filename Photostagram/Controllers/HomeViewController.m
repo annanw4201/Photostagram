@@ -33,20 +33,27 @@
     [self refreshPosts:nil];
 }
 
-- (void)configureRefreshControl {
-    UIRefreshControl *control = [[UIRefreshControl alloc] init];
-    [control addTarget:self action:@selector(refreshPosts:) forControlEvents:UIControlEventValueChanged];
-    [control setTintColor:[UIColor colorWithRed:0.25 green:0.72 blue:0.85 alpha:1.0]];
-    [control setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Fetching data..."]];
-    self.refreshControl = control;
+- (void)setPostArray:(NSArray *)postArray {
+    if (_postArray != postArray) {
+        _postArray = postArray;
+        [self.homeTableView reloadData];
+    }
 }
 
 - (void)refreshPosts:(id)sender {
     NSLog(@"refresh posts");
     [UserService fetchTimelineForCurrentUserAndCallBack:^(NSArray * _Nonnull posts) {
         self.postArray = posts;
+        [self.refreshControl endRefreshing];
     }];
-    [self.refreshControl endRefreshing];
+}
+
+- (void)configureRefreshControl {
+    UIRefreshControl *control = [[UIRefreshControl alloc] init];
+    [control addTarget:self action:@selector(refreshPosts:) forControlEvents:UIControlEventValueChanged];
+    [control setTintColor:[UIColor colorWithRed:0.25 green:0.72 blue:0.85 alpha:1.0]];
+    [control setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Fetching data..."]];
+    self.refreshControl = control;
 }
 
 - (void)configureTableView {
@@ -61,11 +68,11 @@
     }
 }
 
-- (void)setPostArray:(NSArray *)postArray {
-    if (_postArray != postArray) {
-        _postArray = postArray;
-        [self.homeTableView reloadData];
-    }
+- (void)configureActionCell:(UITableViewCell *)cell withPost:(Post *)post {
+    postActionTableViewCell *actionCell = (postActionTableViewCell *)cell;
+    [actionCell setPostTimeLabelText:[self timeStampOfPost:post]];
+    [actionCell setLikesLabelText:[post getLikeCounts]];
+    [actionCell setLikeButtonSelected:[post getCurrentUserLikedThisPost]];
 }
 
 // get time stamp of the post in the format as (yyyy-mm-dd, hh:mm)
@@ -121,13 +128,6 @@
     return cell;
 }
 
-- (void)configureActionCell:(UITableViewCell *)cell withPost:(Post *)post {
-    postActionTableViewCell *actionCell = (postActionTableViewCell *)cell;
-    [actionCell setPostTimeLabelText:[self timeStampOfPost:post]];
-    [actionCell setLikesLabelText:[post getLikeCounts]];
-    [actionCell setLikeButtonSelected:[post getCurrentUserLikedThisPost]];
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [self.postArray count];
 }
@@ -181,6 +181,7 @@
         }
         else {
             [postAtCurrentSection setCurrentUserLikedThisPost:![postAtCurrentSection getCurrentUserLikedThisPost]];
+            NSLog(@"set like post:%d", [postAtCurrentSection getCurrentUserLikedThisPost]);
             NSInteger newLikeCounts = [[postAtCurrentSection getLikeCounts] integerValue];
             if ([postAtCurrentSection getCurrentUserLikedThisPost]) newLikeCounts++;
             else newLikeCounts--;

@@ -134,8 +134,13 @@
             dispatch_group_enter(dispatchGroup);
             NSString *postKey = s.key;
             [PostService createPostForPostKey:postKey withPosterUid:posterUid andCallBack:^(Post * post) {
-                if (post) [posts addObject:post];
-                dispatch_group_leave(dispatchGroup);
+                if (post) {
+                    [LikeService isPostLikedForPost:post andCallBack:^(BOOL liked) {
+                        [post setCurrentUserLikedThisPost:liked];
+                        [posts addObject:post];
+                        dispatch_group_leave(dispatchGroup);
+                    }];
+                }
             }];
         }
         dispatch_group_notify(dispatchGroup, dispatch_get_main_queue(), ^{
