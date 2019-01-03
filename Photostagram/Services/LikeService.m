@@ -41,6 +41,7 @@
                         callBack(NO);
                     }
                     else {
+                        NSLog(@"like sucessfully and committed: %d, newValue: %@", committed, snapshot.value);
                         callBack(YES);
                     }
                 }];
@@ -65,7 +66,7 @@
                 callBack(NO);
             }
             else {
-                FIRDatabaseReference *postRef = [[[[FIRDatabase.database.reference child:databasePosts] child:currentUserUid] child:postKey] child:@"like_counts"];
+                FIRDatabaseReference *postRef = [[[[FIRDatabase.database.reference child:databasePosts] child:[post getPosterUid]] child:postKey] child:@"like_counts"];
                 [postRef runTransactionBlock:^FIRTransactionResult * _Nonnull(FIRMutableData * _Nonnull currentData) {
                     NSInteger likeCounts = currentData.value == [NSNull null] ? 0 : [[currentData value] integerValue];
                     likeCounts--;
@@ -78,6 +79,7 @@
                         callBack(NO);
                     }
                     else {
+                        NSLog(@"unlike sucessfully and committed: %d, newValue: %@", committed, snapshot.value);
                         callBack(YES);
                     }
                 }];
@@ -89,6 +91,17 @@
     }
 }
 
+// a helper to like or unlike a post for the current user
++ (void)setIsLiked:(BOOL)isLiked forPost:(Post *)post andCallBack:(void (^)(BOOL))callBack {
+    if (isLiked) {
+        [self createLikeForPost:post andCallBack:callBack];
+    }
+    else {
+        [self unLikePost:post andCallBack:callBack];
+    }
+}
+
+// check if the post is liked for the current user
 + (void)isPostLikedForPost:(Post *)post andCallBack:(void (^)(BOOL liked))callBack {
     NSString *postKey = [post getKey];
     NSString *currentUserUid = [User getUserUid];

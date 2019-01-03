@@ -172,29 +172,23 @@
 #pragma postActionTableViewCellDelegate
 - (void)likeButtonPressed:(nonnull UIButton *)likeButton onActionCell:(nonnull postActionTableViewCell *)postActionTableViewCell {
     NSInteger section = [self.homeTableView indexPathForCell:postActionTableViewCell].section;
-    Post *currentPostAtSection = [self.postArray objectAtIndex:section];
-    if ([currentPostAtSection getCurrentUserLikedThisPost]) {
-        [LikeService unLikePost:currentPostAtSection andCallBack:^(BOOL success) {
-            if (success) {
-                NSInteger oldLikeCounts = [[currentPostAtSection getLikeCounts] integerValue];
-                NSInteger newLikeCounts = oldLikeCounts - 1;
-                [currentPostAtSection setLikeCounts:[NSString stringWithFormat:@"%ld", (long)newLikeCounts]];
-                [currentPostAtSection setCurrentUserLikedThisPost:NO];
-                [self configureActionCell:postActionTableViewCell withPost:currentPostAtSection];
-            }
-        }];
-    }
-    else {
-        [LikeService createLikeForPost:currentPostAtSection andCallBack:^(BOOL success) {
-            if (success) {
-                NSInteger oldLikeCounts = [[currentPostAtSection getLikeCounts] integerValue];
-                NSInteger newLikeCounts = oldLikeCounts + 1;
-                [currentPostAtSection setLikeCounts:[NSString stringWithFormat:@"%ld", (long)newLikeCounts]];
-                [currentPostAtSection setCurrentUserLikedThisPost:YES];
-                [self configureActionCell:postActionTableViewCell withPost:currentPostAtSection];
-            }
-        }];
-    }
+    Post *postAtCurrentSection = [self.postArray objectAtIndex:section];
+    [likeButton setUserInteractionEnabled:NO];
+    [LikeService setIsLiked:![postAtCurrentSection getCurrentUserLikedThisPost] forPost:postAtCurrentSection andCallBack:^(BOOL success) {
+        if (!success) {
+            [likeButton setUserInteractionEnabled:YES];
+            return;
+        }
+        else {
+            [postAtCurrentSection setCurrentUserLikedThisPost:![postAtCurrentSection getCurrentUserLikedThisPost]];
+            NSInteger newLikeCounts = [[postAtCurrentSection getLikeCounts] integerValue];
+            if ([postAtCurrentSection getCurrentUserLikedThisPost]) newLikeCounts++;
+            else newLikeCounts--;
+            [postAtCurrentSection setLikeCounts:[NSString stringWithFormat:@"%ld", (long)newLikeCounts]];
+            [self configureActionCell:postActionTableViewCell withPost:postAtCurrentSection];
+            [likeButton setUserInteractionEnabled:YES];
+        }
+    }];
 }
 
 @end
