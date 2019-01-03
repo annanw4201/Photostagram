@@ -40,6 +40,7 @@
 
 - (IBAction)followButtonPressed:(UIButton *)sender {
     NSLog(@"follow button pressed");
+    [self.delegate followButtonPressed:sender onFriendsCell:self];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

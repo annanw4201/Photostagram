@@ -10,8 +10,9 @@
 #import "../Models/User.h"
 #import "../Views/friendsTableViewCell.h"
 #import "../Services/UserService.h"
+#import "../Services/FollowService.h"
 
-@interface FriendsTableViewController ()
+@interface FriendsTableViewController ()<friendsTableViewCellDelegate>
 @property(nonatomic, strong)NSArray *users;
 @end
 
@@ -59,6 +60,7 @@
     User *user = [self.users objectAtIndex:indexPath.row];
     [(friendsTableViewCell *)cell setFriendNameLabelText:[user getUsername]];
     [(friendsTableViewCell *)cell setFollowFriendButtonSelected:[user getIsFollowed]];
+    [(friendsTableViewCell *)cell setDelegate:self];
     return cell;
 }
 
@@ -106,5 +108,21 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma friendsTableViewCellDelegate
+- (void)followButtonPressed:(UIButton *)followButton onFriendsCell:(friendsTableViewCell *)cell {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    [followButton setUserInteractionEnabled:NO];
+    User *followee = [self.users objectAtIndex:indexPath.row];
+    [FollowService setIsFollowing:![followee getIsFollowed] fromCurrentUserToFollowee:followee andCallBack:^(BOOL success) {
+        [followButton setUserInteractionEnabled:YES];
+        if (!success) {
+            return;
+        }
+        [followee setIsFollowed:![followee getIsFollowed]];
+        NSArray *indexPathsToReload = [NSArray arrayWithObjects:indexPath, nil];
+        [self.tableView reloadRowsAtIndexPaths:indexPathsToReload withRowAnimation:UITableViewRowAnimationFade];
+    }];
+}
 
 @end
