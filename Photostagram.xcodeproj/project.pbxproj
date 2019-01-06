@@ -41,6 +41,7 @@
 		CE70ED1C21CEA79500F3A5F6 /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED1B21CEA79500F3A5F6 /* UserService.m */; };
 		CE70ED2821CF6CB000F3A5F6 /* Storyboard+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED2721CF6CB000F3A5F6 /* Storyboard+Utility.m */; };
 		CE70ED2B21CF7D7700F3A5F6 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED2A21CF7D7700F3A5F6 /* HomeViewController.m */; };
+		CEF4D77421E126C3003693CB /* paginationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4D77321E126C3003693CB /* paginationHelper.m */; };
 		EABADEBBD88DA404E92D6681 /* Pods_PhotostagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B901A2CCD8C9C71D7299B788 /* Pods_PhotostagramUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +131,8 @@
 		CE70ED2721CF6CB000F3A5F6 /* Storyboard+Utility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Storyboard+Utility.m"; sourceTree = "<group>"; };
 		CE70ED2921CF7D7700F3A5F6 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		CE70ED2A21CF7D7700F3A5F6 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		CEF4D77221E126C3003693CB /* paginationHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = paginationHelper.h; sourceTree = "<group>"; };
+		CEF4D77321E126C3003693CB /* paginationHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = paginationHelper.m; sourceTree = "<group>"; };
 		FF47876A985641C61B7745D3 /* Pods-Photostagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photostagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Photostagram/Pods-Photostagram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -279,6 +282,8 @@
 			children = (
 				CE15C91C21D0D112002DBE72 /* PhotoPickerHelper.h */,
 				CE15C91D21D0D112002DBE72 /* PhotoPickerHelper.m */,
+				CEF4D77221E126C3003693CB /* paginationHelper.h */,
+				CEF4D77321E126C3003693CB /* paginationHelper.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -615,6 +620,7 @@
 				CE15C92E21D2B627002DBE72 /* FIRStorageReference+Post.m in Sources */,
 				CE15C94F21DAA866002DBE72 /* FriendsTableViewController.m in Sources */,
 				CE70ED2821CF6CB000F3A5F6 /* Storyboard+Utility.m in Sources */,
+				CEF4D77421E126C3003693CB /* paginationHelper.m in Sources */,
 				CE70ED1C21CEA79500F3A5F6 /* UserService.m in Sources */,
 				CE70ED1621CCE11A00F3A5F6 /* CreateUsernameViewController.m in Sources */,
 				CE15C94121D453FE002DBE72 /* postHeaderTableViewCell.m in Sources */,

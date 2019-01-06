@@ -47,7 +47,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info {
     UIImage *selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     [picker dismissViewControllerAnimated:YES completion:^{
-        self.pickedImageHandler(selectedImage);
+        if (self.pickedImageHandler) self.pickedImageHandler(selectedImage);
     }];
 }
 

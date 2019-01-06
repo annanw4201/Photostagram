@@ -117,12 +117,18 @@
     }];
 }
 
-+ (void)fetchTimelineForCurrentUserAndCallBack:(void (^)(NSArray * _Nonnull))callBack {
++ (void)fetchTimelineForCurrentUser:(NSInteger)pageSize withLastPostKey:(NSString *)lastPostKey AndCallBack:(void (^)(NSArray * _Nonnull))callBack {
     User *currentUser = [User getCurrentUser];
     FIRDatabaseReference *timelineRef = [[FIRDatabase.database.reference child:@"timeline"] child:[currentUser getUserUid]];
+    FIRDatabaseQuery *query = [[timelineRef queryOrderedByKey] queryLimitedToLast:pageSize];
+    if (lastPostKey) {
+        NSLog(@"%@:fetch timeline last post key: %@", self.class, lastPostKey);
+        query = [query queryEndingAtValue:lastPostKey];
+    }
     
-    [timelineRef observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+    [query observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         NSArray *snapshotArray = [snapshot.children allObjects];
+        NSLog(@"%@: snapshot array: %@", self.class, snapshotArray);
         NSMutableArray *posts = [[NSMutableArray alloc] initWithCapacity:snapshotArray.count];
         
         dispatch_group_t dispatchGroup = dispatch_group_create();

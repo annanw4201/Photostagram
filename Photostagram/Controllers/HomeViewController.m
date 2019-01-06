@@ -15,11 +15,13 @@
 #import "../Views/postActionTableViewCell.h"
 #import "../Supporting/Constants.h"
 #import "../Services/LikeService.h"
+#import "../Helpers/paginationHelper.h"
 
 @interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource, postActionTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *homeTableView;
 @property (strong, nonatomic) NSArray *postArray;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (nonatomic) paginationHelper *paginationHelper;
 @end
 
 @implementation HomeViewController
@@ -28,6 +30,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.paginationHelper = [[paginationHelper alloc] initWithService:UserService.class];
     [self configureRefreshControl];
     [self configureTableView];
     [self refreshPosts:nil];
@@ -42,10 +45,14 @@
 
 - (void)refreshPosts:(id)sender {
     NSLog(@"refresh posts");
-    [UserService fetchTimelineForCurrentUserAndCallBack:^(NSArray * _Nonnull posts) {
+    [self.paginationHelper reloadData:^(NSArray *posts) {
         self.postArray = posts;
         [self.refreshControl endRefreshing];
     }];
+//    [UserService fetchTimelineForCurrentUserAndCallBack:^(NSArray * _Nonnull posts) {
+//        self.postArray = posts;
+//        [self.refreshControl endRefreshing];
+//    }];
 }
 
 - (void)configureRefreshControl {
@@ -158,6 +165,18 @@
     return height;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger currentSection = indexPath.section;
+    if (currentSection >= self.postArray.count - 1) {
+        [self.paginationHelper paginate:^(NSArray * _Nonnull posts) {
+            NSMutableArray *newPostArray = [NSMutableArray arrayWithArray:self.postArray];
+            [newPostArray addObjectsFromArray:posts];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.postArray = newPostArray;
+            });
+        }];
+    }
+}
 
 /*
 #pragma mark - Navigation
