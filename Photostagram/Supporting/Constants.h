@@ -13,16 +13,23 @@
 #define currentLoggedInUser @"currentLoggedInUser"
 
 // main tab bar view controller
-#define homeTabBarItemTag 0
-#define photoPickerTabBarItemTag 1
-#define friendsTabBarItemTag 2
+typedef NS_ENUM(NSInteger, tabBarViewControllerTag) {
+    homeTabBarItemTag = 0,
+    photoPickerTabBarItemTag = 1,
+    friendsTabBarItemTag = 2
+};
 
 // cell views
-#define postHeaderTableViewCellHeight 56.0
-#define postActionTableViewCellHeight 46.0
-#define postHeaderTableViewCellRow 0
-#define postImageTableViewCellRow 1
-#define postActionTableViewCellRow 2
+typedef NS_ENUM(NSInteger, postCellView) {
+    postHeaderTableViewCellRow = 0,
+    postImageTableViewCellRow = 1,
+    postActionTableViewCellRow = 2
+};
+
+typedef NS_ENUM(NSInteger, postCellViewHeight) {
+    postHeaderTableViewCellHeight = 56,
+    postActionTableViewCellHeight = 46
+};
 
 // data base
 #define databasePosts @"posts"
