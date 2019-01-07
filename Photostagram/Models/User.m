@@ -34,7 +34,7 @@ static User *currentUser = nil;
     NSString *username = nil;
     if ([data isKindOfClass:[NSDictionary class]]) {
         NSDictionary *dataDict = (NSDictionary *)data;
-        username = [dataDict objectForKey:@"username"];
+        username = [dataDict objectForKey:userusername];
         if (!username) return nil;
     }
     else return nil;
@@ -47,15 +47,15 @@ static User *currentUser = nil;
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if (self) {
-        self.uid = [aDecoder decodeObjectOfClass:[User class] forKey:@"uid"];
-        self.username = [aDecoder decodeObjectOfClass:[User class] forKey:@"username"];
+        self.uid = [aDecoder decodeObjectOfClass:[User class] forKey:useruid];
+        self.username = [aDecoder decodeObjectOfClass:[User class] forKey:userusername];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.uid forKey:@"uid"];
-    [aCoder encodeObject:self.username forKey:@"username"];
+    [aCoder encodeObject:self.uid forKey:useruid];
+    [aCoder encodeObject:self.username forKey:userusername];
 }
 
 + (BOOL)supportsSecureCoding {

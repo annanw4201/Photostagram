@@ -38,4 +38,19 @@ typedef NS_ENUM(NSInteger, postCellViewHeight) {
 #define databaseFollowers @"followers"
 #define databaseFollowing @"following"
 
+#define postsImageUrl @"image_url"
+#define postsImageHeight @"image_height"
+#define postsCreationDate @"creation_date"
+#define postsLikeCounts @"like_counts"
+#define postsCurrentUserLikeThisPost @"current_user_like_this_post"
+
+// users
+#define useruid @"uid"
+#define userusername @"username"
+
+// home view controller cell identifier
+#define homePostHeaderCell @"homePostHeaderCell"
+#define homePostImageCell @"homePostImageCell"
+#define homePostActionCell @"homePostActionCell"
+
 #endif /* Constants_h */

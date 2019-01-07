@@ -9,6 +9,7 @@
 #import "Post.h"
 #import "FIRDataSnapshot.h"
 #import "../Models/User.h"
+#import "../Supporting/Constants.h"
 
 @interface Post()
 @property(nonatomic)NSString *key;
@@ -26,12 +27,12 @@
 - (instancetype)initWithSnapshot:(FIRDataSnapshot *)snapshot {
     NSDictionary *snapshotDict = [snapshot value];
     NSString *key = [snapshot key];
-    NSString *imageUrl = [snapshotDict valueForKey:@"image_url"];
-    NSString *imageHeight = [snapshotDict valueForKey:@"image_height"];
-    NSString *creationDate = [snapshotDict valueForKey:@"creation_date"];
-    NSString *uid = [snapshotDict valueForKey:@"uid"];
-    NSString *username = [snapshotDict valueForKey:@"username"];
-    NSString *likeCounts = [snapshotDict valueForKey:@"like_counts"];
+    NSString *imageUrl = [snapshotDict valueForKey:postsImageUrl];
+    NSString *imageHeight = [snapshotDict valueForKey:postsImageHeight];
+    NSString *creationDate = [snapshotDict valueForKey:postsCreationDate];
+    NSString *uid = [snapshotDict valueForKey:useruid];
+    NSString *username = [snapshotDict valueForKey:userusername];
+    NSString *likeCounts = [snapshotDict valueForKey:postsLikeCounts];
     if (!key || !imageUrl || !imageHeight || !creationDate || !uid || !username || !likeCounts) {
         return nil;
     }
@@ -59,11 +60,11 @@
 
 - (NSDictionary *)getPostDictionary {
     NSTimeInterval createdDate = [self.creationDate timeIntervalSince1970];
-    return [NSDictionary dictionaryWithObjectsAndKeys:self.imageUrl, @"image_url",
-            [NSString stringWithFormat:@"%f", self.imageHeight], @"image_height",
-            [NSString stringWithFormat:@"%f", createdDate], @"creation_date",
-            self.uid, @"uid", self.username, @"username", self.likeCounts, @"like_counts",
-            [NSString stringWithFormat:@"%d", self.currentUserLikedThisPost], @"current_user_like_this_post", nil];
+    return [NSDictionary dictionaryWithObjectsAndKeys:self.imageUrl, postsImageUrl,
+            [NSString stringWithFormat:@"%f", self.imageHeight], postsImageHeight,
+            [NSString stringWithFormat:@"%f", createdDate], postsCreationDate,
+            self.uid, useruid, self.username, userusername, self.likeCounts, postsLikeCounts,
+            [NSString stringWithFormat:@"%d", self.currentUserLikedThisPost], postsCurrentUserLikeThisPost, nil];
 }
 
 - (CGFloat)getImageHeight {

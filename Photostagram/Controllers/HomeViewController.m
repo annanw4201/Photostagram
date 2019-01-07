@@ -17,6 +17,8 @@
 #import "../Services/LikeService.h"
 #import "../Helpers/paginationHelper.h"
 
+#define fetchingDataDisplayingText @"Fetching data..."
+
 @interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource, postActionTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *homeTableView;
 @property (strong, nonatomic) NSArray *postArray;
@@ -59,7 +61,7 @@
     UIRefreshControl *control = [[UIRefreshControl alloc] init];
     [control addTarget:self action:@selector(refreshPosts:) forControlEvents:UIControlEventValueChanged];
     [control setTintColor:[UIColor colorWithRed:0.25 green:0.72 blue:0.85 alpha:1.0]];
-    [control setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Fetching data..."]];
+    [control setAttributedTitle:[[NSAttributedString alloc] initWithString:fetchingDataDisplayingText]];
     self.refreshControl = control;
 }
 
@@ -100,11 +102,11 @@
     // create cell for the three rows in a section where each section is a post
     switch (indexPath.row) {
         case postHeaderTableViewCellRow:
-            cell = [tableView dequeueReusableCellWithIdentifier:@"homePostHeaderCell"];
+            cell = [tableView dequeueReusableCellWithIdentifier:homePostHeaderCell];
             [(postHeaderTableViewCell *)cell setUsernameLabelText:[postAtCurrentSection getPosterUsername]];
             break;
         case postImageTableViewCellRow:
-            cell = [tableView dequeueReusableCellWithIdentifier:@"homePostImageCell"];
+            cell = [tableView dequeueReusableCellWithIdentifier:homePostImageCell];
             [(postImageTableViewCell *)cell setImageForPostImageCellImageView:nil]; // initial image for the post should be blank
         {
 //            // use GCD to download images asychronously
@@ -125,7 +127,7 @@
         }
             break;
         case postActionTableViewCellRow:
-            cell = [tableView dequeueReusableCellWithIdentifier:@"homePostActionCell"];
+            cell = [tableView dequeueReusableCellWithIdentifier:homePostActionCell];
             [(postActionTableViewCell *)cell setDelegate:self];
             [self configureActionCell:cell withPost:postAtCurrentSection];
             break;

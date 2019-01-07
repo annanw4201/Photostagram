@@ -8,6 +8,9 @@
 
 #import "friendsTableViewCell.h"
 
+#define followButtonNormalStateTitle @"Follow"
+#define followButtonSelectedStateTitle @"Following"
+
 @interface friendsTableViewCell()
 @property (weak, nonatomic) IBOutlet UILabel *friendNameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *followFriendButton;
@@ -26,8 +29,8 @@
     self.followFriendButton.layer.borderWidth = 1;
     self.followFriendButton.layer.cornerRadius = 6;
     self.followFriendButton.clipsToBounds = true;
-    [self.followFriendButton setTitle:@"Follow" forState:UIControlStateNormal];
-    [self.followFriendButton setTitle:@"Following" forState:UIControlStateSelected];
+    [self.followFriendButton setTitle:followButtonNormalStateTitle forState:UIControlStateNormal];
+    [self.followFriendButton setTitle:followButtonSelectedStateTitle forState:UIControlStateSelected];
 }
 
 - (void)setFriendNameLabelText:(NSString *)friendName {

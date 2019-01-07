@@ -42,6 +42,18 @@
 		CE70ED2821CF6CB000F3A5F6 /* Storyboard+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED2721CF6CB000F3A5F6 /* Storyboard+Utility.m */; };
 		CE70ED2B21CF7D7700F3A5F6 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED2A21CF7D7700F3A5F6 /* HomeViewController.m */; };
 		CEF4D77421E126C3003693CB /* paginationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4D77321E126C3003693CB /* paginationHelper.m */; };
+		CEF4D78121E2F3DD003693CB /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEF4D77721E2F3DD003693CB /* OpenSans-Regular.ttf */; };
+		CEF4D78221E2F3DD003693CB /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEF4D77821E2F3DD003693CB /* OpenSans-LightItalic.ttf */; };
+		CEF4D78321E2F3DD003693CB /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEF4D77921E2F3DD003693CB /* OpenSans-BoldItalic.ttf */; };
+		CEF4D78421E2F3DD003693CB /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEF4D77A21E2F3DD003693CB /* OpenSans-Bold.ttf */; };
+		CEF4D78521E2F3DD003693CB /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEF4D77B21E2F3DD003693CB /* OpenSans-Semibold.ttf */; };
+		CEF4D78621E2F3DD003693CB /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEF4D77C21E2F3DD003693CB /* OpenSans-SemiboldItalic.ttf */; };
+		CEF4D78721E2F3DD003693CB /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEF4D77D21E2F3DD003693CB /* OpenSans-ExtraBoldItalic.ttf */; };
+		CEF4D78821E2F3DD003693CB /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEF4D77E21E2F3DD003693CB /* OpenSans-Light.ttf */; };
+		CEF4D78921E2F3DD003693CB /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEF4D77F21E2F3DD003693CB /* OpenSans-ExtraBold.ttf */; };
+		CEF4D78A21E2F3DD003693CB /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEF4D78021E2F3DD003693CB /* OpenSans-Italic.ttf */; };
+		CEF4D78E21E2F7B5003693CB /* UIColor+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4D78D21E2F7B5003693CB /* UIColor+Utility.m */; };
+		CEF4D79121E2FDB1003693CB /* UIFont+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4D79021E2FDB1003693CB /* UIFont+Utility.m */; };
 		EABADEBBD88DA404E92D6681 /* Pods_PhotostagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B901A2CCD8C9C71D7299B788 /* Pods_PhotostagramUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -133,6 +145,20 @@
 		CE70ED2A21CF7D7700F3A5F6 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		CEF4D77221E126C3003693CB /* paginationHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = paginationHelper.h; sourceTree = "<group>"; };
 		CEF4D77321E126C3003693CB /* paginationHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = paginationHelper.m; sourceTree = "<group>"; };
+		CEF4D77721E2F3DD003693CB /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		CEF4D77821E2F3DD003693CB /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		CEF4D77921E2F3DD003693CB /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		CEF4D77A21E2F3DD003693CB /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		CEF4D77B21E2F3DD003693CB /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		CEF4D77C21E2F3DD003693CB /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		CEF4D77D21E2F3DD003693CB /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		CEF4D77E21E2F3DD003693CB /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		CEF4D77F21E2F3DD003693CB /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		CEF4D78021E2F3DD003693CB /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		CEF4D78C21E2F79F003693CB /* UIColor+Utility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Utility.h"; sourceTree = "<group>"; };
+		CEF4D78D21E2F7B5003693CB /* UIColor+Utility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Utility.m"; sourceTree = "<group>"; };
+		CEF4D78F21E2FDB1003693CB /* UIFont+Utility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIFont+Utility.h"; sourceTree = "<group>"; };
+		CEF4D79021E2FDB1003693CB /* UIFont+Utility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Utility.m"; sourceTree = "<group>"; };
 		FF47876A985641C61B7745D3 /* Pods-Photostagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photostagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Photostagram/Pods-Photostagram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,6 +238,7 @@
 		CE70ECC821CCAA7F00F3A5F6 /* Photostagram */ = {
 			isa = PBXGroup;
 			children = (
+				CEF4D78B21E2F497003693CB /* Resourcecs */,
 				CE70ED0421CCB3CA00F3A5F6 /* Models */,
 				CE70ED0821CCB41E00F3A5F6 /* Views */,
 				CE70ED0021CCB36400F3A5F6 /* Controllers */,
@@ -273,6 +300,10 @@
 				CE15C92A21D2AE17002DBE72 /* UIImage+size.m */,
 				CE15C92C21D2B0B4002DBE72 /* FIRStorageReference+Post.h */,
 				CE15C92D21D2B627002DBE72 /* FIRStorageReference+Post.m */,
+				CEF4D78C21E2F79F003693CB /* UIColor+Utility.h */,
+				CEF4D78D21E2F7B5003693CB /* UIColor+Utility.m */,
+				CEF4D78F21E2FDB1003693CB /* UIFont+Utility.h */,
+				CEF4D79021E2FDB1003693CB /* UIFont+Utility.m */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -351,6 +382,31 @@
 				CE15C95121DAA903002DBE72 /* friendsTableViewCell.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CEF4D77621E2F3C6003693CB /* open_sans_font */ = {
+			isa = PBXGroup;
+			children = (
+				CEF4D77A21E2F3DD003693CB /* OpenSans-Bold.ttf */,
+				CEF4D77921E2F3DD003693CB /* OpenSans-BoldItalic.ttf */,
+				CEF4D77F21E2F3DD003693CB /* OpenSans-ExtraBold.ttf */,
+				CEF4D77D21E2F3DD003693CB /* OpenSans-ExtraBoldItalic.ttf */,
+				CEF4D78021E2F3DD003693CB /* OpenSans-Italic.ttf */,
+				CEF4D77E21E2F3DD003693CB /* OpenSans-Light.ttf */,
+				CEF4D77821E2F3DD003693CB /* OpenSans-LightItalic.ttf */,
+				CEF4D77721E2F3DD003693CB /* OpenSans-Regular.ttf */,
+				CEF4D77B21E2F3DD003693CB /* OpenSans-Semibold.ttf */,
+				CEF4D77C21E2F3DD003693CB /* OpenSans-SemiboldItalic.ttf */,
+			);
+			path = open_sans_font;
+			sourceTree = "<group>";
+		};
+		CEF4D78B21E2F497003693CB /* Resourcecs */ = {
+			isa = PBXGroup;
+			children = (
+				CEF4D77621E2F3C6003693CB /* open_sans_font */,
+			);
+			path = Resourcecs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -461,13 +517,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF4D78521E2F3DD003693CB /* OpenSans-Semibold.ttf in Resources */,
+				CEF4D78721E2F3DD003693CB /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				CEF4D78621E2F3DD003693CB /* OpenSans-SemiboldItalic.ttf in Resources */,
+				CEF4D78821E2F3DD003693CB /* OpenSans-Light.ttf in Resources */,
+				CEF4D78421E2F3DD003693CB /* OpenSans-Bold.ttf in Resources */,
 				CE15C93A21D2F0E1002DBE72 /* Home.storyboard in Resources */,
 				CE15C94C21DAA793002DBE72 /* Friends.storyboard in Resources */,
 				CE15C93721D2F011002DBE72 /* Login.storyboard in Resources */,
 				CE70ECFF21CCAFE600F3A5F6 /* GoogleService-Info.plist in Resources */,
+				CEF4D78321E2F3DD003693CB /* OpenSans-BoldItalic.ttf in Resources */,
 				CE70ECD621CCAA8000F3A5F6 /* Assets.xcassets in Resources */,
+				CEF4D78921E2F3DD003693CB /* OpenSans-ExtraBold.ttf in Resources */,
 				CE15C93621D2F011002DBE72 /* LaunchScreen.storyboard in Resources */,
+				CEF4D78A21E2F3DD003693CB /* OpenSans-Italic.ttf in Resources */,
+				CEF4D78121E2F3DD003693CB /* OpenSans-Regular.ttf in Resources */,
 				CE15C93821D2F011002DBE72 /* Main.storyboard in Resources */,
+				CEF4D78221E2F3DD003693CB /* OpenSans-LightItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,8 +693,10 @@
 				CE70ECD421CCAA7F00F3A5F6 /* Photostagram.xcdatamodeld in Sources */,
 				CE15C92121D1F031002DBE72 /* StorageService.m in Sources */,
 				CE70ED1321CCD6BF00F3A5F6 /* User.m in Sources */,
+				CEF4D78E21E2F7B5003693CB /* UIColor+Utility.m in Sources */,
 				CE70ED2B21CF7D7700F3A5F6 /* HomeViewController.m in Sources */,
 				CE15C94A21DA8C11002DBE72 /* FollowService.m in Sources */,
+				CEF4D79121E2FDB1003693CB /* UIFont+Utility.m in Sources */,
 				CE70ECDC21CCAA8000F3A5F6 /* main.m in Sources */,
 				CE15C92721D29DB3002DBE72 /* Post.m in Sources */,
 				CE70ECCB21CCAA7F00F3A5F6 /* AppDelegate.m in Sources */,
