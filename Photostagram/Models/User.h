@@ -20,6 +20,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)getUsername;
 - (BOOL)getIsFollowed;
 - (void)setIsFollowed:(BOOL)isFollowed;
+- (NSInteger)getFollowerCount;
+- (NSInteger)getFollowingCount;
+- (NSInteger)getPostsCount;
+- (void)setFollowerCount:(NSInteger)followerCount;
+- (void)setFollowingCount:(NSInteger)followingCount;
+- (void)setPostsCount:(NSInteger)postsCount;
 
 + (User *)getCurrentUser;
 + (void)setCurrentUser:(User *)user;

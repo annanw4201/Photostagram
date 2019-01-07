@@ -15,6 +15,9 @@
 @property(nonatomic, strong) NSString *uid;
 @property(nonatomic, strong) NSString *username;
 @property(nonatomic, assign) BOOL isFollowed;
+@property(nonatomic) NSInteger followerCount;
+@property(nonatomic) NSInteger followingCount;
+@property(nonatomic) NSInteger postsCount;
 @end
 
 
@@ -35,12 +38,15 @@ static User *currentUser = nil;
     if ([data isKindOfClass:[NSDictionary class]]) {
         NSDictionary *dataDict = (NSDictionary *)data;
         username = [dataDict objectForKey:userusername];
-        if (!username) return nil;
+        self.uid = snapshot.key;
+        self.username = username;
+        self.isFollowed = NO;
+        self.followerCount = [[dataDict objectForKey:userFollowerCount] integerValue];
+        self.followingCount = [[dataDict objectForKey:userFollowingCount] integerValue];
+        self.postsCount = [[dataDict objectForKey:userPostsCount] integerValue];
+        if (!username || !snapshot.key) return nil;
     }
     else return nil;
-    self.uid = snapshot.key;
-    self.username = username;
-    self.isFollowed = NO;
     return self;
 }
 
@@ -85,6 +91,30 @@ static User *currentUser = nil;
 
 - (BOOL)getIsFollowed {
     return self.isFollowed;
+}
+
+- (NSInteger)getFollowerCount {
+    return self.followerCount;
+}
+
+- (NSInteger)getFollowingCount {
+    return self.followingCount;
+}
+
+- (NSInteger)getPostsCount {
+    return self.postsCount;
+}
+
+- (void)setFollowingCount:(NSInteger)followingCount {
+    _followingCount = followingCount;
+}
+
+- (void)setFollowerCount:(NSInteger)followerCount {
+    _followerCount = followerCount;
+}
+
+- (void)setPostsCount:(NSInteger)postsCount {
+    _postsCount = postsCount;
 }
 
 + (User *)getCurrentUser {

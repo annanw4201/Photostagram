@@ -47,6 +47,9 @@ typedef NS_ENUM(NSInteger, postCellViewHeight) {
 // users
 #define useruid @"uid"
 #define userusername @"username"
+#define userFollowerCount @"follower_count"
+#define userFollowingCount @"following_count"
+#define userPostsCount @"posts_count"
 
 // home view controller cell identifier
 #define homePostHeaderCell @"homePostHeaderCell"

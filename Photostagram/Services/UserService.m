@@ -23,7 +23,11 @@
 + (void)createUserWithName:(NSString *)username andCallBack:(void (^)(User *user))callBack {
     FIRUser *firUser = [FIRAuth.auth currentUser];
     FIRDatabaseReference *ref = [[FIRDatabase.database.reference child:databaseUsers] child:firUser.uid];
-    NSDictionary *usernameAttrs = [NSDictionary dictionaryWithObject:username forKey:@"username"];
+    NSDictionary *usernameAttrs = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   username, userusername,
+                                   [NSString stringWithFormat:@"%d", 0], userFollowerCount,
+                                   [NSString stringWithFormat:@"%d", 0], userFollowingCount,
+                                   [NSString stringWithFormat:@"%d", 0], userPostsCount, nil];
     [ref setValue:usernameAttrs];
     [ref observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         User *user = [[User alloc] initWithSnapshot:snapshot];
