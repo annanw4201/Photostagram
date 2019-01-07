@@ -107,8 +107,8 @@
 
 // fetch all the followers for the specified user
 + (void)fetchFollowersForUser:(User *)user andCallBack:(void (^)(NSArray * _Nonnull))callBack {
-    NSString *useruid = [user getUserUid];
-    FIRDatabaseReference *followersRef = [[FIRDatabase.database.reference child:databaseFollowers] child:useruid];
+    NSString *uid = [user getUserUid];
+    FIRDatabaseReference *followersRef = [[FIRDatabase.database.reference child:databaseFollowers] child:uid];
     [followersRef observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         NSDictionary *snapshotDictionary = snapshot.value;
         if ([snapshotDictionary isEqual:[NSNull null]]) {

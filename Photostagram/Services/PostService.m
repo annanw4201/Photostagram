@@ -54,7 +54,9 @@
         // update new post to posts database
         NSDictionary *postDictionary = [post getPostDictionary];
         [updateData setObject:postDictionary forKey:[NSString stringWithFormat:@"%@/%@/%@", databasePosts, currentUserUid, newPostKey]];
-        [rootRef updateChildValues:updateData];
+        [rootRef updateChildValues:updateData withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+            
+        }];
     }];
 }
 
