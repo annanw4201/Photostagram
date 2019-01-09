@@ -9,9 +9,14 @@
 #import "ProfileCollectionViewController.h"
 #import "../Views/PostThumbImageCollectionViewCell.h"
 #import "../Views/ProfileHeaderCollectionReusableView.h"
+#import "../Models/User.h"
+#import "FIRDatabase.h"
+#import "../Services/UserService.h"
+#import "../Models/Post.h"
 
 @interface ProfileCollectionViewController ()<UICollectionViewDelegateFlowLayout>
-
+@property(nonatomic, strong)User *user;
+@property(nonatomic, strong)NSArray *posts;
 @end
 
 @implementation ProfileCollectionViewController
@@ -28,6 +33,13 @@ static NSString * const reuseIdentifier = @"PostThumbImageCell";
     //[self.collectionView registerClass:[PostThumbImageCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
+    self.user = [User getCurrentUser];
+    [UserService fetchProfileForUser:self.user andCallBack:^(FIRDatabaseReference * _Nonnull userRef, User * _Nonnull user, NSArray * _Nonnull posts) {
+        self.posts = posts;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.collectionView reloadData];
+        });
+    }];
 }
 
 /*
@@ -67,7 +79,7 @@ static NSString * const reuseIdentifier = @"PostThumbImageCell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return self.posts.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -75,7 +87,9 @@ static NSString * const reuseIdentifier = @"PostThumbImageCell";
     PostThumbImageCollectionViewCell *thumbImageCell = (PostThumbImageCollectionViewCell *)cell;
     // Configure the cell
     if (thumbImageCell) NSLog(@"%@", thumbImageCell);
-    
+    Post *post = [self.posts objectAtIndex:indexPath.row];
+    NSString *imageUrlString = [post getImageUrl];
+    [thumbImageCell setThumbImageForThumbImageViewImageViewWithUrl:[NSURL URLWithString:imageUrlString]];
     return thumbImageCell;
 }
 
@@ -85,9 +99,9 @@ static NSString * const reuseIdentifier = @"PostThumbImageCell";
     }
     UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"ProfileHeaderView" forIndexPath:indexPath];
     ProfileHeaderCollectionReusableView *headerView = (ProfileHeaderCollectionReusableView *)view;
-    [headerView setPostsCountLabelText:@"0"];
-    [headerView setFollowerCountLabelText:@"0"];
-    [headerView setFollowingCountLabelText:@"0"];
+    [headerView setPostsCountLabelText:[self.user getPostsCount]];
+    [headerView setFollowerCountLabelText:[self.user getFollowerCount]];
+    [headerView setFollowingCountLabelText:[self.user getFollowingCount]];
     return headerView;
 }
 

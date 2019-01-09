@@ -7,6 +7,7 @@
 //
 
 #import "PostThumbImageCollectionViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface PostThumbImageCollectionViewCell()
 @property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;
@@ -20,7 +21,7 @@
 }
 
 - (void)setThumbImageForThumbImageViewImageViewWithUrl:(NSURL *)imageUrl {
-    
+    [self.thumbImageView sd_setImageWithURL:imageUrl placeholderImage:nil];
 }
 
 - (void)setThumbImageForThumbImageViewImageViewBackground:(UIColor *)color {
