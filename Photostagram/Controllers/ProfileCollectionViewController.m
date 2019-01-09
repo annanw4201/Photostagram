@@ -8,8 +8,9 @@
 
 #import "ProfileCollectionViewController.h"
 #import "../Views/PostThumbImageCollectionViewCell.h"
+#import "../Views/ProfileHeaderCollectionReusableView.h"
 
-@interface ProfileCollectionViewController ()
+@interface ProfileCollectionViewController ()<UICollectionViewDelegateFlowLayout>
 
 @end
 
@@ -39,6 +40,25 @@ static NSString * const reuseIdentifier = @"PostThumbImageCell";
 }
 */
 
+#pragma mark <UICollectionViewDelegateFlowLayout>
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CGFloat colums = 3;
+    CGFloat spacing = 1.5;
+    CGFloat totalHorizontalSpacing = (colums - 1) * spacing;
+    
+    CGFloat itemWidth = (collectionView.bounds.size.width - totalHorizontalSpacing) / colums;
+    CGSize size = CGSizeMake(itemWidth, itemWidth);
+    return size;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 1.5;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 1.5;
+}
+
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -47,7 +67,7 @@ static NSString * const reuseIdentifier = @"PostThumbImageCell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 3;
+    return 10;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -57,6 +77,18 @@ static NSString * const reuseIdentifier = @"PostThumbImageCell";
     if (thumbImageCell) NSLog(@"%@", thumbImageCell);
     
     return thumbImageCell;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    if (kind != UICollectionElementKindSectionHeader) {
+        NSLog(@"%@: kind is not Header", self.class);
+    }
+    UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"ProfileHeaderView" forIndexPath:indexPath];
+    ProfileHeaderCollectionReusableView *headerView = (ProfileHeaderCollectionReusableView *)view;
+    [headerView setPostsCountLabelText:@"0"];
+    [headerView setFollowerCountLabelText:@"0"];
+    [headerView setFollowingCountLabelText:@"0"];
+    return headerView;
 }
 
 #pragma mark <UICollectionViewDelegate>

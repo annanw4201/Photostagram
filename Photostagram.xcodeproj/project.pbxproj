@@ -57,6 +57,7 @@
 		CEF4D79421E5AB5F003693CB /* ProfileCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4D79321E5AB5F003693CB /* ProfileCollectionViewController.m */; };
 		CEF4D79721E5AFE7003693CB /* PostThumbImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4D79621E5AFE7003693CB /* PostThumbImageCollectionViewCell.m */; };
 		CEF4D79B21E5B797003693CB /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF4D79A21E5B797003693CB /* Profile.storyboard */; };
+		CEF4D79E21E5CEED003693CB /* ProfileHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4D79D21E5CEED003693CB /* ProfileHeaderCollectionReusableView.m */; };
 		EABADEBBD88DA404E92D6681 /* Pods_PhotostagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B901A2CCD8C9C71D7299B788 /* Pods_PhotostagramUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -167,6 +168,8 @@
 		CEF4D79521E5AFE7003693CB /* PostThumbImageCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostThumbImageCollectionViewCell.h; sourceTree = "<group>"; };
 		CEF4D79621E5AFE7003693CB /* PostThumbImageCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostThumbImageCollectionViewCell.m; sourceTree = "<group>"; };
 		CEF4D79A21E5B797003693CB /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		CEF4D79C21E5CEED003693CB /* ProfileHeaderCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileHeaderCollectionReusableView.h; sourceTree = "<group>"; };
+		CEF4D79D21E5CEED003693CB /* ProfileHeaderCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileHeaderCollectionReusableView.m; sourceTree = "<group>"; };
 		FF47876A985641C61B7745D3 /* Pods-Photostagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photostagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Photostagram/Pods-Photostagram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -393,6 +396,8 @@
 				CE15C95121DAA903002DBE72 /* friendsTableViewCell.m */,
 				CEF4D79521E5AFE7003693CB /* PostThumbImageCollectionViewCell.h */,
 				CEF4D79621E5AFE7003693CB /* PostThumbImageCollectionViewCell.m */,
+				CEF4D79C21E5CEED003693CB /* ProfileHeaderCollectionReusableView.h */,
+				CEF4D79D21E5CEED003693CB /* ProfileHeaderCollectionReusableView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -702,6 +707,7 @@
 				CE15C94F21DAA866002DBE72 /* FriendsTableViewController.m in Sources */,
 				CE70ED2821CF6CB000F3A5F6 /* Storyboard+Utility.m in Sources */,
 				CEF4D77421E126C3003693CB /* paginationHelper.m in Sources */,
+				CEF4D79E21E5CEED003693CB /* ProfileHeaderCollectionReusableView.m in Sources */,
 				CE70ED1C21CEA79500F3A5F6 /* UserService.m in Sources */,
 				CE70ED1621CCE11A00F3A5F6 /* CreateUsernameViewController.m in Sources */,
 				CE15C94121D453FE002DBE72 /* postHeaderTableViewCell.m in Sources */,
