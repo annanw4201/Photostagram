@@ -55,7 +55,17 @@
         NSDictionary *postDictionary = [post getPostDictionary];
         [updateData setObject:postDictionary forKey:[NSString stringWithFormat:@"%@/%@/%@", databasePosts, currentUserUid, newPostKey]];
         [rootRef updateChildValues:updateData withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
-            
+            FIRDatabaseReference *postCountRef = [[[FIRDatabase.database.reference child:databaseUsers] child:currentUserUid] child:userPostsCount];
+            [postCountRef runTransactionBlock:^FIRTransactionResult * _Nonnull(FIRMutableData * _Nonnull currentData) {
+                NSInteger postsCount = currentData.value == [NSNull null] ? 0 : [currentData.value integerValue];
+                NSInteger newPostsCount = postsCount + 1;
+                currentData.value = [NSString stringWithFormat:@"%ld", (long)newPostsCount];
+                return [FIRTransactionResult successWithValue:currentData];
+            } andCompletionBlock:^(NSError * _Nullable error, BOOL committed, FIRDataSnapshot * _Nullable snapshot) {
+                if (error) {
+                    NSLog(@"%@:Error increment postsCount by 1: %@", self.class, error.localizedDescription);
+                }
+            }];
         }];
     }];
 }

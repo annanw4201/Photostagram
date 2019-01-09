@@ -141,7 +141,7 @@
             if (!timelinePostDictionary) continue;
             NSString *posterUid = [timelinePostDictionary objectForKey:@"poster_uid"];
             if (!posterUid) continue;
-            dispatch_group_enter(dispatchGroup);
+            dispatch_group_enter(dispatchGroup); // wait for creating post
             NSString *postKey = s.key;
             [PostService createPostForPostKey:postKey withPosterUid:posterUid andCallBack:^(Post * post) {
                 if (post) {
@@ -153,9 +153,26 @@
                 }
             }];
         }
+        // notify that successfully creating all posts
         dispatch_group_notify(dispatchGroup, dispatch_get_main_queue(), ^{
             callBack(posts);
         });
+    }];
+}
+
+
++ (void)fetchProfileForUser:(User *)user andCallBack:(void (^)(FIRDatabaseReference *, User *, NSArray *))callBack {
+    FIRDatabaseReference *userRef = [[FIRDatabase.database.reference child:databaseUsers] child:[user getUserUid]];
+    [userRef observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        User *user = [[User alloc] initWithSnapshot:snapshot];
+        if (!user) {
+            callBack(userRef, nil, [NSArray array]);
+        }
+        else {
+            [self retrievePostsForUser:user withCallBack:^(NSArray * _Nonnull posts) {
+                callBack(userRef, user, posts);
+            }];
+        }
     }];
 }
 

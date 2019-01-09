@@ -11,6 +11,7 @@
 #import "../Models/User.h"
 #import "UserService.h"
 #import "../Models/Post.h"
+#import "../Supporting/Constants.h"
 
 @implementation FollowService
 
@@ -24,11 +25,47 @@
     // update followee and follower
     [ref updateChildValues:followDictionary withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
         if (error) {
-            NSLog(@"%@: Error update follower or following data: %@", NSStringFromClass([self class]), error.localizedDescription);
+            NSLog(@"%@: Error update follower or following data when follow: %@", NSStringFromClass([self class]), error.localizedDescription);
             callBack(NO);
         }
         else {
+            dispatch_group_t dispatchGroup = dispatch_group_create();
+            __block BOOL status = YES;
+            
+            // increment user's following count
+            dispatch_group_enter(dispatchGroup);
+            FIRDatabaseReference *followingCountRef = [[[FIRDatabase.database.reference child:databaseUsers] child:currentUserUid] child:userFollowingCount];
+            [followingCountRef runTransactionBlock:^FIRTransactionResult * _Nonnull(FIRMutableData * _Nonnull currentData) {
+                NSInteger followingCount = currentData.value == [NSNull null] ? 0 : [currentData.value integerValue];
+                NSInteger newFollowingCount = followingCount + 1;
+                currentData.value = [NSString stringWithFormat:@"%ld", (long)newFollowingCount];
+                return [FIRTransactionResult successWithValue:currentData];
+            } andCompletionBlock:^(NSError * _Nullable error, BOOL committed, FIRDataSnapshot * _Nullable snapshot) {
+                if (error) {
+                    NSLog(@"%@:Error update following count when follow:%@", self.class, error.localizedDescription);
+                    status = NO;
+                }
+                dispatch_group_leave(dispatchGroup);
+            }];
+            
+            // increment followee's follower count
+            dispatch_group_enter(dispatchGroup);
+            FIRDatabaseReference *followerCountRef = [[[FIRDatabase.database.reference child:databaseUsers] child:[user getUserUid]] child:userFollowerCount];
+            [followerCountRef runTransactionBlock:^FIRTransactionResult * _Nonnull(FIRMutableData * _Nonnull currentData) {
+                NSInteger followerCount = currentData.value == [NSNull null] ? 0 : [currentData.value integerValue];
+                NSInteger newFollowerCount = followerCount + 1;
+                currentData.value = [NSString stringWithFormat:@"%ld", (long)newFollowerCount];
+                return [FIRTransactionResult successWithValue:currentData];
+            } andCompletionBlock:^(NSError * _Nullable error, BOOL committed, FIRDataSnapshot * _Nullable snapshot) {
+                if (error) {
+                    NSLog(@"%@:Error to update follower count when follow:%@", self.class, error.localizedDescription);
+                    status = NO;
+                }
+                dispatch_group_leave(dispatchGroup);
+            }];
+            
             // fetch all post for the followee
+            dispatch_group_enter(dispatchGroup);
             [UserService retrievePostsForUser:user withCallBack:^(NSArray * _Nonnull posts) {
                 NSMutableDictionary *followData = [NSMutableDictionary dictionaryWithCapacity:posts.count];
                 NSDictionary *timelinePostDictionary = [NSDictionary dictionaryWithObject:[user getUserUid] forKey:@"poster_uid"];
@@ -36,17 +73,20 @@
                     NSString *postKey = [post getKey];
                     [followData setObject:timelinePostDictionary forKey:[NSString stringWithFormat:@"timeline/%@/%@", currentUserUid, postKey]];
                 }
-                // update posts of followee to current user's timeline
+                // add posts of followee to current user's timeline
                 [ref updateChildValues:followData withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
                     if (error) {
-                        NSLog(@"%@: Error update follow timeline data: %@", NSStringFromClass([self class]), error.localizedDescription);
-                        callBack(NO);
+                        NSLog(@"%@: Error update follow timeline data when follow: %@", NSStringFromClass([self class]), error.localizedDescription);
+                        status = NO;
                     }
-                    else {
-                        callBack(YES);
-                    }
+                    dispatch_group_leave(dispatchGroup);
                 }];
             }];
+            
+            // notify we successfully update all the transactions
+            dispatch_group_notify(dispatchGroup, dispatch_get_main_queue(), ^{
+                callBack(status);
+            });
         }
     }];
 }
@@ -60,28 +100,67 @@
     // update followee and follower
     [ref updateChildValues:followDictionary withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
         if (error) {
-            NSLog(@"%@: Error removing follower or following data: %@", NSStringFromClass([self class]), error.localizedDescription);
+            NSLog(@"%@: Error removing follower or following data when unfollow: %@", NSStringFromClass([self class]), error.localizedDescription);
             callBack(NO);
         }
         else {
+            dispatch_group_t dispatchGroup = dispatch_group_create();
+            __block BOOL status = YES;
+            
+            // decrement user's following count
+            dispatch_group_enter(dispatchGroup);
+            FIRDatabaseReference *followingCountRef = [[[FIRDatabase.database.reference child:databaseUsers] child:currentUserUid] child:userFollowingCount];
+            [followingCountRef runTransactionBlock:^FIRTransactionResult * _Nonnull(FIRMutableData * _Nonnull currentData) {
+                NSInteger followingCount = currentData.value == [NSNull null] ? 0 : [currentData.value integerValue];
+                NSInteger newFollwingCount = followingCount - 1;
+                currentData.value = [NSString stringWithFormat:@"%ld", (long)newFollwingCount];
+                return [FIRTransactionResult successWithValue:currentData];
+            } andCompletionBlock:^(NSError * _Nullable error, BOOL committed, FIRDataSnapshot * _Nullable snapshot) {
+                if (error) {
+                    status = NO;
+                    NSLog(@"%@:Error update following count when unfollow: %@", self.class, error.localizedDescription);
+                }
+                dispatch_group_leave(dispatchGroup);
+            }];
+            
+            // decrement followee's follower count
+            dispatch_group_enter(dispatchGroup);
+            FIRDatabaseReference *followerCountRef = [[[FIRDatabase.database.reference child:databaseUsers] child:[user getUserUid]] child:userFollowerCount];
+            [followerCountRef runTransactionBlock:^FIRTransactionResult * _Nonnull(FIRMutableData * _Nonnull currentData) {
+                NSInteger followerCount = currentData.value == [NSNull null] ? 0 : [currentData.value integerValue];
+                NSInteger newFollowerCount = followerCount - 1;
+                currentData.value = [NSString stringWithFormat:@"%ld", (long)newFollowerCount];
+                return [FIRTransactionResult successWithValue:currentData];
+            } andCompletionBlock:^(NSError * _Nullable error, BOOL committed, FIRDataSnapshot * _Nullable snapshot) {
+                if (error) {
+                    status = NO;
+                    NSLog(@"%@:Error update follower count when unfollow:%@", self.class, error.localizedDescription);
+                }
+                dispatch_group_leave(dispatchGroup);
+            }];
+            
             // fetch all post for the followee
+            dispatch_group_enter(dispatchGroup);
             [UserService retrievePostsForUser:user withCallBack:^(NSArray * _Nonnull posts) {
                 NSMutableDictionary *unfollowData = [NSMutableDictionary dictionaryWithCapacity:posts.count];
                 for (Post *post in posts) {
                     NSString *postKey = [post getKey];
                     [unfollowData setObject:[NSNull null] forKey:[NSString stringWithFormat:@"timeline/%@/%@", currentUserUid, postKey]];
                 }
-                // update posts of followee to current user's timeline
+                // remove posts of followee to current user's timeline
                 [ref updateChildValues:unfollowData withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
                     if (error) {
+                        status = NO;
                         NSLog(@"%@: Error update unfollow timeline data: %@", NSStringFromClass([self class]), error.localizedDescription);
-                        callBack(NO);
                     }
-                    else {
-                        callBack(YES);
-                    }
+                    dispatch_group_leave(dispatchGroup);
                 }];
             }];
+            
+            // notify we successfully update all the transactions
+            dispatch_group_notify(dispatchGroup, dispatch_get_main_queue(), ^{
+                callBack(status);
+            });
         }
     }];
 }
