@@ -58,8 +58,9 @@
             FIRDatabaseReference *postCountRef = [[[FIRDatabase.database.reference child:databaseUsers] child:currentUserUid] child:userPostsCount];
             [postCountRef runTransactionBlock:^FIRTransactionResult * _Nonnull(FIRMutableData * _Nonnull currentData) {
                 NSInteger postsCount = currentData.value == [NSNull null] ? 0 : [currentData.value integerValue];
-                NSInteger newPostsCount = postsCount + 1;
-                currentData.value = [NSString stringWithFormat:@"%ld", (long)newPostsCount];
+                NSString *newPostsCount = [NSString stringWithFormat:@"%ld", postsCount + 1];
+                [currentUser setPostsCount:newPostsCount];
+                currentData.value = newPostsCount;
                 return [FIRTransactionResult successWithValue:currentData];
             } andCompletionBlock:^(NSError * _Nullable error, BOOL committed, FIRDataSnapshot * _Nullable snapshot) {
                 if (error) {

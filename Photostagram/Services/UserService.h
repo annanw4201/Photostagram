@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)fetchUsersExceptCurrentUser:(void(^)(NSArray *users))callBack;
 + (void)fetchFollowersForUser:(User *)user andCallBack:(void(^)(NSArray *followersUid))callBack;
 + (void)fetchTimelineForCurrentUser:(NSInteger)pageSize withLastPostKey:(NSString *)lastPostKey AndCallBack:(void (^)(NSArray * _Nonnull))callBack;
-+ (void)fetchProfileForUser:(User *)user andCallBack:(void(^)(FIRDatabaseReference *userRef, User *user, NSArray *posts))callBack;
++ (void)fetchProfileForUser:(User *)user andCallBack:(void(^)(User *user, NSArray *posts))callBack;
 @end
 
 NS_ASSUME_NONNULL_END

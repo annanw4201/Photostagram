@@ -16,11 +16,14 @@
 #import "FIRAuth.h"
 #import "../Controllers/LoginViewController.h"
 #import "../Extensions/Storyboard+Utility.h"
+#import "../Supporting/Constants.h"
 
 @interface ProfileCollectionViewController ()<UICollectionViewDelegateFlowLayout, ProfileHeaderCollectionReusableViewDelegate>
 @property(nonatomic, strong)User *user;
 @property(nonatomic, strong)NSArray *posts;
-@property(nonatomic) FIRAuthStateDidChangeListenerHandle authHandle;
+@property(nonatomic)FIRAuthStateDidChangeListenerHandle authHandle;
+@property(nonatomic)FIRDatabaseHandle profileHandle;
+@property(nonatomic)FIRDatabaseReference *profileRef;
 @end
 
 @implementation ProfileCollectionViewController
@@ -37,12 +40,22 @@ static NSString * const reuseIdentifier = @"PostThumbImageCell";
     //[self.collectionView registerClass:[PostThumbImageCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
-    self.user = [User getCurrentUser];
-    [UserService fetchProfileForUser:self.user andCallBack:^(FIRDatabaseReference * _Nonnull userRef, User * _Nonnull user, NSArray * _Nonnull posts) {
-        self.posts = posts;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.collectionView reloadData];
-        });
+    if (!self.user) self.user = [User getCurrentUser];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    NSLog(@"%@: view will appear, add observers", self.class);
+    [super viewWillAppear:animated];
+    // add observer at profile reference and every time an update to the profile the block will be called
+    self.profileRef = [[FIRDatabase.database.reference child:databaseUsers] child:[self.user getUserUid]];
+    self.profileHandle = [self.profileRef observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        [UserService fetchProfileForUser:self.user andCallBack:^(User * _Nonnull user, NSArray * _Nonnull posts) {
+            self.posts = posts;
+            self.user = user;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.collectionView reloadData];
+            });
+        }];
     }];
     
     // add listener for observing user's login status
@@ -55,11 +68,11 @@ static NSString * const reuseIdentifier = @"PostThumbImageCell";
     }];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    if (self.authHandle) {
-        [FIRAuth.auth removeAuthStateDidChangeListener:self.authHandle];
-    }
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    NSLog(@"%@: view will disappear, remove observers", self.class);
+    if (self.authHandle) [FIRAuth.auth removeAuthStateDidChangeListener:self.authHandle];
+    if (self.profileHandle) [self.profileRef removeObserverWithHandle:self.profileHandle];
 }
 
 /*

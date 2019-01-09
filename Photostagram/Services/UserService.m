@@ -161,16 +161,16 @@
 }
 
 
-+ (void)fetchProfileForUser:(User *)user andCallBack:(void (^)(FIRDatabaseReference *, User *, NSArray *))callBack {
++ (void)fetchProfileForUser:(User *)user andCallBack:(void (^)(User *, NSArray *))callBack {
     FIRDatabaseReference *userRef = [[FIRDatabase.database.reference child:databaseUsers] child:[user getUserUid]];
     [userRef observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         User *user = [[User alloc] initWithSnapshot:snapshot];
         if (!user) {
-            callBack(userRef, nil, [NSArray array]);
+            callBack(nil, [NSArray array]);
         }
         else {
             [self retrievePostsForUser:user withCallBack:^(NSArray * _Nonnull posts) {
-                callBack(userRef, user, posts);
+                callBack(user, posts);
             }];
         }
     }];
