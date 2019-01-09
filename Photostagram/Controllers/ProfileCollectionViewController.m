@@ -13,10 +13,14 @@
 #import "FIRDatabase.h"
 #import "../Services/UserService.h"
 #import "../Models/Post.h"
+#import "FIRAuth.h"
+#import "../Controllers/LoginViewController.h"
+#import "../Extensions/Storyboard+Utility.h"
 
-@interface ProfileCollectionViewController ()<UICollectionViewDelegateFlowLayout>
+@interface ProfileCollectionViewController ()<UICollectionViewDelegateFlowLayout, ProfileHeaderCollectionReusableViewDelegate>
 @property(nonatomic, strong)User *user;
 @property(nonatomic, strong)NSArray *posts;
+@property(nonatomic) FIRAuthStateDidChangeListenerHandle authHandle;
 @end
 
 @implementation ProfileCollectionViewController
@@ -40,6 +44,22 @@ static NSString * const reuseIdentifier = @"PostThumbImageCell";
             [self.collectionView reloadData];
         });
     }];
+    
+    // add listener for observing user's login status
+    self.authHandle = [FIRAuth.auth addAuthStateDidChangeListener:^(FIRAuth * _Nonnull auth, FIRUser * _Nullable user) {
+        // if user log out, user should be nil
+        if (user != nil) return;
+        UIViewController *loginVC = [UIStoryboard initialViewControllerOfType:storyboardLogin];
+        [self.view.window setRootViewController:loginVC];
+        [self.view.window makeKeyAndVisible];
+    }];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    if (self.authHandle) {
+        [FIRAuth.auth removeAuthStateDidChangeListener:self.authHandle];
+    }
 }
 
 /*
@@ -86,7 +106,6 @@ static NSString * const reuseIdentifier = @"PostThumbImageCell";
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     PostThumbImageCollectionViewCell *thumbImageCell = (PostThumbImageCollectionViewCell *)cell;
     // Configure the cell
-    if (thumbImageCell) NSLog(@"%@", thumbImageCell);
     Post *post = [self.posts objectAtIndex:indexPath.row];
     NSString *imageUrlString = [post getImageUrl];
     [thumbImageCell setThumbImageForThumbImageViewImageViewWithUrl:[NSURL URLWithString:imageUrlString]];
@@ -102,7 +121,25 @@ static NSString * const reuseIdentifier = @"PostThumbImageCell";
     [headerView setPostsCountLabelText:[self.user getPostsCount]];
     [headerView setFollowerCountLabelText:[self.user getFollowerCount]];
     [headerView setFollowingCountLabelText:[self.user getFollowingCount]];
+    [headerView setDelegate:self];
     return headerView;
+}
+
+#pragma mark <ProfileHeaderCollectionReusableViewDelegate>
+- (void)settingsButtonPressed:(UIButton *)sender fromHeaderView:(ProfileHeaderCollectionReusableView *)headerView {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *signOutAction = [UIAlertAction actionWithTitle:@"Sign Out" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"user signing out");
+        NSError *error = nil;
+        [FIRAuth.auth signOut:&error];
+        if (error) {
+            NSLog(@"%@: Error signing out: %@", self.class, error.localizedDescription);
+        }
+    }];
+    [alertController addAction:signOutAction];
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"Cancle" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:cancleAction];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 #pragma mark <UICollectionViewDelegate>

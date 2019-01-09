@@ -55,6 +55,9 @@ static User *currentUser = nil;
     if (self) {
         self.uid = [aDecoder decodeObjectOfClass:[User class] forKey:useruid];
         self.username = [aDecoder decodeObjectOfClass:[User class] forKey:userusername];
+        self.postsCount = [aDecoder decodeObjectOfClass:[User class] forKey:userPostsCount];
+        self.followerCount = [aDecoder decodeObjectOfClass:[User class] forKey:userFollowerCount];
+        self.followingCount = [aDecoder decodeObjectOfClass:[User class] forKey:userFollowingCount];
     }
     return self;
 }
@@ -62,6 +65,9 @@ static User *currentUser = nil;
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:self.uid forKey:useruid];
     [aCoder encodeObject:self.username forKey:userusername];
+    [aCoder encodeObject:self.postsCount forKey:userPostsCount];
+    [aCoder encodeObject:self.followerCount forKey:userFollowerCount];
+    [aCoder encodeObject:self.followingCount forKey:userFollowingCount];
 }
 
 + (BOOL)supportsSecureCoding {

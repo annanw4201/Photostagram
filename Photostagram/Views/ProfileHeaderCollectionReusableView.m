@@ -26,6 +26,7 @@
 
 - (IBAction)settingsButtonPressed:(UIButton *)sender {
     NSLog(@"%@: setting button pressed", self.class);
+    [self.delegate settingsButtonPressed:sender fromHeaderView:self];
 }
 
 - (void)setPostsCountLabelText:(NSString *)postsCount {
