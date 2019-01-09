@@ -54,6 +54,9 @@
 		CEF4D78A21E2F3DD003693CB /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEF4D78021E2F3DD003693CB /* OpenSans-Italic.ttf */; };
 		CEF4D78E21E2F7B5003693CB /* UIColor+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4D78D21E2F7B5003693CB /* UIColor+Utility.m */; };
 		CEF4D79121E2FDB1003693CB /* UIFont+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4D79021E2FDB1003693CB /* UIFont+Utility.m */; };
+		CEF4D79421E5AB5F003693CB /* ProfileCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4D79321E5AB5F003693CB /* ProfileCollectionViewController.m */; };
+		CEF4D79721E5AFE7003693CB /* PostThumbImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4D79621E5AFE7003693CB /* PostThumbImageCollectionViewCell.m */; };
+		CEF4D79B21E5B797003693CB /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF4D79A21E5B797003693CB /* Profile.storyboard */; };
 		EABADEBBD88DA404E92D6681 /* Pods_PhotostagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B901A2CCD8C9C71D7299B788 /* Pods_PhotostagramUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -159,6 +162,11 @@
 		CEF4D78D21E2F7B5003693CB /* UIColor+Utility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Utility.m"; sourceTree = "<group>"; };
 		CEF4D78F21E2FDB1003693CB /* UIFont+Utility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIFont+Utility.h"; sourceTree = "<group>"; };
 		CEF4D79021E2FDB1003693CB /* UIFont+Utility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Utility.m"; sourceTree = "<group>"; };
+		CEF4D79221E5AB5F003693CB /* ProfileCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileCollectionViewController.h; sourceTree = "<group>"; };
+		CEF4D79321E5AB5F003693CB /* ProfileCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileCollectionViewController.m; sourceTree = "<group>"; };
+		CEF4D79521E5AFE7003693CB /* PostThumbImageCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostThumbImageCollectionViewCell.h; sourceTree = "<group>"; };
+		CEF4D79621E5AFE7003693CB /* PostThumbImageCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostThumbImageCollectionViewCell.m; sourceTree = "<group>"; };
+		CEF4D79A21E5B797003693CB /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		FF47876A985641C61B7745D3 /* Pods-Photostagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photostagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Photostagram/Pods-Photostagram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -287,6 +295,8 @@
 				CE70ED2A21CF7D7700F3A5F6 /* HomeViewController.m */,
 				CE15C94D21DAA866002DBE72 /* FriendsTableViewController.h */,
 				CE15C94E21DAA866002DBE72 /* FriendsTableViewController.m */,
+				CEF4D79221E5AB5F003693CB /* ProfileCollectionViewController.h */,
+				CEF4D79321E5AB5F003693CB /* ProfileCollectionViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -353,6 +363,7 @@
 				CE15C93321D2F010002DBE72 /* LaunchScreen.storyboard */,
 				CE15C93421D2F011002DBE72 /* Login.storyboard */,
 				CE15C93521D2F011002DBE72 /* Main.storyboard */,
+				CEF4D79A21E5B797003693CB /* Profile.storyboard */,
 				CE15C94B21DAA793002DBE72 /* Friends.storyboard */,
 				CE15C93921D2F0E1002DBE72 /* Home.storyboard */,
 			);
@@ -380,6 +391,8 @@
 				CE15C94321D45950002DBE72 /* postActionTableViewCell.m */,
 				CE15C95021DAA903002DBE72 /* friendsTableViewCell.h */,
 				CE15C95121DAA903002DBE72 /* friendsTableViewCell.m */,
+				CEF4D79521E5AFE7003693CB /* PostThumbImageCollectionViewCell.h */,
+				CEF4D79621E5AFE7003693CB /* PostThumbImageCollectionViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -523,6 +536,7 @@
 				CEF4D78821E2F3DD003693CB /* OpenSans-Light.ttf in Resources */,
 				CEF4D78421E2F3DD003693CB /* OpenSans-Bold.ttf in Resources */,
 				CE15C93A21D2F0E1002DBE72 /* Home.storyboard in Resources */,
+				CEF4D79B21E5B797003693CB /* Profile.storyboard in Resources */,
 				CE15C94C21DAA793002DBE72 /* Friends.storyboard in Resources */,
 				CE15C93721D2F011002DBE72 /* Login.storyboard in Resources */,
 				CE70ECFF21CCAFE600F3A5F6 /* GoogleService-Info.plist in Resources */,
@@ -684,6 +698,7 @@
 				CE15C93E21D34DF3002DBE72 /* postImageTableViewCell.m in Sources */,
 				CE15C94721D49CB2002DBE72 /* LikeService.m in Sources */,
 				CE15C92E21D2B627002DBE72 /* FIRStorageReference+Post.m in Sources */,
+				CEF4D79421E5AB5F003693CB /* ProfileCollectionViewController.m in Sources */,
 				CE15C94F21DAA866002DBE72 /* FriendsTableViewController.m in Sources */,
 				CE70ED2821CF6CB000F3A5F6 /* Storyboard+Utility.m in Sources */,
 				CEF4D77421E126C3003693CB /* paginationHelper.m in Sources */,
@@ -703,6 +718,7 @@
 				CE15C92421D299C6002DBE72 /* PostService.m in Sources */,
 				CE15C91E21D0D112002DBE72 /* PhotoPickerHelper.m in Sources */,
 				CE70ED1021CCBB4300F3A5F6 /* LoginViewController.m in Sources */,
+				CEF4D79721E5AFE7003693CB /* PostThumbImageCollectionViewCell.m in Sources */,
 				CE15C95221DAA903002DBE72 /* friendsTableViewCell.m in Sources */,
 				CE15C94421D45950002DBE72 /* postActionTableViewCell.m in Sources */,
 			);
