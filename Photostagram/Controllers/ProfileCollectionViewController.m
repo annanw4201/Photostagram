@@ -17,6 +17,7 @@
 #import "../Controllers/LoginViewController.h"
 #import "../Extensions/Storyboard+Utility.h"
 #import "../Supporting/Constants.h"
+#import "../Controllers/FriendsTableViewController.h"
 
 @interface ProfileCollectionViewController ()<UICollectionViewDelegateFlowLayout, ProfileHeaderCollectionReusableViewDelegate>
 @property(nonatomic, strong)User *user;
@@ -73,6 +74,12 @@ static NSString * const reuseIdentifier = @"PostThumbImageCell";
     NSLog(@"%@: view will disappear, remove observers", self.class);
     if (self.authHandle) [FIRAuth.auth removeAuthStateDidChangeListener:self.authHandle];
     if (self.profileHandle) [self.profileRef removeObserverWithHandle:self.profileHandle];
+}
+
+- (IBAction)friendsButtonPressed:(UIBarButtonItem *)sender {
+    NSLog(@"%@:segue to friends view controller", self.class);
+    FriendsTableViewController *friendsVC = [[FriendsTableViewController alloc] init];
+    [self.navigationController pushViewController:friendsVC animated:YES];
 }
 
 /*

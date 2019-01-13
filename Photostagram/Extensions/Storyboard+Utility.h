@@ -12,7 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, storyboardType) {
     storyboardMain,
-    storyboardLogin
+    storyboardLogin,
+    storyboardFriends
 };
 
 @interface UIStoryboard (initialViewControllerOfType)

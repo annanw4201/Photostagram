@@ -8,18 +8,22 @@
 
 #import "Storyboard+Utility.h"
 
-#define mainStoryboardName @"Main"
+#define MainStoryboardName @"Main"
 #define LoginStoryboardName @"Login"
+#define FriendsStoryboardName @"Friends"
 
 @implementation UIStoryboard (initialViewControllerOfType)
 
 - (instancetype)initWithType: (storyboardType)type {
     switch (type) {
         case storyboardMain:
-            return [UIStoryboard storyboardWithName:mainStoryboardName bundle:nil];
+            return [UIStoryboard storyboardWithName:MainStoryboardName bundle:nil];
             break;
         case storyboardLogin:
             return [UIStoryboard storyboardWithName:LoginStoryboardName bundle:nil];
+            break;
+        case storyboardFriends:
+            return [UIStoryboard storyboardWithName:FriendsStoryboardName bundle:nil];
             break;
         default:
             return [UIStoryboard storyboardWithName:LoginStoryboardName bundle:nil];

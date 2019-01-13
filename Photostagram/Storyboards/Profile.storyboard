@@ -146,7 +146,13 @@
                             <outlet property="delegate" destination="NVy-lz-Azy" id="dlh-w0-X4e"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Profile" id="E9W-tY-PgI"/>
+                    <navigationItem key="navigationItem" title="Profile" id="E9W-tY-PgI">
+                        <barButtonItem key="rightBarButtonItem" image="tab_find_friends_black" id="prQ-4h-TtQ">
+                            <connections>
+                                <action selector="friendsButtonPressed:" destination="NVy-lz-Azy" id="5Df-dX-XCw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uvx-Pk-qjS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
