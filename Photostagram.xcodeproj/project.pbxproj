@@ -60,6 +60,7 @@
 		CEF4D79E21E5CEED003693CB /* ProfileHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4D79D21E5CEED003693CB /* ProfileHeaderCollectionReusableView.m */; };
 		CEF4D7A121EAF394003693CB /* Chat.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4D7A021EAF394003693CB /* Chat.m */; };
 		CEF4D7A421EAF878003693CB /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4D7A321EAF878003693CB /* Message.m */; };
+		CEF4D7B921F029A7003693CB /* ChatService.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4D7B821F029A7003693CB /* ChatService.m */; };
 		EABADEBBD88DA404E92D6681 /* Pods_PhotostagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B901A2CCD8C9C71D7299B788 /* Pods_PhotostagramUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -176,6 +177,8 @@
 		CEF4D7A021EAF394003693CB /* Chat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Chat.m; sourceTree = "<group>"; };
 		CEF4D7A221EAF878003693CB /* Message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		CEF4D7A321EAF878003693CB /* Message.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		CEF4D7B721F029A7003693CB /* ChatService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatService.h; sourceTree = "<group>"; };
+		CEF4D7B821F029A7003693CB /* ChatService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatService.m; sourceTree = "<group>"; };
 		FF47876A985641C61B7745D3 /* Pods-Photostagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photostagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Photostagram/Pods-Photostagram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -366,6 +369,8 @@
 				CE15C94621D49CB2002DBE72 /* LikeService.m */,
 				CE15C94821DA8C11002DBE72 /* FollowService.h */,
 				CE15C94921DA8C11002DBE72 /* FollowService.m */,
+				CEF4D7B721F029A7003693CB /* ChatService.h */,
+				CEF4D7B821F029A7003693CB /* ChatService.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -733,6 +738,7 @@
 				CE15C92721D29DB3002DBE72 /* Post.m in Sources */,
 				CE70ECCB21CCAA7F00F3A5F6 /* AppDelegate.m in Sources */,
 				CE15C92421D299C6002DBE72 /* PostService.m in Sources */,
+				CEF4D7B921F029A7003693CB /* ChatService.m in Sources */,
 				CE15C91E21D0D112002DBE72 /* PhotoPickerHelper.m in Sources */,
 				CEF4D7A121EAF394003693CB /* Chat.m in Sources */,
 				CE70ED1021CCBB4300F3A5F6 /* LoginViewController.m in Sources */,

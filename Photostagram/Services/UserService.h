@@ -18,9 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)retrieveExistingUserWithUid:(NSString *)uid andCallBack:(void(^)(User *user))callBack;
 + (void)retrievePostsForUser:(User *)user withCallBack:(void(^)(NSArray *posts))callBack;
 + (void)fetchUsersExceptCurrentUser:(void(^)(NSArray *users))callBack;
-+ (void)fetchFollowersForUser:(User *)user andCallBack:(void(^)(NSArray *followersUid))callBack;
++ (void)fetchFollowersUidForUser:(User *)user andCallBack:(void(^)(NSArray *followersUid))callBack;
 + (void)fetchTimelineForCurrentUser:(NSInteger)pageSize withLastPostKey:(NSString *)lastPostKey AndCallBack:(void (^)(NSArray * _Nonnull))callBack;
 + (void)fetchProfileForUser:(User *)user andCallBack:(void(^)(User *user, NSArray *posts))callBack;
++ (void)fetchFollowingUsersForUser:(User *)user andCallBack:(void (^)(NSArray * _Nonnull))callBack;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -40,7 +40,7 @@
     FIRDatabaseReference *newPostRef = [[[rootRef child:databasePosts] child:currentUserUid] childByAutoId];
     NSString *newPostKey = newPostRef.key;
     
-    [UserService fetchFollowersForUser:currentUser andCallBack:^(NSArray * _Nonnull followersUid) {
+    [UserService fetchFollowersUidForUser:currentUser andCallBack:^(NSArray * _Nonnull followersUid) {
         // update new post to current user timeline
         NSDictionary *timelinePostDictionary = [NSDictionary dictionaryWithObjectsAndKeys:currentUserUid, @"poster_uid", nil];
         NSMutableDictionary *updateData = [NSMutableDictionary dictionaryWithObjectsAndKeys:

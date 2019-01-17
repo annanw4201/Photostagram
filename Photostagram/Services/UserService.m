@@ -105,8 +105,8 @@
     }];
 }
 
-// fetch all the followers for the specified user
-+ (void)fetchFollowersForUser:(User *)user andCallBack:(void (^)(NSArray * _Nonnull))callBack {
+// fetch all the followers' uids for the specified user
++ (void)fetchFollowersUidForUser:(User *)user andCallBack:(void (^)(NSArray * _Nonnull))callBack {
     NSString *uid = [user getUserUid];
     FIRDatabaseReference *followersRef = [[FIRDatabase.database.reference child:databaseFollowers] child:uid];
     [followersRef observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
@@ -121,6 +121,7 @@
     }];
 }
 
+// fetch all the available timelines of the current user
 + (void)fetchTimelineForCurrentUser:(NSInteger)pageSize withLastPostKey:(NSString *)lastPostKey AndCallBack:(void (^)(NSArray * _Nonnull))callBack {
     User *currentUser = [User getCurrentUser];
     FIRDatabaseReference *timelineRef = [[FIRDatabase.database.reference child:@"timeline"] child:[currentUser getUserUid]];
@@ -160,7 +161,7 @@
     }];
 }
 
-
+// fetch the profile data of the current user
 + (void)fetchProfileForUser:(User *)user andCallBack:(void (^)(User *, NSArray *))callBack {
     FIRDatabaseReference *userRef = [[FIRDatabase.database.reference child:databaseUsers] child:[user getUserUid]];
     [userRef observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
@@ -172,6 +173,36 @@
             [self retrievePostsForUser:user withCallBack:^(NSArray * _Nonnull posts) {
                 callBack(user, posts);
             }];
+        }
+    }];
+}
+
+// fetch all the following users for the specified user
++ (void)fetchFollowingUsersForUser:(User *)user andCallBack:(void (^)(NSArray * _Nonnull))callBack {
+    NSString *uid = [user getUserUid];
+    FIRDatabaseReference *followingRef = [[FIRDatabase.database.reference child:databaseFollowing] child:uid];
+    [followingRef observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSDictionary *snapshotDictionary = snapshot.value;
+        if ([snapshotDictionary isEqual:[NSNull null]]) {
+            callBack([NSArray array]);
+        }
+        else {
+            NSArray *followingUids = [snapshotDictionary allKeys];
+            NSMutableArray *followingUsers = [[NSMutableArray alloc] initWithCapacity:followingUids.count];
+            
+            // use dispatch group to fetch all the users in the block and then return the result to call back
+            dispatch_group_t dispatchGroup = dispatch_group_create();
+            for (NSString *followingUid in followingUids) {
+                dispatch_group_enter(dispatchGroup);
+                [UserService retrieveExistingUserWithUid:followingUid andCallBack:^(User * _Nonnull user) {
+                    [followingUsers addObject:user];
+                    dispatch_group_leave(dispatchGroup);
+                }];
+            }
+            
+            dispatch_group_notify(dispatchGroup, dispatch_get_main_queue(), ^{
+                callBack(followingUsers);
+            });
         }
     }];
 }
