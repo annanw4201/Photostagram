@@ -40,12 +40,12 @@ static NSString * const reuseIdentifier = @"PostThumbImageCell";
     //[self.collectionView registerClass:[PostThumbImageCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
-    if (!self.user) self.user = [User getCurrentUser];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    NSLog(@"%@: view will appear, add observers", self.class);
-    [super viewWillAppear:animated];
+    if (!self.user) {
+        self.user = [User getCurrentUser];
+        self.title = [self.user getUsername];
+    }
+    
+    NSLog(@"%@: view did load, add observers", self.class);
     // add observer at profile reference and every time an update to the profile the block will be called
     self.profileRef = [[FIRDatabase.database.reference child:databaseUsers] child:[self.user getUserUid]];
     self.profileHandle = [self.profileRef observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
@@ -68,9 +68,19 @@ static NSString * const reuseIdentifier = @"PostThumbImageCell";
     }];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    NSLog(@"%@: view will disappear, remove observers", self.class);
+//    if (self.authHandle) [FIRAuth.auth removeAuthStateDidChangeListener:self.authHandle];
+//    if (self.profileHandle) [self.profileRef removeObserverWithHandle:self.profileHandle];
+}
+
+- (void)dealloc {
+    NSLog(@"%@: view will dealloc, remove observers", self.class);
     if (self.authHandle) [FIRAuth.auth removeAuthStateDidChangeListener:self.authHandle];
     if (self.profileHandle) [self.profileRef removeObserverWithHandle:self.profileHandle];
 }
