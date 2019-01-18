@@ -48,4 +48,32 @@
     return self;
 }
 
+- (NSString *)getKey {
+    return self.key;
+}
+
+- (User *)getSender {
+    return self.sender;
+}
+
+- (NSString *)getContent {
+    return self.content;
+}
+
+- (NSDate *)getTimeStamp {
+    return self.timestamp;
+}
+
+- (void)setSender:(User *)sender {
+    if (_sender != sender) _sender = sender;
+}
+
+- (void)setContent:(NSString *)content {
+    if (_content != content) _content = content;
+}
+
+- (void)setTimestamp:(NSDate *)timestamp {
+    if (_timestamp != timestamp) _timestamp = timestamp;
+}
+
 @end

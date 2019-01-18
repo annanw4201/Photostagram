@@ -74,4 +74,44 @@
     return memberHash;
 }
 
+- (void)setTitle:(NSString *)title {
+    if (_title != title) _title = title;
+}
+
+- (void)setMemberHash:(NSString *)memberHash {
+    if (_memberHash != memberHash) _memberHash = memberHash;
+}
+
+- (void)setMemberUids:(NSArray *)memberUids {
+    if (_memberUids != memberUids) _memberUids = memberUids;
+}
+
+- (void)setLastMessage:(NSString *)lastMessage {
+    if (_lastMessage != lastMessage) _lastMessage = lastMessage;
+}
+
+- (void)setLastMessageSent:(NSDate *)lastMessageSent {
+    if (_lastMessageSent != lastMessageSent) _lastMessageSent = lastMessageSent;
+}
+
+- (NSString *)getTitle {
+    return self.title;
+}
+
+- (NSString *)getMemberHash {
+    return self.memberHash;
+}
+
+- (NSArray *)getMemberUids {
+    return self.memberUids;
+}
+
+- (NSString *)getLastMessage {
+    return self.lastMessage;
+}
+
+- (NSDate *)getLastMessageSent {
+    return self.lastMessageSent;
+}
+
 @end
