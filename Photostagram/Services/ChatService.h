@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 @class Message;
 @class Chat;
+@class User;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ChatService : NSObject
 + (void)createChatFromMessage:(Message *)message withChat:(Chat *)chat andCallBack:(void(^)(Chat *chat))callBack;
++ (void)retrieveExistingChatForUser:(User *)user andCallback:(void(^)(Chat *chat))callBack;
 @end
 
 NS_ASSUME_NONNULL_END

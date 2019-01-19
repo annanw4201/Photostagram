@@ -76,4 +76,10 @@
     if (_timestamp != timestamp) _timestamp = timestamp;
 }
 
+- (NSDictionary *)getDictionaryValue {
+    NSDictionary *userDictionary = [NSDictionary dictionaryWithObjects:@[[self.sender getUsername], [self.sender getUserUid]] forKeys:@[@"username", @"uid"]];
+    NSString *timestampString = [NSString stringWithFormat:@"%f", self.timestamp.timeIntervalSince1970];
+    return [NSDictionary dictionaryWithObjects:@[userDictionary, self.content, timestampString] forKeys:@[@"sender", @"content", @"timestamp"]];
+}
+
 @end

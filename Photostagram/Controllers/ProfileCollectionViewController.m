@@ -87,6 +87,8 @@ static NSString * const reuseIdentifier = @"PostThumbImageCell";
 
 - (IBAction)friendsButtonPressed:(UIBarButtonItem *)sender {
     NSLog(@"%@:segue to friends view controller", self.class);
+    UIViewController *friendsVC = [UIStoryboard initialViewControllerOfType:storyboardFriends];
+    [self.navigationController pushViewController:friendsVC animated:YES];
 }
 
 /*

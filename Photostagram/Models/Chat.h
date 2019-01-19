@@ -9,8 +9,13 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
+@class FIRDataSnapshot;
 
 @interface Chat : NSObject
+- (instancetype)initWithSnapshot:(FIRDataSnapshot *)snapshot;
+
+- (instancetype)initWithMembers:(NSArray *)members;
+
 - (void)setTitle:(NSString *)title;
 
 - (void)setMemberHash:(NSString *)memberHash;
@@ -30,6 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)getLastMessage;
 
 - (NSDate *)getLastMessageSent;
+
++ (NSString *)hashForMembers:(NSArray *)members;
 @end
 
 NS_ASSUME_NONNULL_END

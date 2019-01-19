@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setSender:(User *)sender;
 - (void)setContent:(NSString *)content;
 - (void)setTimestamp:(NSDate *)timestamp;
+- (NSDictionary *)getDictionaryValue;
 @end
 
 NS_ASSUME_NONNULL_END
