@@ -7,9 +7,16 @@
 //
 
 #import "ChatListTableViewController.h"
+#import "../Views/ChatListTableViewCell.h"
+#import "../Models/Chat.h"
+#import "FIRDatabase.h"
+#import "../Services/UserService.h"
+#import "../Models/User.h"
 
-@interface ChatListTableViewController ()<UIGestureRecognizerDelegate, UINavigationControllerDelegate>
-
+@interface ChatListTableViewController ()
+@property(nonatomic, strong)NSArray *chats;
+@property(nonatomic)FIRDatabaseHandle chatsHandle;
+@property(nonatomic, weak)FIRDatabaseReference *chatsRef;
 @end
 
 @implementation ChatListTableViewController
@@ -22,9 +29,20 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.navigationController.interactivePopGestureRecognizer.delegate = self;
     UIGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureHandle:)];
     [self.view addGestureRecognizer:panGesture];
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    [UserService ObserveChatsForUser:[User getCurrentUser] andCallBack:^(FIRDatabaseReference * _Nonnull ref, NSArray * _Nonnull chats) {
+        self.chatsRef = ref;
+        self.chats = chats;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+    }];
+}
+
+- (void)dealloc {
+    if (self.chatsHandle) [self.chatsRef removeObserverWithHandle:self.chatsHandle]; // stop observing chats in database
 }
 
 - (IBAction)dismissButtonPressed:(UIBarButtonItem *)sender {
@@ -32,54 +50,31 @@
 }
 
 - (void)panGestureHandle:(UIPanGestureRecognizer *)panGesture {
-    UIPercentDrivenInteractiveTransition *transition = [[UIPercentDrivenInteractiveTransition alloc] init];
-    float percent = MAX([panGesture translationInView:self.view].x, 0) / self.view.frame.size.width;
-    switch (panGesture.state) {
-        case UIGestureRecognizerStateBegan:
-            self.navigationController.delegate = self;
-            [self.navigationController popViewControllerAnimated:YES];
-            NSLog(@"state began");
-        case UIGestureRecognizerStateChanged:
-            [transition updateInteractiveTransition:percent];
-            NSLog(@"state change");
-        case UIGestureRecognizerStateEnded:
-        {
-            float velocity = [panGesture velocityInView:self.view].x;
-            if (percent > 0.5 || velocity > 1000) {
-                [transition cancelInteractiveTransition];
-            }
-            NSLog(@"state end");
-        }
-        case UIGestureRecognizerStateCancelled:
-        case UIGestureRecognizerStateFailed:
-            NSLog(@"state cancle, failed");
-            [transition cancelInteractiveTransition];
-        default:
-            break;
+    float percent = MAX([panGesture locationInView:self.view].x , 0) / self.view.frame.size.width;
+    if (percent > 0.7) {
+        [self dismissViewControllerAnimated:NO completion:nil];
     }
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return self.chats.count;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    ChatListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"chatListCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    
+    Chat *chat = self.chats[indexPath.row];
+    [cell setNamesLabelText:[chat getTitle]];
+    [cell setLastMessageLabelText:[chat getLastMessage]];
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.

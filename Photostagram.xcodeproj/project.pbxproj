@@ -41,6 +41,7 @@
 		CE70ED1C21CEA79500F3A5F6 /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED1B21CEA79500F3A5F6 /* UserService.m */; };
 		CE70ED2821CF6CB000F3A5F6 /* Storyboard+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED2721CF6CB000F3A5F6 /* Storyboard+Utility.m */; };
 		CE70ED2B21CF7D7700F3A5F6 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED2A21CF7D7700F3A5F6 /* HomeViewController.m */; };
+		CEA91A4521F43FB800E02342 /* ChatListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA91A4421F43FB800E02342 /* ChatListTableViewCell.m */; };
 		CEF4D77421E126C3003693CB /* paginationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4D77321E126C3003693CB /* paginationHelper.m */; };
 		CEF4D78121E2F3DD003693CB /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEF4D77721E2F3DD003693CB /* OpenSans-Regular.ttf */; };
 		CEF4D78221E2F3DD003693CB /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEF4D77821E2F3DD003693CB /* OpenSans-LightItalic.ttf */; };
@@ -152,6 +153,8 @@
 		CE70ED2721CF6CB000F3A5F6 /* Storyboard+Utility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Storyboard+Utility.m"; sourceTree = "<group>"; };
 		CE70ED2921CF7D7700F3A5F6 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		CE70ED2A21CF7D7700F3A5F6 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		CEA91A4321F43FB800E02342 /* ChatListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatListTableViewCell.h; sourceTree = "<group>"; };
+		CEA91A4421F43FB800E02342 /* ChatListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatListTableViewCell.m; sourceTree = "<group>"; };
 		CEF4D77221E126C3003693CB /* paginationHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = paginationHelper.h; sourceTree = "<group>"; };
 		CEF4D77321E126C3003693CB /* paginationHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = paginationHelper.m; sourceTree = "<group>"; };
 		CEF4D77721E2F3DD003693CB /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
@@ -421,6 +424,8 @@
 				CEF4D79621E5AFE7003693CB /* PostThumbImageCollectionViewCell.m */,
 				CEF4D79C21E5CEED003693CB /* ProfileHeaderCollectionReusableView.h */,
 				CEF4D79D21E5CEED003693CB /* ProfileHeaderCollectionReusableView.m */,
+				CEA91A4321F43FB800E02342 /* ChatListTableViewCell.h */,
+				CEA91A4421F43FB800E02342 /* ChatListTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -751,6 +756,7 @@
 				CEF4D7B921F029A7003693CB /* ChatService.m in Sources */,
 				CE15C91E21D0D112002DBE72 /* PhotoPickerHelper.m in Sources */,
 				CEF4D7A121EAF394003693CB /* Chat.m in Sources */,
+				CEA91A4521F43FB800E02342 /* ChatListTableViewCell.m in Sources */,
 				CE70ED1021CCBB4300F3A5F6 /* LoginViewController.m in Sources */,
 				CEF4D79721E5AFE7003693CB /* PostThumbImageCollectionViewCell.m in Sources */,
 				CE15C95221DAA903002DBE72 /* friendsTableViewCell.m in Sources */,
