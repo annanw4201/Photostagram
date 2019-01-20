@@ -151,7 +151,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ASI-2O-4s8"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Photostagram" id="CRw-1R-nPL"/>
+                    <navigationItem key="navigationItem" title="Photostagram" id="CRw-1R-nPL">
+                        <barButtonItem key="rightBarButtonItem" image="btn_message" id="UtL-GO-o9f">
+                            <connections>
+                                <segue destination="nYa-z4-cGr" kind="presentation" id="Qwi-ev-zzP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="homeTableView" destination="NIV-dw-SXO" id="kff-NY-Tax"/>
                     </connections>
@@ -159,6 +165,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vrr-lL-xZv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="464.80000000000001" y="-766.86656671664173"/>
+        </scene>
+        <!--ChatList-->
+        <scene sceneID="F5q-QS-4H6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ChatList" id="nYa-z4-cGr" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cCw-S3-SDt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1129" y="-767"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nZl-O9-Ick">
@@ -187,6 +201,7 @@
     <resources>
         <image name="btn_heart_black_outline" width="24" height="24"/>
         <image name="btn_heart_red_solid" width="24" height="24"/>
+        <image name="btn_message" width="32" height="32"/>
         <image name="btn_options_black" width="24" height="24"/>
         <image name="tab_home_black" width="25" height="25"/>
     </resources>
