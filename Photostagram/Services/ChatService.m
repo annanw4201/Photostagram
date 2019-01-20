@@ -39,7 +39,7 @@
         multiUpdate[path] = chatDictionary;
     }
     
-    NSString *messageKey = [[[[FIRDatabase.database.reference child:@"message"] child:chatKey] childByAutoId] key];
+    NSString *messageKey = [[[[FIRDatabase.database.reference child:@"messages"] child:chatKey] childByAutoId] key];
     NSString *messagePath = [NSString stringWithFormat:@"messages/%@/%@", chatKey, messageKey];
     multiUpdate[messagePath] = [message getDictionaryValue];
     
@@ -56,7 +56,7 @@
     }];
 }
 
-+ (void)retrieveExistingChatForUser:(User *)user andCallback:(void (^)(Chat *))callBack {
++ (void)retrieveExistingChatForUser:(User *)user andCallBack:(void (^)(Chat *))callBack {
     NSString *hashValue = [Chat hashForMembers:@[user, [User getCurrentUser]]];
     FIRDatabaseReference *chatRef = [[FIRDatabase.database.reference child:@"chats"] child:[[User getCurrentUser] getUserUid]];
     FIRDatabaseQuery *query = [[chatRef queryOrderedByChild:@"memberHash"] queryEqualToValue:hashValue];
@@ -70,6 +70,39 @@
             callBack(chat);
         }
     }];
+}
+
++ (void)sendMessage:(Message *)message withChat:(Chat *)chat andCallBack:(void (^)(BOOL))callBack {
+    NSString *chatKey = [chat getKey];
+    if (!chatKey) {
+        callBack(nil);
+    }
+    else {
+        NSMutableDictionary *multiUpdate = [NSMutableDictionary dictionary];
+        for (NSString *uid in [chat getMemberUids]) {
+            NSDictionary *lastMessage = [NSDictionary dictionaryWithObject:[message getContent] forKey:[[message getSender] getUsername]];
+            NSString *lastMessagePath = [NSString stringWithFormat:@"chats/%@/%@/lastMessage", uid, chatKey];
+            multiUpdate[lastMessagePath] = lastMessage;
+            NSString *lastMessageSent = [NSString stringWithFormat:@"%f", [message getTimeStamp].timeIntervalSince1970];
+            NSString *lastMessageSentPath = [NSString stringWithFormat:@"chats/%@/%@/lastMessageSent", uid, chatKey];
+            multiUpdate[lastMessageSentPath] = lastMessageSent;
+        }
+        
+        NSString *messageKey = [[[[FIRDatabase.database.reference child:@"message"] child:chatKey] childByAutoId] key];
+        NSString *messagePath = [NSString stringWithFormat:@"messages/%@/%@", chatKey, messageKey];
+        multiUpdate[messagePath] = [message getDictionaryValue];
+        
+        FIRDatabaseReference *rootRef = FIRDatabase.database.reference;
+        [rootRef updateChildValues:multiUpdate withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+            if (error) {
+                NSLog(@"%@: Error updating multiUpdate: %@", self.class, error.localizedDescription);
+                callBack(NO);
+            }
+            else {
+                callBack(YES);
+            }
+        }];
+    }
 }
 
 @end

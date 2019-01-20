@@ -94,6 +94,10 @@
     if (_lastMessageSent != lastMessageSent) _lastMessageSent = lastMessageSent;
 }
 
+- (NSString *)getKey {
+    return self.key;
+}
+
 - (NSString *)getTitle {
     return self.title;
 }

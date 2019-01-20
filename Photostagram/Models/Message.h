@@ -10,8 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 @class User;
+@class FIRDataSnapshot;
 
 @interface Message : NSObject
+- (instancetype)initWithSnapshot:(FIRDataSnapshot *)snapshot;
 - (User *)getSender;
 - (NSDate *)getTimeStamp;
 - (NSString *)getContent;

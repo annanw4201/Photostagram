@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)setLastMessageSent:(NSDate *)lastMessageSent;
 
+- (NSString *)getKey;
+
 - (NSString *)getTitle;
 
 - (NSString *)getMemberHash;

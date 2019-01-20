@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class User;
 @class FIRDatabaseReference;
+@class Message;
+typedef NSUInteger FIRDatabaseHandle;
 
 @interface UserService : NSObject
 + (void)createUserWithName:(NSString *)Username andCallBack:(void(^)(User *user))callBack;
@@ -22,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)fetchTimelineForCurrentUser:(NSInteger)pageSize withLastPostKey:(NSString *)lastPostKey AndCallBack:(void (^)(NSArray * _Nonnull))callBack;
 + (void)fetchProfileForUser:(User *)user andCallBack:(void(^)(User *user, NSArray *posts))callBack;
 + (void)fetchFollowingUsersForUser:(User *)user andCallBack:(void (^)(NSArray * _Nonnull))callBack;
++ (FIRDatabaseHandle)ObserveChatsForUser:(User *)user andCallBack:(void(^)(FIRDatabaseReference *ref, NSArray *chats))callBack;
++ (FIRDatabaseHandle)ObserveMessagesForChatKey:(NSString *)chatKey andCallBack:(void(^)(FIRDatabaseReference *ref, Message *message))callBack;
 @end
 
 NS_ASSUME_NONNULL_END

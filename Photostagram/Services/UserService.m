@@ -15,6 +15,8 @@
 #import "LikeService.h"
 #import "../Services/FollowService.h"
 #import "../Services/PostService.h"
+#import "../Models/Chat.h"
+#import "../Models/Message.h"
 
 @implementation UserService
 
@@ -161,7 +163,7 @@
     }];
 }
 
-// fetch the profile data of the current user
+// fetch the profile data of the current user (or other user's profile data by some modifications)
 + (void)fetchProfileForUser:(User *)user andCallBack:(void (^)(User *, NSArray *))callBack {
     FIRDatabaseReference *userRef = [[FIRDatabase.database.reference child:databaseUsers] child:[user getUserUid]];
     [userRef observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
@@ -205,6 +207,41 @@
             });
         }
     }];
+}
+
+// observe the Chats of current user, and will keep updating the newest data
++ (FIRDatabaseHandle)ObserveChatsForUser:(User *)user andCallBack:(void(^)(FIRDatabaseReference *ref, NSArray *chats))callBack {
+    FIRDatabaseReference *chatsRef = [[FIRDatabase.database.reference child:@"chats"] child:[user getUserUid]];
+    FIRDatabaseHandle handle = [chatsRef observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSArray *snapshotArray = snapshot.children.allObjects;
+        if (!snapshotArray) {
+            return callBack(chatsRef, [NSArray array]);
+        }
+        else {
+            NSMutableArray *chats = [NSMutableArray arrayWithCapacity:snapshotArray.count];
+            for (FIRDataSnapshot *s in snapshotArray) {
+                Chat *chat = [[Chat alloc] initWithSnapshot:s];
+                [chats addObject:chat];
+            }
+            callBack(chatsRef, chats);
+        }
+    }];
+    return handle;
+}
+
+// observe the message of the current user whenever a new message is added
++ (FIRDatabaseHandle)ObserveMessagesForChatKey:(NSString *)chatKey andCallBack:(void(^)(FIRDatabaseReference *ref, Message *message))callBack {
+    FIRDatabaseReference *messageRef = [[FIRDatabase.database.reference child:@"messages"] child:chatKey];
+    FIRDatabaseHandle handle = [messageRef observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        Message *message = [[Message alloc] initWithSnapshot:snapshot];
+        if (!message) {
+            return callBack(messageRef, nil);
+        }
+        else {
+            callBack(messageRef, message);
+        }
+    }];
+    return handle;
 }
 
 @end

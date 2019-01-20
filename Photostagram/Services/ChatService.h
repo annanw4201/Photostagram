@@ -15,7 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ChatService : NSObject
 + (void)createChatFromMessage:(Message *)message withChat:(Chat *)chat andCallBack:(void(^)(Chat *chat))callBack;
-+ (void)retrieveExistingChatForUser:(User *)user andCallback:(void(^)(Chat *chat))callBack;
++ (void)retrieveExistingChatForUser:(User *)user andCallBack:(void(^)(Chat *chat))callBack;
++ (void)sendMessage:(Message *)message withChat:(Chat *)chat andCallBack:(void(^)(BOOL success))callBack;
 @end
 
 NS_ASSUME_NONNULL_END
