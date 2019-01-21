@@ -73,12 +73,63 @@
                                 <action selector="dismissButtonPressed:" destination="U3k-sO-wCK" id="0Fm-bF-MFo"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="yhQ-U4-NR0"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="yhQ-U4-NR0">
+                            <connections>
+                                <segue destination="hXh-XS-oFu" kind="show" id="Bxv-nw-PH8"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ifF-fW-pVA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2071.1999999999998" y="-9.4452773613193415"/>
+        </scene>
+        <!--New Message-->
+        <scene sceneID="iIb-k1-egi">
+            <objects>
+                <tableViewController id="hXh-XS-oFu" customClass="NewChatTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RSy-gw-Gb4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newChatUserCell" textLabel="bAd-y4-Cem" style="IBUITableViewCellStyleDefault" id="9Sk-Js-t9W" customClass="NewChatUserTableViewCell">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Sk-Js-t9W" id="dQT-23-wQO">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bAd-y4-Cem">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hXh-XS-oFu" id="e9b-Rq-MoC"/>
+                            <outlet property="delegate" destination="hXh-XS-oFu" id="aSI-BO-SBi"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="New Message" id="6Tn-pv-XCP">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="4sc-fP-ixr">
+                            <connections>
+                                <action selector="nextButtonPressed:" destination="hXh-XS-oFu" id="0cT-4o-rbh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nextBarButtonItem" destination="4sc-fP-ixr" id="ntp-aj-EWj"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hne-mm-fRJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2831" y="-9"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="O8Q-hv-gpz">

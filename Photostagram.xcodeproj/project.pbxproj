@@ -42,6 +42,8 @@
 		CE70ED2821CF6CB000F3A5F6 /* Storyboard+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED2721CF6CB000F3A5F6 /* Storyboard+Utility.m */; };
 		CE70ED2B21CF7D7700F3A5F6 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70ED2A21CF7D7700F3A5F6 /* HomeViewController.m */; };
 		CEA91A4521F43FB800E02342 /* ChatListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA91A4421F43FB800E02342 /* ChatListTableViewCell.m */; };
+		CEA91A4821F553F500E02342 /* NewChatUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA91A4721F553F500E02342 /* NewChatUserTableViewCell.m */; };
+		CEA91A4E21F554F200E02342 /* NewChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA91A4D21F554F200E02342 /* NewChatTableViewController.m */; };
 		CEF4D77421E126C3003693CB /* paginationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4D77321E126C3003693CB /* paginationHelper.m */; };
 		CEF4D78121E2F3DD003693CB /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEF4D77721E2F3DD003693CB /* OpenSans-Regular.ttf */; };
 		CEF4D78221E2F3DD003693CB /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEF4D77821E2F3DD003693CB /* OpenSans-LightItalic.ttf */; };
@@ -155,6 +157,10 @@
 		CE70ED2A21CF7D7700F3A5F6 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		CEA91A4321F43FB800E02342 /* ChatListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatListTableViewCell.h; sourceTree = "<group>"; };
 		CEA91A4421F43FB800E02342 /* ChatListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatListTableViewCell.m; sourceTree = "<group>"; };
+		CEA91A4621F553F500E02342 /* NewChatUserTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewChatUserTableViewCell.h; sourceTree = "<group>"; };
+		CEA91A4721F553F500E02342 /* NewChatUserTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewChatUserTableViewCell.m; sourceTree = "<group>"; };
+		CEA91A4C21F554F200E02342 /* NewChatTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewChatTableViewController.h; sourceTree = "<group>"; };
+		CEA91A4D21F554F200E02342 /* NewChatTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewChatTableViewController.m; sourceTree = "<group>"; };
 		CEF4D77221E126C3003693CB /* paginationHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = paginationHelper.h; sourceTree = "<group>"; };
 		CEF4D77321E126C3003693CB /* paginationHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = paginationHelper.m; sourceTree = "<group>"; };
 		CEF4D77721E2F3DD003693CB /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
@@ -319,6 +325,8 @@
 				CEF4D79321E5AB5F003693CB /* ProfileCollectionViewController.m */,
 				CEF4D7BF21F42B3A003693CB /* ChatListTableViewController.h */,
 				CEF4D7C021F42B3A003693CB /* ChatListTableViewController.m */,
+				CEA91A4C21F554F200E02342 /* NewChatTableViewController.h */,
+				CEA91A4D21F554F200E02342 /* NewChatTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -426,6 +434,8 @@
 				CEF4D79D21E5CEED003693CB /* ProfileHeaderCollectionReusableView.m */,
 				CEA91A4321F43FB800E02342 /* ChatListTableViewCell.h */,
 				CEA91A4421F43FB800E02342 /* ChatListTableViewCell.m */,
+				CEA91A4621F553F500E02342 /* NewChatUserTableViewCell.h */,
+				CEA91A4721F553F500E02342 /* NewChatUserTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -749,11 +759,13 @@
 				CEF4D7C121F42B3A003693CB /* ChatListTableViewController.m in Sources */,
 				CE15C94A21DA8C11002DBE72 /* FollowService.m in Sources */,
 				CEF4D79121E2FDB1003693CB /* UIFont+Utility.m in Sources */,
+				CEA91A4821F553F500E02342 /* NewChatUserTableViewCell.m in Sources */,
 				CE70ECDC21CCAA8000F3A5F6 /* main.m in Sources */,
 				CE15C92721D29DB3002DBE72 /* Post.m in Sources */,
 				CE70ECCB21CCAA7F00F3A5F6 /* AppDelegate.m in Sources */,
 				CE15C92421D299C6002DBE72 /* PostService.m in Sources */,
 				CEF4D7B921F029A7003693CB /* ChatService.m in Sources */,
+				CEA91A4E21F554F200E02342 /* NewChatTableViewController.m in Sources */,
 				CE15C91E21D0D112002DBE72 /* PhotoPickerHelper.m in Sources */,
 				CEF4D7A121EAF394003693CB /* Chat.m in Sources */,
 				CEA91A4521F43FB800E02342 /* ChatListTableViewCell.m in Sources */,

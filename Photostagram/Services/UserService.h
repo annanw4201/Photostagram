@@ -23,7 +23,7 @@ typedef NSUInteger FIRDatabaseHandle;
 + (void)fetchFollowersUidForUser:(User *)user andCallBack:(void(^)(NSArray *followersUid))callBack;
 + (void)fetchTimelineForCurrentUser:(NSInteger)pageSize withLastPostKey:(NSString *)lastPostKey AndCallBack:(void (^)(NSArray * _Nonnull))callBack;
 + (void)fetchProfileForUser:(User *)user andCallBack:(void(^)(User *user, NSArray *posts))callBack;
-+ (void)fetchFollowingUsersForUser:(User *)user andCallBack:(void (^)(NSArray * _Nonnull))callBack;
++ (void)fetchFollowingUsersForUser:(User *)user andCallBack:(void (^)(NSArray *users))callBack;
 + (FIRDatabaseHandle)ObserveChatsForUser:(User *)user andCallBack:(void(^)(FIRDatabaseReference *ref, NSArray *chats))callBack;
 + (FIRDatabaseHandle)ObserveMessagesForChatKey:(NSString *)chatKey andCallBack:(void(^)(FIRDatabaseReference *ref, Message *message))callBack;
 @end
