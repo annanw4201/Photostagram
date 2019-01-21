@@ -45,7 +45,7 @@
     if (!self.selectedUser) return;
     else {
         [sender setEnabled:NO];
-        [ChatService retrieveExistingChatForUser:[User getCurrentUser] andCallBack:^(Chat *chat) {
+        [ChatService retrieveExistingChatForUser:self.selectedUser andCallBack:^(Chat *chat) {
             if (!chat) {
                 NSArray *members = @[[User getCurrentUser], self.selectedUser];
                 self.chat = [[Chat alloc] initWithMembers:members];

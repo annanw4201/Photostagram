@@ -17,7 +17,7 @@
 @property(nonatomic, strong)Chat *chat;
 @property(nonatomic, strong)NSMutableArray *messages;
 @property(nonatomic)JSQMessagesBubbleImage *outgoingBubbleImageView;
-@property(nonatomic)JSQMessagesBubbleImage *incommingBubbleImageView;
+@property(nonatomic)JSQMessagesBubbleImage *incomingBubbleImageView;
 @property(nonatomic) FIRDatabaseHandle messageHandle;
 @property(nonatomic) FIRDatabaseReference *messageRef;
 @end
@@ -51,7 +51,7 @@
     
     JSQMessagesBubbleImageFactory *bubbleImageFactory = [[JSQMessagesBubbleImageFactory alloc] init];
     self.outgoingBubbleImageView = [bubbleImageFactory outgoingMessagesBubbleImageWithColor:[UIColor jsq_messageBubbleBlueColor]];
-    self.incommingBubbleImageView =[bubbleImageFactory incomingMessagesBubbleImageWithColor:[UIColor jsq_messageBubbleLightGrayColor]];
+    self.incomingBubbleImageView =[bubbleImageFactory incomingMessagesBubbleImageWithColor:[UIColor jsq_messageBubbleLightGrayColor]];
 }
 
 - (void)setChat:(Chat *)chat {
@@ -121,11 +121,13 @@
 - (id<JSQMessageBubbleImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView messageBubbleImageDataForItemAtIndexPath:(NSIndexPath *)indexPath {
     Message *message = self.messages[indexPath.item];
     User *sender = [message getSender];
-    if ([sender getUserUid] == self.senderId) {
+    if ([[sender getUserUid] isEqualToString:self.senderId]) {
+        NSLog(@"%@: outgoing msg", self.class);
         return self.outgoingBubbleImageView;
     }
     else {
-        return self.incommingBubbleImageView;
+        NSLog(@"%@: incoming msg", self.class);
+        return self.incomingBubbleImageView;
     }
 }
 
