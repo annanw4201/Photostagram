@@ -82,12 +82,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NewChatUserTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+    self.selectedUser = self.followingUsers[indexPath.row];
     [self.nextBarButtonItem setEnabled:YES];
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     NewChatUserTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [cell setAccessoryType:UITableViewCellAccessoryNone];
+    self.selectedUser = nil;
     [self.nextBarButtonItem setEnabled:NO];
 }
 

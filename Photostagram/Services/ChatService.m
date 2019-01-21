@@ -28,12 +28,13 @@
     
     // create chat dictionary for updating data in database
     NSString *lastMessageSent = [NSString stringWithFormat:@"%f", [message getTimeStamp].timeIntervalSince1970];
-    NSDictionary *chatDictionary = [NSDictionary dictionaryWithObjects:@[[chat getTitle], [chat getMemberHash], membersDictionary, [chat getLastMessage], lastMessageSent] forKeys:@[@"title", @"memberHash", @"members", @"lastMessage", @"lastMessageSent"]];
+    NSDictionary *chatDictionary = [NSDictionary dictionaryWithObjects:@[[chat getTitle], [chat getMemberHash], membersDictionary, [chat getLastMessage], lastMessageSent] forKeys:@[@"title", @"memberHash", @"memberUids", @"lastMessage", @"lastMessageSent"]];
     
     // insert data into multiUpdate dictionary
     NSMutableDictionary *multiUpdate = [NSMutableDictionary dictionary];
     
     NSString *chatKey = [[[[FIRDatabase.database.reference child:@"chats"] child:[[User getCurrentUser] getUserUid]] childByAutoId] key];
+    [chat setKey:chatKey];
     for (NSString *uid in membersUids) {
         NSString *path = [NSString stringWithFormat:@"chats/%@/%@", uid, chatKey];
         multiUpdate[path] = chatDictionary;
@@ -75,12 +76,13 @@
 + (void)sendMessage:(Message *)message withChat:(Chat *)chat andCallBack:(void (^)(BOOL))callBack {
     NSString *chatKey = [chat getKey];
     if (!chatKey) {
+        NSLog(@"%@: send message no chat key", self.class);
         callBack(nil);
     }
     else {
         NSMutableDictionary *multiUpdate = [NSMutableDictionary dictionary];
         for (NSString *uid in [chat getMemberUids]) {
-            NSDictionary *lastMessage = [NSDictionary dictionaryWithObject:[message getContent] forKey:[[message getSender] getUsername]];
+            NSString *lastMessage = [NSString stringWithFormat:@"%@:%@", [[message getSender] getUsername], [message getContent]];
             NSString *lastMessagePath = [NSString stringWithFormat:@"chats/%@/%@/lastMessage", uid, chatKey];
             multiUpdate[lastMessagePath] = lastMessage;
             NSString *lastMessageSent = [NSString stringWithFormat:@"%f", [message getTimeStamp].timeIntervalSince1970];
@@ -103,6 +105,21 @@
             }
         }];
     }
+}
+
+// observe the message of the current user whenever a new message is added
++ (FIRDatabaseHandle)ObserveMessagesForChatKey:(NSString *)chatKey andCallBack:(void(^)(FIRDatabaseReference *ref, Message *message))callBack {
+    FIRDatabaseReference *messageRef = [[FIRDatabase.database.reference child:@"messages"] child:chatKey];
+    FIRDatabaseHandle handle = [messageRef observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        Message *message = [[Message alloc] initWithSnapshot:snapshot];
+        if (!message) {
+            return callBack(messageRef, nil);
+        }
+        else {
+            callBack(messageRef, message);
+        }
+    }];
+    return handle;
 }
 
 @end

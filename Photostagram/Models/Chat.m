@@ -48,7 +48,7 @@
         return nil;
     }
     if (self) {
-        self.title = [NSString stringWithFormat:@"%@, %@", members[0], members[1]];
+        self.title = [NSString stringWithFormat:@"%@, %@", [members[0] getUsername], [members[1] getUsername]];
         self.memberHash = [Chat hashForMembers:members];
         NSMutableArray *membersUids = [[NSMutableArray alloc] initWithCapacity:members.count];
         for (User *user in members) {
@@ -72,6 +72,10 @@
     //  and thus prevent duplicate chats with the same user
     NSString *memberHash = [NSString stringWithFormat:@"%lu", [user1 getUserUid].hash ^ [user2 getUserUid].hash];
     return memberHash;
+}
+
+- (void)setKey:(NSString *)key {
+    if (_key != key) _key = key;
 }
 
 - (void)setTitle:(NSString *)title {

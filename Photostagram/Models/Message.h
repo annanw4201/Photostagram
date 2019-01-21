@@ -11,9 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 @class User;
 @class FIRDataSnapshot;
+@class JSQMessage;
 
 @interface Message : NSObject
 - (instancetype)initWithSnapshot:(FIRDataSnapshot *)snapshot;
+- (instancetype)initWithContent:(NSString *)content;
 - (User *)getSender;
 - (NSDate *)getTimeStamp;
 - (NSString *)getContent;
@@ -22,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setContent:(NSString *)content;
 - (void)setTimestamp:(NSDate *)timestamp;
 - (NSDictionary *)getDictionaryValue;
+- (JSQMessage *)getAsJSQMessage;
 @end
 
 NS_ASSUME_NONNULL_END

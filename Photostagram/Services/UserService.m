@@ -129,13 +129,13 @@
     FIRDatabaseReference *timelineRef = [[FIRDatabase.database.reference child:@"timeline"] child:[currentUser getUserUid]];
     FIRDatabaseQuery *query = [[timelineRef queryOrderedByKey] queryLimitedToLast:pageSize];
     if (lastPostKey) {
-        NSLog(@"%@:fetch timeline last post key: %@", self.class, lastPostKey);
+        //NSLog(@"%@:fetch timeline last post key: %@", self.class, lastPostKey);
         query = [query queryEndingAtValue:lastPostKey];
     }
     
     [query observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         NSArray *snapshotArray = [snapshot.children allObjects];
-        NSLog(@"%@: snapshot array: %@", self.class, snapshotArray);
+        //NSLog(@"%@: snapshot array: %@", self.class, snapshotArray);
         NSMutableArray *posts = [[NSMutableArray alloc] initWithCapacity:snapshotArray.count];
         
         dispatch_group_t dispatchGroup = dispatch_group_create();
@@ -215,30 +215,16 @@
     FIRDatabaseHandle handle = [chatsRef observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         NSArray *snapshotArray = snapshot.children.allObjects;
         if (!snapshotArray) {
-            return callBack(chatsRef, [NSArray array]);
+            callBack(chatsRef, [NSArray array]);
         }
         else {
-            NSMutableArray *chats = [NSMutableArray arrayWithCapacity:snapshotArray.count];
+            NSMutableArray *chats = [NSMutableArray array];
             for (FIRDataSnapshot *s in snapshotArray) {
                 Chat *chat = [[Chat alloc] initWithSnapshot:s];
-                [chats addObject:chat];
+                NSLog(@"%@: observe chat: %@", self.class, chat);
+                if (chat) [chats addObject:chat];
             }
             callBack(chatsRef, chats);
-        }
-    }];
-    return handle;
-}
-
-// observe the message of the current user whenever a new message is added
-+ (FIRDatabaseHandle)ObserveMessagesForChatKey:(NSString *)chatKey andCallBack:(void(^)(FIRDatabaseReference *ref, Message *message))callBack {
-    FIRDatabaseReference *messageRef = [[FIRDatabase.database.reference child:@"messages"] child:chatKey];
-    FIRDatabaseHandle handle = [messageRef observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-        Message *message = [[Message alloc] initWithSnapshot:snapshot];
-        if (!message) {
-            return callBack(messageRef, nil);
-        }
-        else {
-            callBack(messageRef, message);
         }
     }];
     return handle;

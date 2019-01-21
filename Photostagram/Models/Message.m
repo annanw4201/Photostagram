@@ -9,6 +9,7 @@
 #import "Message.h"
 #import "../Models/User.h"
 #import "FIRDataSnapshot.h"
+#import "JSQMessage.h"
 
 @interface Message()
 @property(nonatomic)NSString *key;
@@ -80,6 +81,10 @@
     NSDictionary *userDictionary = [NSDictionary dictionaryWithObjects:@[[self.sender getUsername], [self.sender getUserUid]] forKeys:@[@"username", @"uid"]];
     NSString *timestampString = [NSString stringWithFormat:@"%f", self.timestamp.timeIntervalSince1970];
     return [NSDictionary dictionaryWithObjects:@[userDictionary, self.content, timestampString] forKeys:@[@"sender", @"content", @"timestamp"]];
+}
+
+- (JSQMessage *)getAsJSQMessage {
+    return [[JSQMessage alloc] initWithSenderId:[self.sender getUserUid] senderDisplayName:[self.sender getUsername] date:self.timestamp text:self.content];
 }
 
 @end

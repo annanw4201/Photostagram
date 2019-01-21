@@ -34,15 +34,21 @@
     self.tableView.tableFooterView = [[UIView alloc] init];
     [UserService ObserveChatsForUser:[User getCurrentUser] andCallBack:^(FIRDatabaseReference * _Nonnull ref, NSArray * _Nonnull chats) {
         self.chatsRef = ref;
-        self.chats = chats;
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadData];
+            self.chats = chats;
         });
     }];
 }
 
 - (void)dealloc {
     if (self.chatsHandle) [self.chatsRef removeObserverWithHandle:self.chatsHandle]; // stop observing chats in database
+}
+
+- (void)setChats:(NSArray *)chats {
+    if (_chats != chats) {
+        _chats = chats;
+        [self.tableView reloadData];
+    }
 }
 
 - (IBAction)dismissButtonPressed:(UIBarButtonItem *)sender {

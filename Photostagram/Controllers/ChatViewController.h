@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@import JSQMessagesViewController;
 
 NS_ASSUME_NONNULL_BEGIN
 @class Chat;
 
-@interface ChatViewController : UIViewController
+@interface ChatViewController : JSQMessagesViewController
 - (void)setChat:(Chat *)chat;
 @end
 

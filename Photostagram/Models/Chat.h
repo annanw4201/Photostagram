@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithMembers:(NSArray *)members;
 
+- (void)setKey:(NSString *)key;
+
 - (void)setTitle:(NSString *)title;
 
 - (void)setMemberHash:(NSString *)memberHash;
