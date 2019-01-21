@@ -44,6 +44,7 @@
 		CEA91A4521F43FB800E02342 /* ChatListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA91A4421F43FB800E02342 /* ChatListTableViewCell.m */; };
 		CEA91A4821F553F500E02342 /* NewChatUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA91A4721F553F500E02342 /* NewChatUserTableViewCell.m */; };
 		CEA91A4E21F554F200E02342 /* NewChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA91A4D21F554F200E02342 /* NewChatTableViewController.m */; };
+		CEA91A5121F55A6F00E02342 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA91A5021F55A6F00E02342 /* ChatViewController.m */; };
 		CEF4D77421E126C3003693CB /* paginationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4D77321E126C3003693CB /* paginationHelper.m */; };
 		CEF4D78121E2F3DD003693CB /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEF4D77721E2F3DD003693CB /* OpenSans-Regular.ttf */; };
 		CEF4D78221E2F3DD003693CB /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEF4D77821E2F3DD003693CB /* OpenSans-LightItalic.ttf */; };
@@ -64,7 +65,7 @@
 		CEF4D7A121EAF394003693CB /* Chat.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4D7A021EAF394003693CB /* Chat.m */; };
 		CEF4D7A421EAF878003693CB /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4D7A321EAF878003693CB /* Message.m */; };
 		CEF4D7B921F029A7003693CB /* ChatService.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4D7B821F029A7003693CB /* ChatService.m */; };
-		CEF4D7BB21F42A77003693CB /* ChatList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF4D7BA21F42A77003693CB /* ChatList.storyboard */; };
+		CEF4D7BB21F42A77003693CB /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF4D7BA21F42A77003693CB /* Chat.storyboard */; };
 		CEF4D7C121F42B3A003693CB /* ChatListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF4D7C021F42B3A003693CB /* ChatListTableViewController.m */; };
 		EABADEBBD88DA404E92D6681 /* Pods_PhotostagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B901A2CCD8C9C71D7299B788 /* Pods_PhotostagramUITests.framework */; };
 /* End PBXBuildFile section */
@@ -161,6 +162,8 @@
 		CEA91A4721F553F500E02342 /* NewChatUserTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewChatUserTableViewCell.m; sourceTree = "<group>"; };
 		CEA91A4C21F554F200E02342 /* NewChatTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewChatTableViewController.h; sourceTree = "<group>"; };
 		CEA91A4D21F554F200E02342 /* NewChatTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewChatTableViewController.m; sourceTree = "<group>"; };
+		CEA91A4F21F55A6F00E02342 /* ChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		CEA91A5021F55A6F00E02342 /* ChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		CEF4D77221E126C3003693CB /* paginationHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = paginationHelper.h; sourceTree = "<group>"; };
 		CEF4D77321E126C3003693CB /* paginationHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = paginationHelper.m; sourceTree = "<group>"; };
 		CEF4D77721E2F3DD003693CB /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
@@ -190,7 +193,7 @@
 		CEF4D7A321EAF878003693CB /* Message.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		CEF4D7B721F029A7003693CB /* ChatService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatService.h; sourceTree = "<group>"; };
 		CEF4D7B821F029A7003693CB /* ChatService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatService.m; sourceTree = "<group>"; };
-		CEF4D7BA21F42A77003693CB /* ChatList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatList.storyboard; sourceTree = "<group>"; };
+		CEF4D7BA21F42A77003693CB /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		CEF4D7BF21F42B3A003693CB /* ChatListTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatListTableViewController.h; sourceTree = "<group>"; };
 		CEF4D7C021F42B3A003693CB /* ChatListTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatListTableViewController.m; sourceTree = "<group>"; };
 		FF47876A985641C61B7745D3 /* Pods-Photostagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photostagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Photostagram/Pods-Photostagram.release.xcconfig"; sourceTree = "<group>"; };
@@ -327,6 +330,8 @@
 				CEF4D7C021F42B3A003693CB /* ChatListTableViewController.m */,
 				CEA91A4C21F554F200E02342 /* NewChatTableViewController.h */,
 				CEA91A4D21F554F200E02342 /* NewChatTableViewController.m */,
+				CEA91A4F21F55A6F00E02342 /* ChatViewController.h */,
+				CEA91A5021F55A6F00E02342 /* ChatViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -402,7 +407,7 @@
 				CEF4D79A21E5B797003693CB /* Profile.storyboard */,
 				CE15C94B21DAA793002DBE72 /* Friends.storyboard */,
 				CE15C93921D2F0E1002DBE72 /* Home.storyboard */,
-				CEF4D7BA21F42A77003693CB /* ChatList.storyboard */,
+				CEF4D7BA21F42A77003693CB /* Chat.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -579,7 +584,7 @@
 				CEF4D78821E2F3DD003693CB /* OpenSans-Light.ttf in Resources */,
 				CEF4D78421E2F3DD003693CB /* OpenSans-Bold.ttf in Resources */,
 				CE15C93A21D2F0E1002DBE72 /* Home.storyboard in Resources */,
-				CEF4D7BB21F42A77003693CB /* ChatList.storyboard in Resources */,
+				CEF4D7BB21F42A77003693CB /* Chat.storyboard in Resources */,
 				CEF4D79B21E5B797003693CB /* Profile.storyboard in Resources */,
 				CE15C94C21DAA793002DBE72 /* Friends.storyboard in Resources */,
 				CE15C93721D2F011002DBE72 /* Login.storyboard in Resources */,
@@ -645,6 +650,8 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Photostagram/Pods-Photostagram-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -655,6 +662,8 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -757,6 +766,7 @@
 				CEF4D78E21E2F7B5003693CB /* UIColor+Utility.m in Sources */,
 				CE70ED2B21CF7D7700F3A5F6 /* HomeViewController.m in Sources */,
 				CEF4D7C121F42B3A003693CB /* ChatListTableViewController.m in Sources */,
+				CEA91A5121F55A6F00E02342 /* ChatViewController.m in Sources */,
 				CE15C94A21DA8C11002DBE72 /* FollowService.m in Sources */,
 				CEF4D79121E2FDB1003693CB /* UIFont+Utility.m in Sources */,
 				CEA91A4821F553F500E02342 /* NewChatUserTableViewCell.m in Sources */,

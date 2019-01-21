@@ -166,10 +166,10 @@
             </objects>
             <point key="canvasLocation" x="464.80000000000001" y="-766.86656671664173"/>
         </scene>
-        <!--ChatList-->
+        <!--Chat-->
         <scene sceneID="F5q-QS-4H6">
             <objects>
-                <viewControllerPlaceholder storyboardName="ChatList" id="nYa-z4-cGr" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Chat" id="nYa-z4-cGr" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cCw-S3-SDt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1129" y="-767"/>

@@ -10,11 +10,15 @@
 #import "../Views/NewChatUserTableViewCell.h"
 #import "../Models/User.h"
 #import "../Services/UserService.h"
+#import "ChatViewController.h"
+#import "../Services/ChatService.h"
+#import "../Models/Chat.h"
 
 @interface NewChatTableViewController ()
 @property(nonatomic, strong)NSArray *followingUsers;
 @property(nonatomic, weak)User *selectedUser;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *nextBarButtonItem;
+@property(weak, nonatomic) IBOutlet UIBarButtonItem *nextBarButtonItem;
+@property(nonatomic, strong)Chat *chat;
 @end
 
 @implementation NewChatTableViewController
@@ -38,6 +42,18 @@
 }
 
 - (IBAction)nextButtonPressed:(UIBarButtonItem *)sender {
+    if (!self.selectedUser) return;
+    else {
+        [sender setEnabled:NO];
+        [ChatService retrieveExistingChatForUser:[User getCurrentUser] andCallBack:^(Chat *chat) {
+            if (!chat) {
+                NSArray *members = @[[User getCurrentUser], self.selectedUser];
+                self.chat = [[Chat alloc] initWithMembers:members];
+            }
+            else self.chat = chat;
+            [self performSegueWithIdentifier:@"toChatSegue" sender:self];
+        }];
+    }
 }
 
 #pragma mark - Table view data source
@@ -109,14 +125,16 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"toChatSegue"]) {
+        ChatViewController *chatVC = segue.destinationViewController;
+        [chatVC setChat:self.chat];
+    }
 }
-*/
 
 @end
