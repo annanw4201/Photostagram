@@ -23,7 +23,7 @@
 - (instancetype)initWithSnapshot:(FIRDataSnapshot *)snapshot {
     self = [super init];
     NSDictionary *snapshotDictionary = snapshot.value;
-    NSString *key = snapshotDictionary[@"key"];
+    NSString *key = snapshot.key;
     NSString *content = snapshotDictionary[@"content"];
     NSDate *timestamp = [NSDate dateWithTimeIntervalSince1970:[snapshotDictionary[@"timestamp"] doubleValue]];
     NSDictionary *senderDictionary = snapshotDictionary[@"sender"];

@@ -16,8 +16,8 @@
 @interface ChatViewController ()
 @property(nonatomic, strong)Chat *chat;
 @property(nonatomic, strong)NSMutableArray *messages;
-@property(nonatomic, weak)JSQMessagesBubbleImage *outgoingBubbleImageView;
-@property(nonatomic, weak)JSQMessagesBubbleImage *incommingBubbleImageView;
+@property(nonatomic)JSQMessagesBubbleImage *outgoingBubbleImageView;
+@property(nonatomic)JSQMessagesBubbleImage *incommingBubbleImageView;
 @property(nonatomic) FIRDatabaseHandle messageHandle;
 @property(nonatomic) FIRDatabaseReference *messageRef;
 @end
@@ -29,6 +29,7 @@
     // Do any additional setup after loading the view.
     [self JSQMessageVCSetup];
     [self observeMessages];
+    _messages = [NSMutableArray array];
 }
 
 - (void)dealloc {
@@ -69,6 +70,7 @@
         self.messageHandle = [ChatService ObserveMessagesForChatKey:chatKey andCallBack:^(FIRDatabaseReference * _Nonnull ref, Message * _Nonnull message) {
             self.messageRef = ref;
             if (message) {
+                NSLog(@"%@: observe message and add :%@", self.class, [message getContent]);
                 [self.messages addObject:message];
                 [self finishReceivingMessage];
             }
@@ -129,9 +131,8 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     Message *message = self.messages[indexPath.item];
-    JSQMessagesCollectionViewCell *cell = (JSQMessagesCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    JSQMessagesCollectionViewCell *cell = [super collectionView:collectionView cellForItemAtIndexPath:indexPath];
     cell.textView.textColor = ([[message getSender] getUserUid] == self.senderId) ? UIColor.whiteColor : UIColor.blackColor;
-    //NSLog(@"%@: cell: %@", self.class, cell);
     return cell;
 }
 
