@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T5s-x6-ntU">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Friends-->
+        <scene sceneID="Jww-oW-9yx">
+            <objects>
+                <tableViewController id="T5s-x6-ntU" customClass="FriendsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zEg-Qh-ARd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendsCell" rowHeight="72" id="AQq-Pv-Zj5" customClass="friendsTableViewCell">
+                                <rect key="frame" x="0.0" y="28" width="375" height="72"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AQq-Pv-Zj5" id="9lA-lQ-AUa">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="71.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0JA-Ht-bwS">
+                                            <rect key="frame" x="10" y="25.5" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XgV-oL-uGb">
+                                            <rect key="frame" x="297" y="23" width="68" height="26"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="68" id="k85-nV-grg"/>
+                                                <constraint firstAttribute="height" constant="26" id="ucK-YB-cN1"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" title="Follow"/>
+                                            <state key="selected" title="Following"/>
+                                            <connections>
+                                                <action selector="followButtonPressed:" destination="AQq-Pv-Zj5" eventType="touchUpInside" id="O6M-Ej-reE"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="XgV-oL-uGb" firstAttribute="centerY" secondItem="0JA-Ht-bwS" secondAttribute="centerY" id="81J-i6-juk"/>
+                                        <constraint firstAttribute="trailing" secondItem="XgV-oL-uGb" secondAttribute="trailing" constant="10" id="i1z-hU-Xlf"/>
+                                        <constraint firstItem="XgV-oL-uGb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0JA-Ht-bwS" secondAttribute="trailing" constant="10" id="l2g-nz-oYx"/>
+                                        <constraint firstItem="0JA-Ht-bwS" firstAttribute="leading" secondItem="9lA-lQ-AUa" secondAttribute="leading" constant="10" id="oir-f5-U56"/>
+                                        <constraint firstItem="0JA-Ht-bwS" firstAttribute="centerY" secondItem="9lA-lQ-AUa" secondAttribute="centerY" id="u0L-Z4-gEt"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="followFriendButton" destination="XgV-oL-uGb" id="tmB-O0-dtd"/>
+                                    <outlet property="friendNameLabel" destination="0JA-Ht-bwS" id="Rrm-MV-A8f"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="T5s-x6-ntU" id="ts1-vE-Gbt"/>
+                            <outlet property="delegate" destination="T5s-x6-ntU" id="Xeu-Om-PQY"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Friends" id="yGd-UF-rf9"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LCQ-WC-to3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-583" y="346"/>
+        </scene>
+    </scenes>
+</document>
